@@ -24,7 +24,7 @@ DashBlox uses the apis to fetch data and show it to you on the site. `GET`
 DashBlox uses the apis to give data to roblox and shows it to you on the site. `POST`
 * `How can I trust DashBlox?`
 DashBlox is one of the many chrome extensions that do this.
-DashBlox doesn't use any of the apis to hatrm a user or collect information of a user for conflict.
+DashBlox doesn't use any of the apis to harm a user or collect information of a user for conflict.
 
 # Chrome Data
 [DashBlox](https://chrome.google.com/webstore/detail/ogffnhpicoghhpcbememhijlbdejchjb) uses a `Chrome Storage` feature that allows it to set data to a specific key.
