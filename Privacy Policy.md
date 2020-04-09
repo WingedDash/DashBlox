@@ -3,14 +3,14 @@ The is the privacy policy for the chrome extension [DashBlox](https://chrome.goo
 # Roblox Site Access
 [DashBlox](https://chrome.google.com/webstore/detail/ogffnhpicoghhpcbememhijlbdejchjb) has access to Roblox as if it were just a user. 
 [DashBlox](https://chrome.google.com/webstore/detail/ogffnhpicoghhpcbememhijlbdejchjb) Will only use the following:
-* Items
-* Catalog
-* Games
-* Groups
+* Your Username & UserId
+* Items Page(s)
+* Catalog Page(s)
+* Games Page(s)
+* Groups Page(s)
 * Friends
 * Assets
 * Robux
-* Username & UserId
 * Themes
 * Anything else that exists on the roblox site
 
