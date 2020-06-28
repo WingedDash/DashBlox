@@ -1,0 +1,66 @@
+{
+  "name": "DashBlox",
+  "author": "WingedDash",
+  "version": "1.13.7",
+  "version_name": "Beta 1.13.7",
+
+  "description": "This extension adds or modifies missing features to Roblox.",
+
+  "manifest_version": 2,
+
+  "background": {
+    "scripts": ["js/packages/jquery-3.4.1.min.js", "background/background.js"],
+    "persistent": false
+  },
+
+  "icons": {
+    "128": "images/icons/DashBloxIcon128.png",
+    "150": "images/icons/dashblox.png"
+  },
+
+  "browser_action": {
+		"default_icon": {
+			"19": "images/icons/dashblox.png"
+		},
+		"default_title": "DashBlox"
+	},
+
+  "content_scripts": [
+    {
+      "js": [
+        "js/packages/jquery-3.4.1.min.js",
+
+        "js/dashblox/dashblox.js",
+        "js/dashblox/requestapi.js",
+
+        "js/roblox/roblox.js",
+        "js/roblox/catalog.js",
+        "js/roblox/pagelist.js",
+        "js/roblox/storage.js",
+
+        "js/pages/item.js",
+        "js/pages/gamepass.js",
+        "js/pages/games.js",
+        "js/pages/themes.js",
+        "js/pages/settings.js"
+      ],
+      "matches": ["*://*.roblox.com/*"],
+      "run_at": "document_end"
+    },
+
+    {
+      "js": [
+        "js/packages/jquery-3.4.1.min.js",
+
+        "js/pages/apidocumentation.js"
+      ],
+      "matches": ["*://api.roblox.com/docs?useConsolidatedPage=true"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "permissions": [
+    "storage",
+    "*://*.roblox.com/*"
+  ]
+}
