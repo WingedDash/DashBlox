@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DashBlox</title>
+    <link rel="stylesheet" href="https://css.rbxcdn.com/5c64a63aaffe7dc3a9bab865989c26fc1a2d25046a5d1dc2b47a02ce3e2f6108.css"></link>
+    <link rel="stylesheet" href="https://css.rbxcdn.com/872e08cfb833578ce262269ca0c40e46d6888d5abb201cf238fe00f9abfba826.css"></link>
+    <link rel="stylesheet" href="https://css.rbxcdn.com/49c237ffce3f7e242a26d9e334d30d5f539e4737b6c59576ee2f28ab4697d61a.css"></link>
+    <link rel="stylesheet" href="settings.css"></link>
+    <script src="../js/packages/jquery-3.4.1.min.js"></script>
+    <script src="../settings/content.js"></script>
+  </head>
+  <body class="dark-theme gotham-font">
+    <div class="content">
+      <div id="dashblox-settings">
+        <h1 class="dashblox-title"1>DashBlox Settings</h1>
+        <div class="rbx-tabs-vertical">
+          <ul id="vertical-tabs" class="nav nav-tabs nav-stacked rbx-tabs-vertical" role="tablist">
+
+            <li id="information" class="rbx-tab active">
+              <a class="rbx-tab-heading">
+                <span class="text-lead">Information</span>
+                <span class="rbx-tab-subtitle"></span>
+              </a>
+            </li>
+
+            <li id="item-details" class="rbx-tab">
+              <a class="rbx-tab-heading">
+                <span class="text-lead">Item Details</span>
+                <span class="rbx-tab-subtitle"></span>
+              </a>
+            </li>
+
+            <li id="experimental" class="rbx-tab">
+              <a class="rbx-tab-heading">
+                <span class="text-lead">Experimental</span>
+                <span class="rbx-tab-subtitle"></span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="dashblox-tab dashblox-information">
+          <h3>Update Logs</h3>
+          <div class="section-content form-has-feedback">
+            <pre class="text-description">
+1) Added settings offically!
+2) Experimental features are avalible.
+3) Speed improvments.</pre>
+          </div>
+          <h3>Privacy Policy</h3>
+          <div class="section-content form-has-feedback">
+            <p>You can view our <b class="text-link"><a target="_blank" href="https://github.com/WingedDash/DashBlox/blob/master/Privacy%20Policy.md">Privacy Policy</a></b> if you are worried about your safty.</p>
+          </div>
+        </div>
+
+        <div class="dashblox-tab dashblox-item-details" hidden>
+          <h3>Item Stats</h3>
+          <div class="section-content form-has-feedback">
+            <h5>Item Details</h5>
+            <p>See the stats of any asset.</p>
+            <span id="btn-toggle" class="btn-toggle dashblox-item-details">
+              <span class="toggle-flip"></span>
+              <span id="toggle-on" class="toggle-on"></span>
+              <span id="toggle-off" class="toggle-off"></span>
+            </span>
+            <div class="rbx-divider"></div>
+            <h5>Owners List</h5>
+            <p>View the owners of a asset.</p>
+            <span id="btn-toggle" class="btn-toggle dashblox-owners-list">
+              <span class="toggle-flip"></span>
+              <span id="toggle-on" class="toggle-on"></span>
+              <span id="toggle-off" class="toggle-off"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="dashblox-tab dashblox-experimental" hidden>
+          <h3>Experimental Features</h3>
+          <div class="section-content form-has-feedback">
+            <h5>Classic Robux and Catalog</h5>
+            <p>Change the robux symbol back to it's original and change "Avatar Shop" back to "Catalog".</p>
+            <span id="btn-toggle" class="btn-toggle dashblox-crc">
+              <span class="toggle-flip"></span>
+              <span id="toggle-on" class="toggle-on"></span>
+              <span id="toggle-off" class="toggle-off"></span>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

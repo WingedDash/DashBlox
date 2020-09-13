@@ -9,7 +9,11 @@
   "manifest_version": 2,
 
   "background": {
-    "scripts": ["js/packages/jquery-3.4.1.min.js", "background/background.js"],
+    "scripts": [
+      "js/packages/jquery-3.4.1.min.js",
+      "background/background.js",
+      "background/browseraction.js"
+    ],
     "persistent": false
   },
 
@@ -42,10 +46,10 @@
         "js/pages/gamepass.js",
         "js/pages/games.js",
         "js/pages/themes.js",
-        "js/pages/settings.js"
+        "js/pages/content.js"
       ],
       "matches": ["*://*.roblox.com/*"],
-      "run_at": "document_end"
+      "run_at": "document_start"
     },
 
     {
@@ -55,12 +59,13 @@
         "js/pages/apidocumentation.js"
       ],
       "matches": ["*://api.roblox.com/docs?useConsolidatedPage=true"],
-      "run_at": "document_end"
+      "run_at": "document_start"
     }
   ],
 
   "permissions": [
     "storage",
+    "tabs",
     "*://*.roblox.com/*"
   ]
 }

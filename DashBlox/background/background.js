@@ -8,6 +8,10 @@ var RunTimeTypes = {
 }
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendMessage){
-  RunTimeTypes[message.runtime](message.api, message.args, sendMessage);
+  if (!message.runtime){
+    chrome.tabs.update({ url: chrome.runtime.getURL("settings/settings.html") });
+  } else {
+    RunTimeTypes[message.runtime](message.api, message.args, sendMessage);
+  }
   return true;
 })

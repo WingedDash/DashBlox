@@ -1,3 +1,3 @@
-if ($("body").length == 1) {
+$("body").ready(() => {
   $("body").addClass("rbx-body dark-theme gotham-font");
-}
+})
