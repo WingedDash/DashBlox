@@ -18,13 +18,15 @@ Roblox.pages.CheckPage(location.href, pageContent).then(async (confirmation) => 
   console.log(gamepass)
 
   // Item Stats \\
-  var itemdetails = $(`.clearfix.toggle-target.item-field-container`);
+  $(`.clearfix.toggle-target.item-field-container`).ready(() => {
+    var itemdetails = $(`.clearfix.toggle-target.item-field-container`);
 
-  if (gamepass.Creator.Id != 1){
-    $(".clearfix.item-field-container:contains('Updated')").remove();
-  }
+    if (gamepass.Creator.Id != 1){
+      $(".clearfix.item-field-container:contains('Updated')").remove();
+    }
 
-  itemdetails.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Created</div><span class="field-content ">${Roblox.pages.formatTime(gamepass.Created)}</span></div>`);
-  itemdetails.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Updated</div><span class="field-content ">${Roblox.pages.formatTime(gamepass.Updated)}</span></div>`)
-  itemdetails.before(`<div id="sales" class="clearfix item-field-container item-sales"><div class="text-label field-label">Sales</div><span class="field-content ">${gamepass.Sales.toLocaleString()}</span></div>`);
+    itemdetails.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Created</div><span class="field-content ">${Roblox.pages.formatTime(gamepass.Created)}</span></div>`);
+    itemdetails.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Updated</div><span class="field-content ">${Roblox.pages.formatTime(gamepass.Updated)}</span></div>`)
+    itemdetails.before(`<div id="sales" class="clearfix item-field-container item-sales"><div class="text-label field-label">Sales</div><span class="field-content ">${gamepass.Sales.toLocaleString()}</span></div>`);
+  })
 })
