@@ -2,7 +2,8 @@ $("#settings-icon").ready(() => {
   $("#settings-icon").click(() =>{
     $("#settings-popover-menu").ready(() => {
       if (!$("#dashblox-settings-toggle").length){
-        $("#settings-popover-menu").prepend(`<li id="dashblox-settings-toggle"><a class="rbx-menu-item">DashBlox</a></li>`).click(() => {
+        $("#settings-popover-menu").prepend(`<li id="dashblox-settings-toggle"><a class="rbx-menu-item">DashBlox</a></li>`);
+        $("#dashblox-settings-toggle").click(() => {
           chrome.runtime.sendMessage({});
         })
       }
