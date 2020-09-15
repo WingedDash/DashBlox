@@ -1,7 +1,7 @@
 {
   "name": "DashBlox",
   "author": "WingedDash",
-  "version": "1.13.7",
+  "version": "1.13.73",
   "version_name": "Beta 1.13.7",
 
   "description": "This extension adds or modifies missing features to Roblox.",
@@ -65,7 +65,6 @@
 
   "permissions": [
     "storage",
-    "tabs",
     "*://*.roblox.com/*"
   ]
 }
