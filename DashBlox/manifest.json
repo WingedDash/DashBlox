@@ -1,70 +1,72 @@
 {
-  "name": "DashBlox",
-  "author": "WingedDash",
-  "version": "1.13.73",
-  "version_name": "Beta 1.13.7",
+    "manifest_version": 2,
 
-  "description": "This extension adds or modifies missing features to Roblox.",
+    "name": "DashBlox - A Better Roblox Experience",
+    "short_name": "DashBlox_dev",
+    
+    "description": "Creates new features that otherwise are missing, removed, or don't exist.",
 
-  "manifest_version": 2,
+    "author": "WingedDash",
+    "version": "2.0",
 
-  "background": {
-    "scripts": [
-      "js/packages/jquery-3.4.1.min.js",
-      "background/background.js",
-      "background/browseraction.js"
-    ],
-    "persistent": false
-  },
+    "minimum_chrome_version": "80",
 
-  "icons": {
-    "128": "images/icons/DashBloxIcon128.png",
-    "150": "images/icons/dashblox.png"
-  },
-
-  "browser_action": {
-		"default_icon": {
-			"19": "images/icons/dashblox.png"
-		},
-		"default_title": "DashBlox"
-	},
-
-  "content_scripts": [
-    {
-      "js": [
-        "js/packages/jquery-3.4.1.min.js",
-
-        "js/dashblox/dashblox.js",
-        "js/dashblox/requestapi.js",
-
-        "js/roblox/roblox.js",
-        "js/roblox/catalog.js",
-        "js/roblox/pagelist.js",
-        "js/roblox/storage.js",
-
-        "js/pages/item.js",
-        "js/pages/gamepass.js",
-        "js/pages/games.js",
-        "js/pages/themes.js",
-        "js/pages/content.js"
-      ],
-      "matches": ["*://*.roblox.com/*"],
-      "run_at": "document_start"
+    "browser_action": {
+        "default_title": "DashBlox"
     },
 
-    {
-      "js": [
-        "js/packages/jquery-3.4.1.min.js",
+    "icons": {
+        "256": "icons/logo/logo256.png",
+        "128": "icons/logo/logo128.png"
+    },
 
-        "js/pages/apidocumentation.js"
-      ],
-      "matches": ["*://api.roblox.com/docs?useConsolidatedPage=true"],
-      "run_at": "document_start"
-    }
-  ],
+    "background": {
+        "persistent": false,
+        "scripts": [
+            "js/lib/jquery/jquery3.6.0.js",
 
-  "permissions": [
-    "storage",
-    "*://*.roblox.com/*"
-  ]
+            "js/background/background.js",
+            "js/background/browseraction.js"
+        ]
+    },
+
+    "web_accessible_resources": [
+        "icons/*",
+        "css/*"
+    ],
+
+    "permissions": [
+        "*://*.roblox.com/*",
+        "storage"
+    ],
+
+    "content_scripts": [
+        {
+            "js": [
+                "js/lib/jquery/jquery3.6.0.js",
+                "js/lib/dashblox/dashblox.js",
+
+                "js/pages.js",
+
+                "js/pages/assets.js",
+                "js/pages/gamelist.js",
+                "js/pages/games.js",
+                "js/pages/profile.js",
+                "js/pages/settings.js",
+                "js/pages/universal.js",
+
+                "js/util.js"
+            ],
+
+            "css": [
+                "css/universal.css",
+                
+                "css/exclusive.css"
+            ],
+
+            "run_at": "document_start",
+            "all_frames": true,
+            "matches": ["*://www.roblox.com/*", "*://web.roblox.com/*"]
+        }
+    ]
 }

@@ -1,0 +1,10 @@
+.dashblox 
+    .icon-badge-creator {
+        background-image: url(chrome-extension://__MSG_@@extension_id__/css/legacy/badges.svg);
+        background-repeat: no-repeat;
+        background-size: 280px auto;
+
+        display: inline-block;
+        vertical-align: middle;
+        background-position: -140px -980px;
+    }
