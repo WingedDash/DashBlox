@@ -51,6 +51,7 @@
                 "js/pages/assets.js",
                 "js/pages/gamelist.js",
                 "js/pages/games.js",
+                "js/pages/groups.js",
                 "js/pages/profile.js",
                 "js/pages/settings.js",
                 "js/pages/universal.js",
