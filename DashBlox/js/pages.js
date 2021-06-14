@@ -16,6 +16,11 @@ const pageInfo = {
         paths: ["games"]
     },
 
+    groups: {
+        uniqueIds: true,
+        paths: ["groups"]
+    },
+
     profile: {
         uniqueIds: true,
         paths: ["users"]

@@ -20,14 +20,14 @@ pages.universal = (id) => {
 
     if (developerMode) {
         /*
-        $.watch(".content", () => {
-            $("#Leaderboard-Abp").remove();
-            $("#ProfilePageAdDiv1").remove();
-            $("#ProfilePageAdDiv2").remove();
-            $("#AdvertisingLeaderboard").remove();
-            $(".Ads_WideSkyscraper").remove();
-            $("#Skyscraper-Abp-Right").remove();
-        }) 
+            $.watch(".content", () => {
+                $("#Leaderboard-Abp").remove();
+                $("#ProfilePageAdDiv1").remove();
+                $("#ProfilePageAdDiv2").remove();
+                $("#AdvertisingLeaderboard").remove();
+                $(".Ads_WideSkyscraper").remove();
+                $("#Skyscraper-Abp-Right").remove();
+            }) 
         */
     }
 }
