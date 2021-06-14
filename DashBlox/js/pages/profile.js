@@ -13,6 +13,10 @@ pages.profile = async (userId) => {
         }
     })
 
+    $.watch(".profile-game.ng-scope.section", () => {
+        $(".profile-game.ng-scope.section > .container-header > h3:Contains('Experiences')")[0].innerText = "Games";
+    })
+
     if (userId == 531629183) {
         $.watch(".text-lead:contains('2/26/2018')", () => {
             $(".text-lead:contains('2/26/2018')")[0].innerText = "8/8/2014";
