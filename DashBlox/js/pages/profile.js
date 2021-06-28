@@ -25,7 +25,7 @@ pages.profile = async (userId) => {
         $.watch(".border.asset-thumb-container.icon-badge-homestead", () => {
             $(".list-item.asset-item:Contains('Homestead')").before(`
             <li class="list-item asset-item">
-                <a class="" title="The creator of DashBlox!">
+                <a href="https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb" title="The creator of DashBlox!">
                     <span class="border asset-thumb-container icon-badge-creator" title="Creator"></span>
                     <span class="font-header-2 text-overflow item-name">Creator</span>
                 </a>

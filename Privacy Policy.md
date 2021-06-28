@@ -1,37 +1,35 @@
 # Privacy Policy
-The is the privacy policy for the chrome extension [DashBlox](https://chrome.google.com/webstore/detail/ogffnhpicoghhpcbememhijlbdejchjb).
+This is the privacy policy for the extension DashBlox.
+
+# DashBlox
+
+[DashBlox](https://chrome.google.com/webstore/detail/ogffnhpicoghhpcbememhijlbdejchjb) is a extension that creates new features that otherwise are missing, removed, or don't exist for [Roblox](https://www.roblox.com/).
+
 # Roblox Site Access
-[DashBlox](https://chrome.google.com/webstore/detail/ogffnhpicoghhpcbememhijlbdejchjb) has access to Roblox as if it were just a user.
-[DashBlox](https://chrome.google.com/webstore/detail/ogffnhpicoghhpcbememhijlbdejchjb) Will only use the following:
-* Your Username & UserId
-* Items Page(s)
-* Catalog Page(s)
-* Games Page(s)
-* Groups Page(s)
-* Friends
-* Assets
-* Robux
-* Themes
-* Anything else that exists on the roblox site
 
-If you are wondering why [DashBlox](https://chrome.google.com/webstore/detail/ogffnhpicoghhpcbememhijlbdejchjb) needs all of this, well in some ways it does and dosn't mostly what it is doing is being able to edit things found on the site and accessing apis.
-* `What are apis?`
-Apis are what let [DashBlox](https://chrome.google.com/webstore/detail/ogffnhpicoghhpcbememhijlbdejchjb) get the data it needs to show you the features it offers.
-* `How does DashBlox use the apis?`
-DashBlox uses the apis to fetch data and show it to you on the site. `GET`
-DashBlox uses the apis to give data to roblox and shows it to you on the site. `POST`
-* `How can I trust DashBlox?`
-DashBlox's source code is publicly viewable helping vulnerable code and bugs to be easily patched instantly.
+DashBlox has full access to the roblox api which allows it to modify the website so you can see all the features DashBlox has to offer.
 
-# Chrome Data
-[DashBlox](https://chrome.google.com/webstore/detail/ogffnhpicoghhpcbememhijlbdejchjb) uses a `Chrome Storage` feature that allows it to set data to a specific key.
-What is this used for? It is more specifically used for settings to store what settings you use.
+Here is a list of some examples of what DashBlox will be able to access:
+* Basic information about the user. (UserId, DisplayName, Username)
+* The Ids of the pages visited. (AssetId, GameId, GamePassId, GroupId)
+* Change the way the website looks and behaves.
+* Read and change data on roblox.
+
+DashBlox will __not__ collect any of the data it uses on the Roblox site, it's only going to be used for the features the user wants on a specific page.
+
+# Open Source
+
+DashBlox is completely [open sourced](https://github.com/WingedDash/DashBlox) to allow users to look though the code and help identify bugs, issues, and more.
+
+# Chrome Storage
+
+DashBlox uses __chrome storage__ to store data locally through cookies, which is effectively where all of DashBlox's settings are stored.
 
 # Permissions
-[DashBlox](https://chrome.google.com/webstore/detail/ogffnhpicoghhpcbememhijlbdejchjb) Uses the folling permissions:
-* `storage`
-	* To store data specificly for settings
+
+DashBlox Uses the folling permissions:
+
 * `*://*.roblox.com/*`
-	* To access the site of roblox and apis.
-* `*://api.roblox.com/docs?useConsolidatedPage=true`
-	* This is a documentation site that the developer of DashBlox uses to find apis.
+	* Used to access Roblox's site and apis.
+* `storage`
+	* Usage is explained [here](#chrome-storage).
