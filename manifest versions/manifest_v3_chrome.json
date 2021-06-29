@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
 
     "name": "DashBlox - A Better Roblox Experience",
     "short_name": "DashBlox_dev",
@@ -11,8 +11,9 @@
 
     "minimum_chrome_version": "80",
 
-    "browser_action": {
-        "default_title": "DashBlox"
+    "action": {
+        "default_title": "DashBlox",
+        "browser_action": "js/background/browseraction.js"
     },
 
     "icons": {
@@ -21,23 +22,22 @@
     },
 
     "background": {
-        "persistent": false,
-        "scripts": [
-            "js/lib/jquery/jquery3.6.0.js",
-
-            "js/background/background.js",
-            "js/background/browseraction.js"
-        ]
+        "service_worker": "background.js"
     },
 
     "web_accessible_resources": [
-        "icons/*",
-        "css/*"
+        {
+            "resources": ["icons/*", "css/*"],
+            "matches": ["*://*.roblox.com/*"]
+        }
     ],
 
     "permissions": [
-        "*://*.roblox.com/*",
         "storage"
+    ],
+
+    "host_permissions": [
+        "*://*.roblox.com/*"
     ],
 
     "content_scripts": [
