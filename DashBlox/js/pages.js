@@ -6,9 +6,9 @@ const pageInfo = {
         paths: ["catalog", "bundles", "library", "game-pass", "badges"]
     },
 
-    gamelist: {
+    discover: {
         uniqueIds: false,
-        paths: ["games", "games#"]
+        paths: ["discover", "discover#"]
     },
 
     games: {
