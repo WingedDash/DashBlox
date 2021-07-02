@@ -60,9 +60,7 @@
             ],
 
             "css": [
-                "css/universal.css",
-                
-                "css/exclusive.css"
+                "css/universal.css"
             ],
 
             "run_at": "document_start",
