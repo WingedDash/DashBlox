@@ -5,8 +5,8 @@ pages.games = (gameId) => {
         $(".text-label.text-overflow.font-caption-header:contains('Active')")[0].innerText = "Playing";
     })
 
-    $.watch(".text-label.text-overflow.font-caption-header:contains('Max Visitors')", () => {
-        $(".text-label.text-overflow.font-caption-header:contains('Max Visitors')")[0].innerText = "Max Players";
+    $.watch(".text-label.text-overflow.font-caption-header:contains('Server Size')", () => {
+        $(".text-label.text-overflow.font-caption-header:contains('Server Size')")[0].innerText = "Max Players";
     })
 
     $.watch("#rbx-game-passes", () => {
