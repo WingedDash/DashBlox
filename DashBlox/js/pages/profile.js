@@ -3,12 +3,31 @@
 pages.profile = async (userId) => {
     let authUser = await util.getAuthUser();
         
-    $.watch("#userStatusText", () => {
-        $("#container-main > div.content > div.profile-container.ng-scope > div > div.section.profile-header > div > div.profile-header-top > div.header-caption > div.ng-scope > div").removeClass("ng-hide");
+    $.watch(".header-caption", async () => {
+        try {
+            let userStatus = await dashblox.get(`https://users.roblox.com/v1/users/${userId}/status`);
 
-        if (authUser.userId === userId) {
-            if ($("#popover-content > ul > li:nth-child(5)").length > 0) {
-                $("#popover-content > ul > li:nth-child(5)").removeClass("ng-hide");
+            if (userStatus.status) {
+                $(".header-caption > .header-names").after(`<div user-status="" class="ng-scope"><div class="header-userstatus">
+                        <div class="text header-userstatus-text">
+                            <span id="userStatusText" class="text-overflow ng-binding">"${userStatus.status}"</span>
+                        </div>
+                    </div>
+                </div>`)
+            }
+    
+            if (authUser.userId === userId) {
+                let updateStatus = $("#popover-content > ul > li:nth-child(5)");
+
+                if (updateStatus.length > 0) {
+                    updateStatus.removeClass("ng-hide");
+                    
+                    $("#popover-content > ul > li:nth-child(5) > a").attr("href", "https://www.roblox.com/feeds/");
+                }
+            }
+        } catch (err) {
+            if (developerMode) {
+                console.log(err);
             }
         }
     })
@@ -23,8 +42,7 @@ pages.profile = async (userId) => {
         })
 
         $.watch(".border.asset-thumb-container.icon-badge-homestead", () => {
-            $(".list-item.asset-item:Contains('Homestead')").before(`
-            <li class="list-item asset-item">
+            $(".list-item.asset-item:Contains('Homestead')").before(`<li class="list-item asset-item">
                 <a href="https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb" title="The creator of DashBlox!">
                     <span class="border asset-thumb-container icon-badge-creator" title="Creator"></span>
                     <span class="font-header-2 text-overflow item-name">Creator</span>
