@@ -5,15 +5,10 @@ pages.profile = async (userId) => {
         
     $.watch(".header-caption", async () => {
         try {
-            let userStatus = await dashblox.get(`https://users.roblox.com/v1/users/${userId}/status`);
+            let userStatus = await $.get(`https://users.roblox.com/v1/users/${userId}/status`);
 
             if (userStatus.status) {
-                $(".header-caption > .header-names").after(`<div user-status="" class="ng-scope"><div class="header-userstatus">
-                        <div class="text header-userstatus-text">
-                            <span id="userStatusText" class="text-overflow ng-binding">"${userStatus.status}"</span>
-                        </div>
-                    </div>
-                </div>`)
+                $(".header-caption > .header-names").after(`<div class="header-user-status"> <span class="text">"${userStatus.status}"</span> </div>`)
             }
     
             if (authUser.userId === userId) {
