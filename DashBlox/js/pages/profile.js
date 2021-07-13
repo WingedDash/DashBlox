@@ -31,18 +31,25 @@ pages.profile = async (userId) => {
         $(".profile-game.ng-scope.section > .container-header > h3:Contains('Experiences')")[0].innerText = "Games";
     })
 
-    if (userId == 531629183) {
-        $.watch(".text-lead:contains('2/26/2018')", () => {
-            $(".text-lead:contains('2/26/2018')")[0].innerText = "8/8/2014";
-        })
+    switch (userId) {
+        case 1: {
+            $.watch(".container-header", () => {
+                $(".container-header > .collection-btns").append(`<a href="https://www.roblox.com/catalog?Category=1&amp;CreatorID=1&amp;SortType=3&amp;IncludeNotForSale" class="btn-min-width btn-secondary-xs btn-more inventory-link see-all-link-icon ng-binding">Recent Items</a>`);
+            })
 
-        $.watch(".border.asset-thumb-container.icon-badge-homestead", () => {
-            $(".list-item.asset-item:Contains('Homestead')").before(`<li class="list-item asset-item">
-                <a href="https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb" title="The creator of DashBlox!">
-                    <span class="border asset-thumb-container icon-badge-creator" title="Creator"></span>
-                    <span class="font-header-2 text-overflow item-name">Creator</span>
-                </a>
-            </li>`)
-        })
+            break;
+        }
+
+        case 531629183: {
+            $.watch(".text-lead:contains('2/26/2018')", () => {
+                $(".text-lead:contains('2/26/2018')")[0].innerText = "8/8/2014";
+            })
+    
+            $.watch(".border.asset-thumb-container.icon-badge-homestead", () => {
+                $(".list-item.asset-item:Contains('Homestead')").before(`<li class="list-item asset-item"> <a href="https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb" title="The creator of DashBlox!"> <span class="border asset-thumb-container icon-badge-creator" title="Creator"></span> <span class="font-header-2 text-overflow item-name">Creator</span> </a> </li>`)
+            })
+
+            break;
+        }
     }
 }
