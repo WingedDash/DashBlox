@@ -28,7 +28,7 @@ const pageInfo = {
 
     settings: {
         uniqueIds: false,
-        paths: ["dashblox?tab=settings"]
+        paths: ["dashblox"]
     }
 }
 
@@ -37,8 +37,7 @@ const pages = {};
 const currentUrl = location.href;
 
 const urlDetails = {
-    paths: currentUrl.split("/"),
-    args: []
+    paths: currentUrl.split("/")
 }
 
 const currentPageInfo = {
