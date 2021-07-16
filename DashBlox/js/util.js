@@ -56,4 +56,4 @@ $.watch = function(selector, timeout, callback) {
 };
 
 injectPages();
-pages.universal(currentPageInfo.uniqueId);
+injectPage("universal");

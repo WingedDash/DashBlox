@@ -6,9 +6,14 @@ const pageInfo = {
         paths: ["catalog", "bundles", "library", "game-pass", "badges"]
     },
 
+    catalog: {
+        uniqueIds: false,
+        paths: ["catalog"]
+    },
+
     discover: {
         uniqueIds: false,
-        paths: ["discover", "discover#"]
+        paths: ["discover"]
     },
 
     games: {
@@ -19,6 +24,11 @@ const pageInfo = {
     groups: {
         uniqueIds: true,
         paths: ["groups"]
+    },
+
+    home: {
+        uniqueIds: false,
+        paths: ["home"]
     },
 
     profile: {
@@ -36,13 +46,16 @@ const pages = {};
 
 const currentUrl = location.href;
 
+const currentUrlPaths = currentUrl.split("/");
+
 const urlDetails = {
-    paths: currentUrl.split("/")
+    pathDetails: currentUrlPaths[3],
+    uniqueId: currentUrlPaths[4],
 }
 
 const currentPageInfo = {
-    path: urlDetails.paths[3],
-    uniqueId: urlDetails.paths[4]
+    path: urlDetails.pathDetails.split("?")[0].split("#")[0],
+    args: []
 }
 
 function checkPath(page, requiredPath) {
@@ -53,18 +66,22 @@ function checkPath(page, requiredPath) {
     }
 }
 
-const injectPages = () => {
+function injectPages() {
     for (let page in pages) {
         if (pageInfo[page] && checkPath(pageInfo[page], currentPageInfo.path)) {
-            if (pageInfo[page].uniqueIds && !Number(currentPageInfo.uniqueId)) {
+            if (pageInfo[page].uniqueIds && !Number(urlDetails.uniqueId)) {
                 continue;
-            } else if (pageInfo[page].uniqueIds && Number(currentPageInfo.uniqueId)) {
-                pages[page](Number(currentPageInfo.uniqueId));
+            } else if (pageInfo[page].uniqueIds && Number(urlDetails.uniqueId)) {
+                pages[page](Number(urlDetails.uniqueId));
                 break;
-            } else if (!pageInfo[page].uniqueIds && !Number(currentPageInfo.uniqueId)) {
+            } else if (!pageInfo[page].uniqueIds && !Number(urlDetails.uniqueId)) {
                 pages[page]();
                 break;
             }
         }
     }
+}
+
+function injectPage(pageName) {
+    pages[pageName](urlDetails.uniqueId);
 }
