@@ -16,6 +16,7 @@ runtime.onMessage.addListener((message, sender, sendMessage) => {
             $.post(message.url, message.data, sendMessage);
             break;
         case "ajax":
+            $.ajax(message.data, sendMessage);
             break;
     }
 
