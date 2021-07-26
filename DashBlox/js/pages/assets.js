@@ -27,12 +27,12 @@ function getBadgeRarity(rarity) {
 
 pages.assets = async (assetId) => {
     let assetPage = currentPageInfo.path;
-    let authUser = await util.getAuthUser();
 
     if (assetPage != "bundles" && assetPage != "badges") {
         let asset = assetPage == "game-pass" ? await dashblox.get(`https://api.roblox.com/marketplace/game-pass-product-info`, {gamepassId: assetId}) : await dashblox.get(`https://api.roblox.com/marketplace/productinfo`, {assetId: assetId});
 
         if (asset) {
+            let authUser = await util.getAuthUser();
             let creatorId = asset.Creator.Id;
 
             if (asset.Creator.CreatorType === "Group") {
@@ -58,11 +58,11 @@ pages.assets = async (assetId) => {
                     $(".clearfix.item-field-container:contains('Updated')").remove();
                 }
 
-                description.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Created</div><span class="field-content ">${util.timeFormat(asset.Created)}</span></div>`);
-                description.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Updated</div><span class="field-content ">${util.timeFormat(asset.Updated)}</span></div>`);
+                description.before(`<div class="clearfix item-field-container item-created"><div class="text-label field-label">Created</div><span class="field-content ">${util.timeFormat(asset.Created)}</span></div>`);
+                description.before(`<div class="clearfix item-field-container item-updated"><div class="text-label field-label">Updated</div><span class="field-content ">${util.timeFormat(asset.Updated)}</span></div>`);
 
                 if (creatorId === authUser.userId) {
-                    description.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Sales</div><span class="field-content ">${asset.Sales.toLocaleString()}</span></div>`);
+                    description.before(`<div class="clearfix item-field-container item-sales"><div class="text-label field-label">Sales</div><span class="field-content ">${asset.Sales.toLocaleString()}</span></div>`);
                 }
             })
         }
@@ -83,12 +83,12 @@ pages.assets = async (assetId) => {
 
                 $(".clearfix.item-field-container:contains('Updated')").remove();
 
-                description.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Created</div><span class="field-content ">${util.timeFormat(badge.created)}</span></div>`);
-                description.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Updated</div><span class="field-content ">${util.timeFormat(badge.updated)}</span></div>`);
-                description.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Rarity</div><span class="field-content ">${getBadgeRarity(Number(winRate))} (${winRate}%)</span></div>`);
-                description.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Won Recent</div><span class="field-content ">${badge.statistics.pastDayAwardedCount.toLocaleString()}</span></div>`);
-                description.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Won Ever</div><span class="field-content ">${badge.statistics.awardedCount.toLocaleString()}</span></div>`);
-                description.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Availability</div><span class="field-content ">${badge.enabled ? "Obtainable" : "Unobtainable"}</span></div>`);
+                description.before(`<div class="clearfix item-field-container item-created"><div class="text-label field-label">Created</div><span class="field-content ">${util.timeFormat(badge.created)}</span></div>`);
+                description.before(`<div class="clearfix item-field-container item-updated"><div class="text-label field-label">Updated</div><span class="field-content ">${util.timeFormat(badge.updated)}</span></div>`);
+                description.before(`<div class="clearfix item-field-container item-rarity"><div class="text-label field-label">Rarity</div><span class="field-content ">${getBadgeRarity(Number(winRate))} (${winRate}%)</span></div>`);
+                description.before(`<div class="clearfix item-field-container item-recent"><div class="text-label field-label">Won Recent</div><span class="field-content ">${badge.statistics.pastDayAwardedCount.toLocaleString()}</span></div>`);
+                description.before(`<div class="clearfix item-field-container item-every"><div class="text-label field-label">Won Ever</div><span class="field-content ">${badge.statistics.awardedCount.toLocaleString()}</span></div>`);
+                description.before(`<div class="clearfix item-field-container item-avalibility"><div class="text-label field-label">Availability</div><span class="field-content ">${badge.enabled ? "Obtainable" : "Unobtainable"}</span></div>`);
             })
         }
 
@@ -117,8 +117,8 @@ pages.assets = async (assetId) => {
                     $.watch(".clearfix.toggle-target.item-field-container", () => {
                         let description = $(`.clearfix.toggle-target.item-field-container`);
         
-                        description.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Created</div><span class="field-content ">${util.timeFormat(asset.Created)}</span></div>`);
-                        description.before(`<div id="sales" class="clearfix item-field-container item-created"><div class="text-label field-label">Updated</div><span class="field-content ">${util.timeFormat(asset.Updated)}</span></div>`);
+                        description.before(`<div class="clearfix item-field-container item-created"><div class="text-label field-label">Created</div><span class="field-content ">${util.timeFormat(asset.Created)}</span></div>`);
+                        description.before(`<div class="clearfix item-field-container item-updated"><div class="text-label field-label">Updated</div><span class="field-content ">${util.timeFormat(asset.Updated)}</span></div>`);
                     })
                 }
 
