@@ -51,7 +51,7 @@ $.watch = function(selector, timeout, callback) {
     } else {
         setTimeout(function() {
             $.watch(selector, timeout, callback);
-        }, timeout || 1);
+        }, timeout || 0);
     }
 }
 
