@@ -45,5 +45,23 @@ const dashblox = {
                 reject({message: "A error occurred while pushing your request."});
             })
         })
+    },
+
+    storage: {
+        get: (key) => {
+            return new Promise((resolve, reject) => {
+                storage.get(key, (data) => {
+                    resolve(data);
+                })
+            })
+        },
+
+        save: (key, data) => {
+            return new Promise((resolve, reject) => {
+                storage.set({[key]: data}, (result) => {
+                    resolve(result);
+                })
+            })
+        }
     }
 }
