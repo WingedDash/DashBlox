@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
 
-    "name": "DashBlox - Roblox Extension",
+    "name": "DashBlox - Improving Roblox",
     "short_name": "DashBlox_dev",
     
     "description": "Creates new features that otherwise are missing, removed, or don't exist.",
