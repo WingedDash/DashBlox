@@ -20,7 +20,7 @@ const settings = {
     setupComplete: false
 }
 
-async function setupSettings() {
+async function loadSettings() {
     function setSettings(setSetting) {
         for (let setting in setSetting) {
             if (typeof(setSetting[setting]) == 'object') {
@@ -49,4 +49,4 @@ pages.settings = () => {
     })
 }
 
-setupSettings();
+loadSettings();
