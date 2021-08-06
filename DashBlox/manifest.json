@@ -49,6 +49,7 @@
                 "js/pages.js",
 
                 "js/pages/assets.js",
+                "js/pages/avatar.js",
                 "js/pages/catalog.js",
                 "js/pages/discover.js",
                 "js/pages/games.js",
