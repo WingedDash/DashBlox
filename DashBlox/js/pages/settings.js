@@ -2,7 +2,7 @@
 
 const settings = {
     general: {
-
+        simpleTimeFormat: true
     },
 
     catalog: {
@@ -16,17 +16,21 @@ const settings = {
     theme: {
 
     },
-
+    
     setupComplete: false
 }
 
 async function loadSettings() {
-    function setSettings(setSetting) {
+    function setSettings(setSetting, parentObject) {
         for (let setting in setSetting) {
             if (typeof(setSetting[setting]) == 'object') {
-                setSettings(setSetting[setting]);
+                setSettings(setSetting[setting], setting);
             } else {
-                settings[setting] = setSetting[setting]
+                if (!parentObject) {
+                    settings[setting] = setSetting[setting];
+                } else {
+                    settings[parentObject][setting] = setSetting[setting];
+                }
             }
         }
     }
@@ -34,11 +38,11 @@ async function loadSettings() {
     let getSettings = await dashblox.storage.get("settings");
     let currentSettings = getSettings.settings;
 
-    if (!currentSettings) {
-        dashblox.storage.save("settings", settings);
-    } else {
+    if (currentSettings) {
         setSettings(currentSettings);
     }
+
+    dashblox.storage.save("settings", settings);
 }
 
 pages.settings = () => {
