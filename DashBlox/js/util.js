@@ -80,3 +80,8 @@ $.watch = function(selector, timeout, callback) {
 
 injectPages();
 injectPage("universal");
+
+$.watch("head", () => {
+    injectCSSPages();
+    injectCSS("css/universal.css");
+})

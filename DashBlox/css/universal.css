@@ -1,6 +1,6 @@
 .dashblox 
     .icon-badge-creator {
-        background-image: url(chrome-extension://__MSG_@@extension_id__/css/legacy/badges.svg);
+        background-image: url(/css/legacy/badges.svg);
         background-repeat: no-repeat;
         background-size: 280px auto;
 

@@ -82,6 +82,14 @@ function injectPages() {
     }
 }
 
+function injectCSSPages() {
+    
+}
+
 function injectPage(pageName) {
     pages[pageName](urlDetails.uniqueId);
+}
+
+function injectCSS(css) { // Need to find a way to get rid of the "$.watch"'s.
+    $("head").append(`<link rel="stylesheet" href="${chrome.extension.getURL(css)}">`);
 }
