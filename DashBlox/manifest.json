@@ -62,10 +62,6 @@
                 "js/util.js"
             ],
 
-            "css": [
-                "css/universal.css"
-            ],
-
             "run_at": "document_start",
             "all_frames": true,
             "matches": ["*://www.roblox.com/*", "*://web.roblox.com/*"]

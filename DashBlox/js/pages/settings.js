@@ -14,36 +14,41 @@ const settings = {
     },
 
     theme: {
-
+        fancyScrollBar: false
     },
     
     setupComplete: false
 }
 
 async function loadSettings() {
-    function setSettings(setSetting, parentObject) {
-        for (let setting in setSetting) {
-            if (typeof(setSetting[setting]) == 'object') {
-                setSettings(setSetting[setting], setting);
-            } else {
-                if (!parentObject) {
-                    settings[setting] = setSetting[setting];
+    let createSettings = (oldSettings, settingsLocation) => {
+        for (let setting in oldSettings) {
+            if (typeof(oldSettings[setting]) == 'object') {
+                if (settingsLocation) {
+                    createSettings(oldSettings[setting], settingsLocation[setting]);
                 } else {
-                    settings[parentObject][setting] = setSetting[setting];
+                    createSettings(oldSettings[setting], settings[setting]);
+                }
+            } else {
+                if (settingsLocation) {
+                    settingsLocation[setting] = oldSettings[setting];
+                } else {
+                    settings[setting] = oldSettings[setting];
                 }
             }
         }
     }
 
-    let getSettings = await dashblox.storage.get("settings");
-    let currentSettings = getSettings.settings;
+    let currentSettings = (await dashblox.storage.get("settings")).settings;
 
     if (currentSettings) {
-        setSettings(currentSettings);
+        createSettings(currentSettings);
+    } else {
+        dashblox.storage.save("settings", settings);
     }
-
-    dashblox.storage.save("settings", settings);
 }
+
+loadSettings();
 
 pages.settings = () => {
     $.watch(".content", () => {
@@ -52,5 +57,3 @@ pages.settings = () => {
         $("title")[0].text = "Settings - DashBlox";
     })
 }
-
-loadSettings();
