@@ -66,16 +66,26 @@ function checkPath(page, requiredPath) {
     }
 }
 
+async function injectPage(page, id) {
+    let settings = (await dashblox.storage.get("settings")).settings;
+
+    if (id) {
+        pages[page](id, settings);
+    } else {
+        pages[page](settings);
+    }
+}
+
 function injectPages() {
     for (let page in pages) {
         if (pageInfo[page] && checkPath(pageInfo[page], currentPageInfo.path)) {
             if (pageInfo[page].uniqueIds && !Number(urlDetails.uniqueId)) {
                 continue;
             } else if (pageInfo[page].uniqueIds && Number(urlDetails.uniqueId)) {
-                pages[page](Number(urlDetails.uniqueId));
+                injectPage(page, Number(urlDetails.uniqueId));
                 break;
             } else if (!pageInfo[page].uniqueIds && !Number(urlDetails.uniqueId)) {
-                pages[page]();
+                injectPage(page);
                 break;
             }
         }
@@ -84,10 +94,6 @@ function injectPages() {
 
 function injectCSSPages() {
     
-}
-
-function injectPage(pageName) {
-    pages[pageName](urlDetails.uniqueId);
 }
 
 function injectCSS(css) { // Need to find a way to get rid of the "$.watch"'s.

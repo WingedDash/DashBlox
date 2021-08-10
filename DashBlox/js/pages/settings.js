@@ -1,6 +1,6 @@
 "use strict"
 
-const settings = {
+let settings = {
     general: {
         simpleTimeFormat: true
     },
@@ -10,10 +10,19 @@ const settings = {
     },
 
     assets: {
+        assetStats: true,
+        ownersList: true
+    },
 
+    profile: {
+        profileStatus: true
     },
 
     theme: {
+        oldRobuxIcons: false,
+        oldTopBarText: false,
+        changeBackToGames: false,
+
         fancyScrollBar: false
     },
     
