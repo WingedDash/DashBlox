@@ -43,9 +43,9 @@ async function loadSettings() {
 
     if (currentSettings) {
         createSettings(currentSettings);
-    } else {
-        dashblox.storage.save("settings", settings);
     }
+    
+    dashblox.storage.save("settings", settings);
 }
 
 loadSettings();
