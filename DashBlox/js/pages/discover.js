@@ -1,6 +1,6 @@
 "use strict"
 
-pages.discover = () => {
+pages.discover = (settings) => {
     $.watch(".container-header.games-filter-changer", () => {
         var popularTab = $($(".container-header.games-filter-changer:Contains('Popular')").parent().parent()[0])
 

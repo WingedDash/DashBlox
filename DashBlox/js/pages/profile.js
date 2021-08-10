@@ -1,35 +1,39 @@
 "use strict"
 
-pages.profile = async (userId) => {
+pages.profile = async (userId, settings) => {
     let authUser = await util.getAuthUser();
-        
-    $.watch(".header-caption", async () => {
-        try {
-            let userStatus = await $.get(`https://users.roblox.com/v1/users/${userId}/status`);
 
-            if (userStatus.status) {
-                $(".header-caption > .header-names").after(`<div class="header-user-status"> <span class="text">"${userStatus.status}"</span> </div>`)
-            }
+    if (settings.profile.profileStatus) {
+        $.watch(".header-caption", async () => {
+            try {
+                let userStatus = await $.get(`https://users.roblox.com/v1/users/${userId}/status`);
     
-            if (authUser.userId === userId) {
-                let updateStatus = $("#popover-content > ul > li:nth-child(5)");
-
-                if (updateStatus.length > 0) {
-                    updateStatus.removeClass("ng-hide");
-                    
-                    $("#popover-content > ul > li:nth-child(5) > a").attr("href", "https://www.roblox.com/feeds/");
+                if (userStatus.status) {
+                    $(".header-caption > .header-names").after(`<div class="header-user-status"> <span class="text">"${userStatus.status}"</span> </div>`)
+                }
+        
+                if (authUser.userId === userId) {
+                    let updateStatus = $("#popover-content > ul > li:nth-child(5)");
+    
+                    if (updateStatus.length > 0) {
+                        updateStatus.removeClass("ng-hide");
+                        
+                        $("#popover-content > ul > li:nth-child(5) > a").attr("href", "https://www.roblox.com/feeds/");
+                    }
+                }
+            } catch (err) {
+                if (developerMode) {
+                    console.log(err);
                 }
             }
-        } catch (err) {
-            if (developerMode) {
-                console.log(err);
-            }
-        }
-    })
+        })
+    }
 
-    $.watch(".profile-game.ng-scope.section", () => {
-        $(".profile-game.ng-scope.section > .container-header > h3:Contains('Experiences')")[0].innerText = "Games";
-    })
+    if (settings.theme.changeBackToGames) {
+        $.watch(".profile-game.ng-scope.section", () => {
+            $(".profile-game.ng-scope.section > .container-header > h3:Contains('Experiences')")[0].innerText = "Games";
+        })
+    }
 
     switch (userId) {
         case 1: {
