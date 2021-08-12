@@ -21,6 +21,10 @@ pages.universal = async (settings) => {
             $.watch(".icon-robux-28x28.roblox-popover-close", () => {
                 $(".icon-robux-28x28.roblox-popover-close").removeClass("icon-robux-28x28").addClass("icon-nav-robux");
             })
+
+            $.watch("head", () => {
+                injectCSS("css/robux.css");
+            })
         }
     
         if (settings.theme.fancyScrollBar) {
