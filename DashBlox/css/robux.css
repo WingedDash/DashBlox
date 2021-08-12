@@ -1,0 +1,57 @@
+.light-theme
+    .icon-robux, 
+    .icon-robux-16x16,
+    .icon-robux-28x28, 
+    .icon-robux-burst-banner, 
+    .icon-robux-gold, 
+    .icon-robux-gray, 
+    .icon-robux-white {
+        background-image: url(/css/legacy/branded_light.svg) !important;
+    }
+
+.dark-theme
+    .icon-robux, 
+    .icon-robux-16x16,
+    .icon-robux-28x28, 
+    .icon-robux-burst-banner, 
+    .icon-robux-gold, 
+    .icon-robux-gray, 
+    .icon-robux-white {
+        background-image: url(/css/legacy/branded_dark.svg) !important;
+    }
+
+.icon-robux,
+.icon-robux-16x16,
+.icon-robux-28x28 {
+    background-position: 0 -112px;
+    width: 30px;
+    height: 26px;
+}
+
+.reseller-price-container .icon-robux-28x28 {
+    background-position: 0 -112px;
+}
+
+.icon-robux-price-container .icon-robux-16x16 {
+    float: left;
+    margin-right: 3px;
+}
+
+.store-card-price .icon-robux-16x16 {
+    margin-top: -1px;
+}
+
+#assetsItems .item-card-container .text-overflow.item-card-price .icon-robux-16x16.ng-scope,
+.store-card-price .icon-robux-16x16,
+.item-card-caption .text-overflow.item-card-price .icon.icon-robux-16x16,
+.text-overflow.item-card-price.font-header-2.text-subheader.ng-scope .icon.icon-robux-16x16.ng-scope,
+.item-card-container.recommended-item-link .text-overflow.item-card-price .icon-robux-16x16 {
+    background-position: 0 -64px;
+    background-size: 32px auto;
+    width: 16px;
+    height: 16px;
+}
+
+.icon-text-wrapper .icon-robux-16x16 {
+    margin-top: -3px;
+}
