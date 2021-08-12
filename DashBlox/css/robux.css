@@ -1,24 +1,32 @@
-.light-theme
-    .icon-robux, 
-    .icon-robux-16x16,
-    .icon-robux-28x28, 
-    .icon-robux-burst-banner, 
-    .icon-robux-gold, 
-    .icon-robux-gray, 
-    .icon-robux-white {
-        background-image: url(/css/legacy/branded_light.svg) !important;
-    }
+.icon-robux, 
+.icon-robux-16x16,
+.icon-robux-28x28, 
+.icon-robux-burst-banner, 
+.icon-robux-gold, 
+.icon-robux-gray, 
+.icon-robux-white {
+    background-image: url(/css/legacy/branded_light.svg);
+}
 
-.dark-theme
-    .icon-robux, 
-    .icon-robux-16x16,
-    .icon-robux-28x28, 
-    .icon-robux-burst-banner, 
-    .icon-robux-gold, 
-    .icon-robux-gray, 
-    .icon-robux-white {
-        background-image: url(/css/legacy/branded_dark.svg) !important;
-    }
+.light-theme .icon-robux, 
+.light-theme .icon-robux-16x16,
+.light-theme .icon-robux-28x28, 
+.light-theme .icon-robux-burst-banner, 
+.light-theme .icon-robux-gold, 
+.light-theme .icon-robux-gray, 
+.light-theme .icon-robux-white {
+    background-image: url(/css/legacy/branded_light.svg);
+}
+
+.dark-theme .icon-robux, 
+.dark-theme .icon-robux-16x16,
+.dark-theme .icon-robux-28x28, 
+.dark-theme .icon-robux-burst-banner, 
+.dark-theme .icon-robux-gold, 
+.dark-theme .icon-robux-gray, 
+.dark-theme .icon-robux-white {
+    background-image: url(/css/legacy/branded_dark.svg);
+}
 
 .icon-robux,
 .icon-robux-16x16,
