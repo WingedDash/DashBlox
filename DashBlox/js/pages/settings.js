@@ -15,7 +15,9 @@ let settings = {
     },
 
     profile: {
-        profileStatus: true
+        profileStatus: true,
+        lastOnline: true,
+        easyStatistics: false
     },
 
     theme: {
@@ -23,6 +25,7 @@ let settings = {
         oldTopBarText: false,
         changeBackToGames: false,
 
+        smallChatTab: false,
         fancyScrollBar: false
     },
     

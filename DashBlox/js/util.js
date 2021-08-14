@@ -82,6 +82,6 @@ injectPages();
 injectPage("universal");
 
 $.watch("head", () => {
-    injectCSSPages();
     injectCSS("css/universal.css");
+    injectCSSPages();
 })

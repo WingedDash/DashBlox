@@ -32,6 +32,12 @@ pages.universal = async (settings) => {
                 injectCSS("css/fancyscrollbar.css");
             })
         }
+
+        if (settings.theme.smallChatTab) {
+            $.watch("head", () => {
+                injectCSS("css/chat.css");
+            })
+        }
     
         if (developerMode) {
             console.log(settings);
