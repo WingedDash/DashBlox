@@ -29,6 +29,33 @@ pages.profile = async (userId, settings) => {
         })
     }
 
+    if (settings.profile.lastOnline) {
+        try {
+            let onlineStats = (await $.post("https://presence.roblox.com/v1/presence/users", {userIds: [Number(userId)]})).userPresences[0];
+            let lastOnline = onlineStats.lastOnline;
+            let userPresenceType = onlineStats.userPresenceType;
+
+
+
+            $.watch(".profile-stats-container", () => {
+                $(".profile-stats-container").addClass("last-online-stat");
+                $($(".profile-stats-container > .profile-stat")[0]).after(`<li class="profile-stat"><p class="text-label">Last Online</p><p class="text-lead">${userPresenceType === 0 ? util.timeFormat(lastOnline) : "Now"}</p></li>`);
+            })
+        } catch (error) {
+            if (developerMode) {
+                console.log(error);
+            }
+        }
+    }
+
+    if (settings.profile.easyStatistics) {
+        $.watch(".section .profile-statistics", () => {
+            $(".section .profile-statistics > .container-header").remove();
+            $(".profile-stats-container > .profile-stat > .text-lead")[0].innerText = "Loading";
+            $("#profile-statistics-container").insertBefore($(".rbx-tabs-horizontal > #horizontal-tabs"));
+        })
+    }
+
     if (settings.theme.changeBackToGames) {
         $.watch(".profile-game.ng-scope.section", () => {
             $(".profile-game.ng-scope.section > .container-header > h3:Contains('Experiences')")[0].innerText = "Games";

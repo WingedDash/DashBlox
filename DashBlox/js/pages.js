@@ -33,7 +33,8 @@ const pageInfo = {
 
     profile: {
         uniqueIds: true,
-        paths: ["users"]
+        paths: ["users"],
+        css: ["css/pages/profile.css"]
     },
 
     settings: {
@@ -93,7 +94,21 @@ function injectPages() {
 }
 
 function injectCSSPages() {
-    
+    for (let page in pageInfo) {
+        if (checkPath(pageInfo[page], currentPageInfo.path) && pageInfo[page].hasOwnProperty("css")) {
+            if ($("head").length >= 1) {
+                for (let path in pageInfo[page].css) {
+                    injectCSS(pageInfo[page].css[path]);
+                }
+            } else {
+                $.watch("head", () => {
+                    for (let path in pageInfo[page].css) {
+                        injectCSS(pageInfo[page].css[path]);
+                    }
+                })
+            }
+        }
+    }
 }
 
 function injectCSS(css) { // Need to find a way to get rid of the "$.watch"'s.

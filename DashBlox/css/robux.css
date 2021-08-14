@@ -36,6 +36,28 @@
     height: 26px;
 }
 
+.product .icon-robux-gold,
+.icon-robux-gold, .icon-robux-gold-16x16,
+#checkout-success-container .product-image .icon-robux-gold {
+    background-position: 0 -500px;
+}
+
+.icon-robux-white,
+.robux-upsell .subscribed .icon-robux-white {
+    background-position: 0 -252px;
+    background-size: 72px auto;
+    width: 36px;
+    height: 36px;
+}
+
+.icon-robux-gray,
+.robux-downsell .icon-robux-gray {
+    background-position: 0 -114px;
+    background-size: 57px auto;
+    width: 30px;
+    height: 28px
+}
+
 .reseller-price-container .icon-robux-28x28 {
     background-position: 0 -112px;
 }

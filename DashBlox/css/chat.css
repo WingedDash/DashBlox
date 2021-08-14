@@ -1,0 +1,8 @@
+.chat.chat-container.collapsed .chat-main {
+    width: 60px;
+    transition: all .15s linear;
+}
+
+.chat.chat-container.collapsed .chat-main:hover {
+    width: 280px;
+}
