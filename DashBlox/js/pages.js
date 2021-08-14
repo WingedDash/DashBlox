@@ -2,43 +2,44 @@
 
 const pageInfo = {
     assets: {
-        uniqueIds: true,
+        hasIds: true,
         paths: ["catalog", "bundles", "library", "game-pass", "badges"]
     },
 
+    avatar: {
+        paths: ["my"],
+        subPaths: ["avatar"]
+    },
+
     catalog: {
-        uniqueIds: false,
         paths: ["catalog"]
     },
 
     discover: {
-        uniqueIds: false,
         paths: ["discover"]
     },
 
     games: {
-        uniqueIds: true,
+        hasIds: true,
         paths: ["games"]
     },
 
     groups: {
-        uniqueIds: true,
+        hasIds: true,
         paths: ["groups"]
     },
 
     home: {
-        uniqueIds: false,
         paths: ["home"]
     },
 
     profile: {
-        uniqueIds: true,
+        hasIds: true,
         paths: ["users"],
         css: ["css/pages/profile.css"]
     },
 
     settings: {
-        uniqueIds: false,
         paths: ["dashblox"]
     }
 }
@@ -59,14 +60,6 @@ const currentPageInfo = {
     args: []
 }
 
-function checkPath(page, requiredPath) {
-    for (let path in page.paths) {
-        if (page.paths[path] === requiredPath) {
-            return path
-        }
-    }
-}
-
 async function injectPage(page, id) {
     let settings = (await dashblox.storage.get("settings")).settings;
 
@@ -77,35 +70,45 @@ async function injectPage(page, id) {
     }
 }
 
+function checkPath(page) {
+    if (page) {
+        for (let path in page.paths) {
+            if (page.paths[path] == currentPageInfo.path) {
+                if (!page.subPaths) {
+                    return true;
+                } else {
+                    for (let subPath in page.subPaths) {
+                        if (page.subPaths[subPath] == urlDetails.uniqueId) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 function injectPages() {
-    for (let page in pages) {
-        if (pageInfo[page] && checkPath(pageInfo[page], currentPageInfo.path)) {
-            if (pageInfo[page].uniqueIds && !Number(urlDetails.uniqueId)) {
-                continue;
-            } else if (pageInfo[page].uniqueIds && Number(urlDetails.uniqueId)) {
-                injectPage(page, Number(urlDetails.uniqueId));
-                break;
-            } else if (!pageInfo[page].uniqueIds && !Number(urlDetails.uniqueId)) {
-                injectPage(page);
-                break;
+    for (let name in pages) {
+        let page = pageInfo[name];
+
+        if (checkPath(page)) {
+            if (page.hasIds && Number(urlDetails.uniqueId)) {
+                injectPage(name, Number(urlDetails.uniqueId));
+            } else if (!page.hasIds && !Number(urlDetails.uniqueId)) {
+                injectPage(name);
             }
         }
     }
 }
 
 function injectCSSPages() {
-    for (let page in pageInfo) {
-        if (checkPath(pageInfo[page], currentPageInfo.path) && pageInfo[page].hasOwnProperty("css")) {
-            if ($("head").length >= 1) {
-                for (let path in pageInfo[page].css) {
-                    injectCSS(pageInfo[page].css[path]);
-                }
-            } else {
-                $.watch("head", () => {
-                    for (let path in pageInfo[page].css) {
-                        injectCSS(pageInfo[page].css[path]);
-                    }
-                })
+    for (let name in pageInfo) {
+        let page = pageInfo[name];
+
+        if (page.hasOwnProperty("css") && checkPath(page)) {
+            for (let path in page.css) {
+                injectCSS(page.css[path]);
             }
         }
     }
