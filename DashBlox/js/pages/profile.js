@@ -31,15 +31,13 @@ pages.profile = async (userId, settings) => {
 
     if (settings.profile.lastOnline) {
         try {
-            let onlineStats = (await $.post("https://presence.roblox.com/v1/presence/users", {userIds: [Number(userId)]})).userPresences[0];
-            let lastOnline = onlineStats.lastOnline;
-            let userPresenceType = onlineStats.userPresenceType;
-
-
+            let onlineStats = await dashblox.get(`https://api.roblox.com/users/${Number(userId)}/onlinestatus`);
+            let lastOnline = onlineStats.LastOnline;
+            let presenceType = onlineStats.PresenceType;
 
             $.watch(".profile-stats-container", () => {
                 $(".profile-stats-container").addClass("last-online-stat");
-                $($(".profile-stats-container > .profile-stat")[0]).after(`<li class="profile-stat"><p class="text-label">Last Online</p><p class="text-lead">${userPresenceType === 0 ? util.timeFormat(lastOnline) : "Now"}</p></li>`);
+                $($(".profile-stats-container > .profile-stat")[0]).after(`<li class="profile-stat"><p class="text-label">Last Online</p><p class="text-lead">${presenceType === 0 ? util.timeFormat(lastOnline) : "Currently Online"}</p></li>`);
             })
         } catch (error) {
             if (developerMode) {
@@ -51,8 +49,7 @@ pages.profile = async (userId, settings) => {
     if (settings.profile.easyStatistics) {
         $.watch(".section .profile-statistics", () => {
             $(".section .profile-statistics > .container-header").remove();
-            $(".profile-stats-container > .profile-stat > .text-lead")[0].innerText = "Loading";
-            $("#profile-statistics-container").insertBefore($(".rbx-tabs-horizontal > #horizontal-tabs"));
+            $("#profile-statistics-container").insertAfter($("#profile-current-wearing-avatar"));
         })
     }
 
@@ -77,7 +74,7 @@ pages.profile = async (userId, settings) => {
             })
     
             $.watch(".border.asset-thumb-container.icon-badge-homestead", () => {
-                $(".list-item.asset-item:Contains('Homestead')").before(`<li class="list-item asset-item"> <a href="https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb" title="The creator of DashBlox!"> <span class="border asset-thumb-container icon-badge-creator" title="Creator"></span> <span class="font-header-2 text-overflow item-name">Creator</span> </a> </li>`)
+                $($("#roblox-badges-container > .section-content.remove-panel > .hlist.badge-list > .list-item.asset-item")[0]).before(`<li class="list-item asset-item"> <a href="https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb" title="The creator of DashBlox!"> <span class="border asset-thumb-container icon-badge-creator" title="Creator"></span> <span class="font-header-2 text-overflow item-name">Creator</span> </a> </li>`)
             })
 
             break;
