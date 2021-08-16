@@ -78,10 +78,12 @@ $.watch = function(selector, timeout, callback) {
     }
 }
 
-injectPages();
-injectPage("universal");
+if (currentPageInfo.path != "user-sponsorship" && currentPageInfo.path != "userads") {
+    injectPages();
+    injectPage("universal");
 
-$.watch("head", () => {
-    injectCSS("css/universal.css");
-    injectCSSPages();
-})
+    $.watch("head", () => {
+        injectCSS("css/universal.css");
+        injectCSSPages();
+    })
+}
