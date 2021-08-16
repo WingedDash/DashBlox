@@ -74,7 +74,7 @@ pages.profile = async (userId, settings) => {
             })
     
             $.watch(".border.asset-thumb-container.icon-badge-homestead", () => {
-                $($("#roblox-badges-container > .section-content.remove-panel > .hlist.badge-list > .list-item.asset-item")[0]).before(`<li class="list-item asset-item"> <a href="https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb" title="The creator of DashBlox!"> <span class="border asset-thumb-container icon-badge-creator" title="Creator"></span> <span class="font-header-2 text-overflow item-name">Creator</span> </a> </li>`)
+                $($("#roblox-badges-container > .section-content.remove-panel > .hlist.badge-list > .list-item.asset-item")[0]).before(`<li class="list-item asset-item"> <a href="https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb" title="The creator of DashBlox!"> <span class="border asset-thumb-container icon-badge-creator" title="Creator"></span> <span class="font-header-2 text-overflow item-name">DashBlox</span> </a> </li>`)
             })
 
             break;

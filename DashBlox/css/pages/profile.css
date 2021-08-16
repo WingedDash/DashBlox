@@ -1,3 +1,19 @@
+.dashblox .icon-badge-creator {
+    background-image: url(/css/legacy/badges.svg);
+    background-repeat: no-repeat;
+    background-size: 280px auto;
+
+    display: inline-block;
+    vertical-align: middle;
+    background-position: -140px -980px;
+}
+
+@media (max-width: 767px) {
+    .dashblox .section-content .icon-badge-creator {
+        background-position: -85px -595px;
+    }
+}
+
 .last-online-stat .profile-stat {
     width: 33%;
 }
