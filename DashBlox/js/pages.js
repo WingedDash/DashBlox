@@ -58,7 +58,7 @@ const urlDetails = {
 
 const currentPageInfo = {
     path: urlDetails.pathDetails.split("?")[0].split("#")[0],
-    args: []
+    args: {}
 }
 
 async function injectPage(page, id) {
@@ -119,3 +119,19 @@ function injectCSSPages() {
 function injectCSS(css) { // Need to find a way to get rid of the "$.watch"'s.
     $("head").append(`<link rel="stylesheet" href="${chrome.extension.getURL(css)}">`);
 }
+
+let generateArgs = () => {
+    if (typeof(currentUrlPaths[currentUrlPaths.length - 1]) == "string") {
+        let rawArgs = currentUrlPaths[currentUrlPaths.length - 1].split("?");
+        
+        if (rawArgs[1]) {rawArgs = rawArgs[1].split("&")};
+
+        for (let index in rawArgs) {
+            let args = rawArgs[index].split("=");
+            
+            currentPageInfo.args[args[0]] = (args[1] || args[0]);
+        }
+    }
+}
+
+generateArgs();
