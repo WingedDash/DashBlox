@@ -40,7 +40,8 @@ const pageInfo = {
     },
 
     settings: {
-        paths: ["dashblox"]
+        paths: ["dashblox"],
+        subPaths: ["settings"]
     }
 }
 
@@ -79,6 +80,7 @@ function checkPath(page) {
                 } else {
                     for (let subPath in page.subPaths) {
                         if (page.subPaths[subPath] == urlDetails.uniqueId) {
+                            urlDetails.uniqueId = currentUrlPaths[5];
                             return true;
                         }
                     }
