@@ -1,8 +1,8 @@
 "use strict"
 
 pages.universal = async (settings) => {
-    $.watch("body", () => {
-        $('body').addClass('dashblox');
+    $.watch("body", (body) => {
+        body.addClass('dashblox');
     })
 
     if (settings.theme.oldTopBarText) {
@@ -11,14 +11,14 @@ pages.universal = async (settings) => {
             $(".font-header-2.nav-menu-title.text-header:contains('Avatar Shop')")[0].text = "Catalog";
         })
         
-        $.watch(".btn-growth-md.btn-secondary-md", () => {
-            $(".btn-growth-md.btn-secondary-md")[0].text = "Upgrades";
+        $.watch(".btn-growth-md.btn-secondary-md", (selector) => {
+            selector[0].text = "Upgrades";
         })
     }
     
     if (settings.theme.oldRobuxIcons) {
-        $.watch(".icon-robux-28x28.roblox-popover-close", () => {
-            $(".icon-robux-28x28.roblox-popover-close").removeClass("icon-robux-28x28").addClass("icon-nav-robux");
+        $.watch(".icon-robux-28x28.roblox-popover-close", (selector) => {
+            selector.removeClass("icon-robux-28x28").addClass("icon-nav-robux");
         })
 
         $.watch("head", () => {

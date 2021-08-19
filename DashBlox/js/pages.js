@@ -116,7 +116,7 @@ function injectCSSPages() {
     }
 }
 
-function injectCSS(css) { // Need to find a way to get rid of the "$.watch"'s.
+function injectCSS(css) {
     $("head").append(`<link rel="stylesheet" href="${chrome.extension.getURL(css)}">`);
 }
 

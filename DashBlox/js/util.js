@@ -63,20 +63,22 @@ const util = {
     }
 }
 
-$.watch = function(selector, timeout, callback) {
-    if (timeout && !callback) {
-        callback = timeout;
-        timeout = null;
+Object.assign($, {
+    watch(selector, timeout, callback) {
+        if (typeof(callback) !== "function") {
+            callback = timeout;
+            timeout = 0;
+        }
+    
+        if ($(selector).length) {
+            callback($(selector));
+        } else {
+            setTimeout(function() {
+                $.watch(selector, timeout, callback);
+            }, timeout);
+        }
     }
-
-    if (jQuery(selector).length) {
-        callback();
-    } else {
-        setTimeout(function() {
-            $.watch(selector, timeout, callback);
-        }, timeout || 0);
-    }
-}
+})
 
 if (currentPageInfo.path != "user-sponsorship" && currentPageInfo.path != "userads") {
     injectPages();

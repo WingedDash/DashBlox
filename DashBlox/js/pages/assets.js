@@ -36,9 +36,7 @@ pages.assets = async (assetId, settings) => {
                 if (badge) {
                     let winRate = (badge.statistics.winRatePercentage * 100).toFixed(1);
         
-                    $.watch(".clearfix.toggle-target.item-field-container", () => {
-                        let description = $(`.clearfix.toggle-target.item-field-container`);
-        
+                    $.watch(".clearfix.toggle-target.item-field-container", (description) => {
                         $(".clearfix.item-field-container:contains('Updated')").remove();
         
                         description.before(`<div class="clearfix item-field-container item-created"><div class="text-label field-label">Created</div><span class="field-content ">${util.timeFormat(badge.created)}</span></div>`);
@@ -74,9 +72,7 @@ pages.assets = async (assetId, settings) => {
                         }
         
                         if (asset) {
-                            $.watch(".clearfix.toggle-target.item-field-container", () => {
-                                let description = $(`.clearfix.toggle-target.item-field-container`);
-                
+                            $.watch(".clearfix.toggle-target.item-field-container", (description) => {
                                 description.before(`<div class="clearfix item-field-container item-created"><div class="text-label field-label">Created</div><span class="field-content ">${util.timeFormat(asset.Created)}</span></div>`);
                                 description.before(`<div class="clearfix item-field-container item-updated"><div class="text-label field-label">Updated</div><span class="field-content ">${util.timeFormat(asset.Updated)}</span></div>`);
                             })
@@ -118,9 +114,7 @@ pages.assets = async (assetId, settings) => {
                         }
                     }
         
-                    $.watch(".clearfix.toggle-target.item-field-container", () => {
-                        let description = $(`.clearfix.toggle-target.item-field-container`);
-        
+                    $.watch(".clearfix.toggle-target.item-field-container", (description) => {
                         if (creatorId > 1) {
                             $(".clearfix.item-field-container:contains('Updated')").remove();
                         }

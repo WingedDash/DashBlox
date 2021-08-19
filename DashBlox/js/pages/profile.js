@@ -4,12 +4,12 @@ pages.profile = async (userId, settings) => {
     let authUser = await util.getAuthUser();
 
     if (settings.profile.profileStatus) {
-        $.watch(".header-caption", async () => {
+        $.watch(".header-caption > .header-names", async (selector) => {
             try {
                 let userStatus = await $.get(`https://users.roblox.com/v1/users/${userId}/status`);
     
                 if (userStatus.status) {
-                    $(".header-caption > .header-names").after(`<div class="header-user-status"> <span class="text">"${userStatus.status}"</span> </div>`)
+                    selector.after(`<div class="header-user-status"> <span class="text">"${userStatus.status}"</span> </div>`)
                 }
         
                 if (authUser.userId === userId) {
@@ -35,8 +35,8 @@ pages.profile = async (userId, settings) => {
             let lastOnline = onlineStats.LastOnline;
             let presenceType = onlineStats.PresenceType;
 
-            $.watch(".profile-stats-container", () => {
-                $(".profile-stats-container").addClass("last-online-stat");
+            $.watch(".profile-stats-container", (selector) => {
+                selector.addClass("last-online-stat");
                 $($(".profile-stats-container > .profile-stat")[0]).after(`<li class="profile-stat"><p class="text-label">Last Online</p><p class="text-lead">${presenceType === 0 ? util.timeFormat(lastOnline) : "Currently Online"}</p></li>`);
             })
         } catch (error) {
@@ -69,12 +69,12 @@ pages.profile = async (userId, settings) => {
         }
 
         case 531629183: {
-            $.watch(".text-lead:contains('2/26/2018')", () => {
-                $(".text-lead:contains('2/26/2018')")[0].innerText = "8/8/2014";
+            $.watch(".text-lead:contains('2/26/2018')", (selector) => {
+                selector[0].innerText = "8/8/2014";
             })
     
-            $.watch(".border.asset-thumb-container.icon-badge-homestead", () => {
-                $($("#roblox-badges-container > .section-content.remove-panel > .hlist.badge-list > .list-item.asset-item")[0]).before(`<li class="list-item asset-item"> <a href="https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb" title="The creator of DashBlox!"> <span class="border asset-thumb-container icon-badge-creator" title="Creator"></span> <span class="font-header-2 text-overflow item-name">DashBlox</span> </a> </li>`)
+            $.watch("#roblox-badges-container > .section-content.remove-panel > .hlist.badge-list > .list-item.asset-item", (selector) => {
+                $(selector[0]).before(`<li class="list-item asset-item"> <a href="https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb" title="The creator of DashBlox!"> <span class="border asset-thumb-container icon-badge-creator" title="Creator"></span> <span class="font-header-2 text-overflow item-name">DashBlox</span> </a> </li>`)
             })
 
             break;

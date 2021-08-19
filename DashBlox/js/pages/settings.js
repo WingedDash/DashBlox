@@ -63,8 +63,8 @@ async function loadSettings() {
 loadSettings();
 
 pages.settings = () => {
-    $.watch(".content", () => {
-        $(".content").empty();
+    $.watch(".content", (content) => {
+        content.empty();
 
         $("title")[0].text = "Settings - DashBlox";
     })
