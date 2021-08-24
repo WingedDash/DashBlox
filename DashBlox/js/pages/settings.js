@@ -29,7 +29,7 @@ let settings = {
         fancyScrollBar: false
     },
     
-    setupComplete: false
+    setupComplete: false,
 }
 
 async function loadSettings() {
