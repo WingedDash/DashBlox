@@ -137,68 +137,13 @@ pages.assets = async (assetId, settings) => {
         }
     }
 
-    // $.watch("#item-container", () => {
-    //     let deleteItemButton = $("#delete-item");
+    $.watch("#item-container", () => {
+        let deleteItemButton = $("#delete-item");
 
-    //     if (deleteItemButton.length >= 1) {
-    //         deleteItemButton.removeAttr("id");
-    //         deleteItemButton.attr("id", "delete-item-warning");
-
-    //         let warningDisplayed = false;
-
-    //         $("#item-context-menu").click(() => {
-    //             $("#delete-item-warning").click(() => {
-    //                 if (!warningDisplayed) {
-    //                     try {
-    //                         warningDisplayed = true;
-
-    //                         $("#rbx-body").append(`<div id="delete-item-warning-displayed" role="dialog"><div class="modal-backdrop in"></div><div role="dialog" tabindex="-1" class="in modal" style="display: block;"><div class="modal-window modal-dialog"><div class="modal-content" role="document"><div class="modal-header"><h4 class="modal-title">Delete ${$(".border-bottom.item-name-container > h2")[0].innerText || "Item"}?</h4></div><div class="modal-body"><p class="description">Are you sure that you want to delete this item from your inventory?
-        
-    //                         You will NOT recieve a refund if you do this.</p></div><div class="modal-footer"><div class="loading"></div><div class="modal-buttons"><button type="button" class="modal-button btn-primary-md btn-min-width" id="delete-item">Confirm</button><button type="button" class="modal-button btn-control-md btn-min-width" id="cancel-delete-item">Cancel</button></div></div></div></div></div></div>`);
-
-    //                         $("#delete-item").click(() => {
-    //                             dashblox.ajax({
-    //                                 url: "https://www.roblox.com/asset/delete-from-inventory",
-                                
-    //                                 type: "POST",
-    //                                 dataType: "application/json",
-                                
-    //                                 crossDomain: true,
-                                
-    //                                 data: {assetId: Number(assetId)},
-
-    //                                 success: (response) => {
-    //                                     warningDisplayed = false;
-
-    //                                     $("#delete-item-warning-displayed").remove();
-    
-    //                                     window.location.reload();
-    //                                 },
-
-    //                                 error: (error) => {
-    //                                     warningDisplayed = false;
-
-    //                                     $("#delete-item-warning-displayed").remove();
-
-    //                                     if (developerMode) {
-    //                                         console.log(error);
-    //                                     }
-    //                                 }
-    //                             })
-    //                         })
-
-    //                         $("#cancel-delete-item").click(() => {
-    //                             warningDisplayed = false;
-    //                             $("#delete-item-warning-displayed").remove();
-    //                         })
-    //                     } catch (error) {
-    //                         if (developerMode) {
-    //                             console.log(error);
-    //                         }
-    //                     }
-    //                 }
-    //             })
-    //         })
-    //     }
-    // })
+        if (deleteItemButton.length >= 1) {
+            $.watch("#modal-confirmation > #modal-dialog > .modal-content > .modal-body > .modal-top-body > .modal-message", (warning) => {
+                warning.after(`<br> <div class="modal-warning">You will NOT recieve a refund when deleting this item from your inventory. ⚠️</div>`);
+            })
+        }
+    })
 }
