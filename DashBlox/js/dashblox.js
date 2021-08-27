@@ -5,7 +5,7 @@ const manifest = runtime.getManifest();
 
 const developerMode = (manifest.short_name === "DashBlox_dev");
 
-const backgroundPage = !!(chrome && chrome.extension);
+const backgroundPage = !!(chrome && chrome.extension && chrome.extension.getBackgroundPage);
 
 const storage = chrome.storage.local;
 
@@ -158,5 +158,9 @@ if (backgroundPage) {
         return true;
     })
 
-    settings.load();
+    runtime.onUpdateAvailable.addListener((details) => {
+        runtime.reload();
+    })
 }
+
+settings.load();
