@@ -1,7 +1,7 @@
 "use strict"
 
-pages.catalog = (settings) => {
-    if (settings.theme.oldTopBarText) {
+pages.catalog = () => {
+    if (settings.get("theme", "oldTopBarText")) {
         $.watch(".heading.ng-scope", () => {
             $("#main-view > .search-bars > .heading.ng-scope > a")[0].text = "Catalog";
         })

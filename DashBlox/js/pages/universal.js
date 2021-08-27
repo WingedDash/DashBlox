@@ -1,11 +1,11 @@
 "use strict"
 
-pages.universal = async (settings) => {
+pages.universal = async () => {
     $.watch("body", (body) => {
         body.addClass('dashblox');
     })
 
-    if (settings.theme.oldTopBarText) {
+    if (settings.get("theme", "oldTopBarText")) {
         $.watch(".navbar-fixed-top.rbx-header", () => {
             $(".font-header-2.nav-menu-title.text-header:contains('Discover')")[0].text = "Games";
             $(".font-header-2.nav-menu-title.text-header:contains('Avatar Shop')")[0].text = "Catalog";
@@ -15,30 +15,28 @@ pages.universal = async (settings) => {
             selector[0].text = "Upgrades";
         })
     }
-    
-    if (settings.theme.oldRobuxIcons) {
+
+    if (settings.get("theme", "oldRobuxIcons")) {
         $.watch(".icon-robux-28x28.roblox-popover-close", (selector) => {
             selector.removeClass("icon-robux-28x28").addClass("icon-nav-robux");
         })
+    }
 
-        $.watch("head", () => {
+    $.watch("head", () => {
+        if (settings.get("theme", "oldRobuxIcons")) {
             injectCSS("css/robux.css");
-        })
-    }
-
-    if (settings.theme.fancyScrollBar) {
-        $.watch("head", () => {
+        }
+    
+        if (settings.get("theme", "fancyScrollBar")) {
             injectCSS("css/fancyscrollbar.css");
-        })
-    }
-
-    if (settings.theme.smallChatTab) {
-        $.watch("head", () => {
+        }
+    
+        if (settings.get("theme", "smallChatTab")) {
             injectCSS("css/chat.css");
-        })
-    }
+        }
+    })
 
     if (developerMode) {
-        console.log(settings);
+        console.log(settings.all());
     }
 }
