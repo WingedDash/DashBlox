@@ -62,13 +62,7 @@ const currentPageInfo = {
 }
 
 async function injectPage(page, id) {
-    let settings = (await dashblox.storage.get("settings")).settings;
-
-    if (id) {
-        pages[page](id, settings);
-    } else {
-        pages[page](settings);
-    }
+    pages[page](id);
 }
 
 function checkPath(page) {

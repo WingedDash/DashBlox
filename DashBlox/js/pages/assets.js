@@ -25,10 +25,10 @@ function getBadgeRarity(rarity) {
     }
 }
 
-pages.assets = async (assetId, settings) => {
+pages.assets = async (assetId) => {
     let assetPage = currentPageInfo.path;
 
-    if (settings.assets.assetStats) {
+    if (settings.get("assets", "assetStats")) {
         switch (assetPage) {
             case "badges": {
                 let badge = await dashblox.get(`https://badges.roblox.com/v1/badges/${assetId}`);
@@ -83,7 +83,7 @@ pages.assets = async (assetId, settings) => {
                         }
                     } catch (msg) {
                         if (developerMode) {
-                            console.log(msg);
+                            console.warn(msg);
                         }
                     }
                 }
@@ -109,7 +109,7 @@ pages.assets = async (assetId, settings) => {
                             }
                         } catch (message) {
                             if (developerMode) {
-                                console.log(message);
+                                console.warn(message);
                             }
                         }
                     }

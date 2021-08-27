@@ -55,7 +55,7 @@ const util = {
         hours = hours ? hours : 12;
         minutes = minutes < 10 ? '0'+minutes: minutes;
 
-        if (settings.general.simpleTimeFormat) {
+        if (settings.get("general", "simpleTimeFormat")) {
             return `${months[date.getMonth()]} ${date.getDate()}${determinEndDate(date.getDate())}, ${date.getFullYear()} @ ${hours}:${minutes} ${zone}`;
         } else {
             return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()} @ ${hours}:${minutes} ${zone}`;
@@ -81,11 +81,19 @@ Object.assign($, {
 })
 
 if (currentPageInfo.path != "user-sponsorship" && currentPageInfo.path != "userads") {
-    injectPages();
-    injectPage("universal");
+    let init = () => {
+        if (settings.loadedSettings instanceof Object) {
+            injectPages();
+            injectPage("universal");
+        
+            $.watch("head", () => {
+                injectCSS("css/universal.css");
+                injectCSSPages();
+            })
+        } else {
+            setTimeout(init, 0);
+        }
+    }
 
-    $.watch("head", () => {
-        injectCSS("css/universal.css");
-        injectCSSPages();
-    })
+    init();
 }

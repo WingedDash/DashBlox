@@ -1,9 +1,9 @@
 "use strict"
 
-pages.profile = async (userId, settings) => {
+pages.profile = async (userId) => {
     let authUser = await util.getAuthUser();
 
-    if (settings.profile.profileStatus) {
+    if (settings.get("profile", "profileStatus")) {
         $.watch(".header-caption > .header-names", async (selector) => {
             try {
                 let userStatus = await $.get(`https://users.roblox.com/v1/users/${userId}/status`);
@@ -23,13 +23,13 @@ pages.profile = async (userId, settings) => {
                 }
             } catch (err) {
                 if (developerMode) {
-                    console.log(err);
+                    console.error(err);
                 }
             }
         })
     }
 
-    if (settings.profile.lastOnline) {
+    if (settings.get("profile", "lastOnline")) {
         try {
             let onlineStats = await dashblox.get(`https://api.roblox.com/users/${Number(userId)}/onlinestatus`);
             let lastOnline = onlineStats.LastOnline;
@@ -41,19 +41,19 @@ pages.profile = async (userId, settings) => {
             })
         } catch (error) {
             if (developerMode) {
-                console.log(error);
+                console.error(error);
             }
         }
     }
 
-    if (settings.profile.easyStatistics) {
+    if (settings.get("profile", "easyStatistics")) {
         $.watch(".section .profile-statistics", () => {
             $(".section .profile-statistics > .container-header").remove();
             $("#profile-statistics-container").insertAfter($("#profile-current-wearing-avatar"));
         })
     }
 
-    if (settings.theme.changeBackToGames) {
+    if (settings.get("profile", "changeBackToGames")) {
         $.watch(".profile-game.ng-scope.section", () => {
             $(".profile-game.ng-scope.section > .container-header > h3:Contains('Experiences')")[0].innerText = "Games";
         })
