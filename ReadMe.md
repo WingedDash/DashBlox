@@ -3,7 +3,7 @@ DashBlox is a extension that that creates new features that otherwise are missin
 
 DashBlox is currently available on **Chrome** and **Microsoft Edge**.
 
-DashBlox is not avalible on any other broweser, please do not install extensions claiming to be DashBlox that aren't located here:
+DashBlox is not available on any other browser, please do not install extensions claiming to be DashBlox that aren't located here:
 
 * Chrome
     * [DashBlox on the Chrome Web Store](https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb)
@@ -19,5 +19,5 @@ If you're experiencing a bug with DashBlox or you just want to suggest a feature
 My social media links:
 
 * [GitHub](https://github.com/WingedDash): WingedDash
-* [Twitter](https://twitter.com/WingedDash): @WingedDash
+* [Twitter](https://twitter.com/WingedDash): @WingedDash#1337
 * [Discord](https://discord.com/): WingedDash#1337
