@@ -19,5 +19,5 @@ If you're experiencing a bug with DashBlox or you just want to suggest a feature
 My social media links:
 
 * [GitHub](https://github.com/WingedDash): WingedDash
-* [Twitter](https://twitter.com/WingedDash): @WingedDash#1337
+* [Twitter](https://twitter.com/WingedDash): @WingedDash
 * [Discord](https://discord.com/): WingedDash#1337
