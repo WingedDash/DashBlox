@@ -7,15 +7,15 @@ This is the privacy policy for the extension DashBlox.
 
 # Roblox Site Access
 
-DashBlox has full access to the roblox api which allows it to modify the website so you can see all the features DashBlox has to offer.
+DashBlox has full access to the Roblox API which allows it to modify the website so you can see all the features DashBlox has to offer.
 
 Here is a list of some examples of what DashBlox will be able to access:
-* Basic information about the user. (UserId, DisplayName, Username)
+* Basic information about the user. (UserId, Display Name, Username)
 * The Ids of the pages visited. (AssetId, GameId, GamePassId, GroupId)
 * Change the way the website looks and behaves.
-* Read and change data on roblox.
+* Read and change data on Roblox.
 
-DashBlox will __not__ collect any of the data it uses on the Roblox site, it's only going to be used for the features the user wants on a specific page.
+DashBlox will __not__ collect any of the data it uses on the Roblox site, it's only going to use [storage](#chrome-storage) for the features the user wants on a specific page.
 
 # Open Source
 
@@ -30,6 +30,6 @@ DashBlox uses __chrome storage__ to store data locally through cookies, which is
 DashBlox Uses the folling permissions:
 
 * `*://*.roblox.com/*`
-	* Used to access Roblox's site and apis.
+    * Used to access Roblox's site and apis.
 * `storage`
-	* Usage is explained [here](#chrome-storage).
+    * Usage is explained [here](#chrome-storage).
