@@ -4,6 +4,7 @@
 .icon-robux-burst-banner, 
 .icon-robux-gold, 
 .icon-robux-gray, 
+.icon-robux-gray-16x16,
 .icon-robux-white {
     background-image: url(/css/resources/legacy/branded_classic.svg);
 }
@@ -14,6 +15,7 @@
 .light-theme .icon-robux-burst-banner, 
 .light-theme .icon-robux-gold, 
 .light-theme .icon-robux-gray, 
+.light-theme .icon-robux-gray-16x16,
 .light-theme .icon-robux-white {
     background-image: url(/css/resources/legacy/branded_light.svg);
 }
@@ -24,13 +26,15 @@
 .dark-theme .icon-robux-burst-banner, 
 .dark-theme .icon-robux-gold, 
 .dark-theme .icon-robux-gray, 
+.dark-theme .icon-robux-gray-16x16,
 .dark-theme .icon-robux-white {
     background-image: url(/css/resources/legacy/branded_dark.svg);
 }
 
 .icon-robux,
 .icon-robux-16x16,
-.icon-robux-28x28 {
+.icon-robux-28x28,
+.icon-robux-gray-16x16 {
     background-position: 0 -112px;
     width: 30px;
     height: 26px;
@@ -71,18 +75,80 @@
     margin-top: -1px;
 }
 
+.store-card-price .icon-robux-16x16,
+.description-text.ng-binding .icon-robux-16x16,
+.text-overflow.item-card-label.ng-scope .icon-robux-gray-16x16,
+.item-card-caption .text-overflow.item-card-price .icon.icon-robux-16x16,
 .modal-content .modal-body .modal-top-body .modal-message .icon-robux-16x16,
 #assetsItems .item-card-container .text-overflow.item-card-price .icon-robux-16x16.ng-scope,
-.store-card-price .icon-robux-16x16,
-.item-card-caption .text-overflow.item-card-price .icon.icon-robux-16x16,
+.item-card-container.recommended-item-link .text-overflow.item-card-price .icon-robux-16x16,
 .text-overflow.item-card-price.font-header-2.text-subheader.ng-scope .icon.icon-robux-16x16.ng-scope,
-.item-card-container.recommended-item-link .text-overflow.item-card-price .icon-robux-16x16 {
+.premium-prompt.small.text.field-content.empty-label.wait-for-i18n-format-render a .icon-robux-16x16.wait-for-i18n-format-render {
     background-position: 0 -64px;
     background-size: 32px auto;
     width: 16px;
     height: 16px;
 }
 
+.border-bottom tr .icon-robux-container .icon-robux-16x16,
+.ng-scope .text-label.icon-robux-container.ng-scope .icon-robux-16x16,
+.balance-label.icon-robux-container span .icon-robux-16x16 {
+    background-position: 0 -101px;
+    background-size: 50px auto;
+    width: 25px;
+    height: 23px;
+}
+
 .icon-text-wrapper .icon-robux-16x16 {
     margin-top: -3px;
+}
+
+.light-theme .icon-default-navigation,
+.light-theme .icon-nav-blog,
+.light-theme .icon-nav-charactercustomizer,
+.light-theme .icon-nav-friends,
+.light-theme .icon-nav-giftcards,
+.light-theme .icon-nav-group,
+.light-theme .icon-nav-home,
+.light-theme .icon-nav-inventory,
+.light-theme .icon-nav-menu,
+.light-theme .icon-nav-message,
+.light-theme .icon-nav-my-feed,
+.light-theme .icon-nav-notification-stream,
+.light-theme .icon-nav-profile,
+.light-theme .icon-nav-robux,
+.light-theme .icon-nav-search-white,
+.light-theme .icon-nav-settings,
+.light-theme .icon-nav-shop,
+.light-theme .icon-nav-trade {
+    background-image: url(/css/resources/legacy/navigation_light.svg);
+}
+
+.dark-theme .icon-default-navigation,
+.dark-theme .icon-nav-blog,
+.dark-theme .icon-nav-charactercustomizer,
+.dark-theme .icon-nav-friends,
+.dark-theme .icon-nav-giftcards,
+.dark-theme .icon-nav-group,
+.dark-theme .icon-nav-home,
+.dark-theme .icon-nav-inventory,
+.dark-theme .icon-nav-menu,
+.dark-theme .icon-nav-message,
+.dark-theme .icon-nav-my-feed,
+.dark-theme .icon-nav-notification-stream,
+.dark-theme .icon-nav-profile,
+.dark-theme .icon-nav-robux,
+.dark-theme .icon-nav-search-white,
+.dark-theme .icon-nav-settings,
+.dark-theme .icon-nav-shop,
+.dark-theme .icon-nav-trade {
+    background-image: url(/css/resources/legacy/navigation_dark.svg);
+}
+
+.dashblox .icon-nav-robux {
+    background-position: 0 -28.7px;
+}
+
+.icon-nav-robux:hover, a:hover .icon-nav-robux, button:hover .icon-nav-robux {
+    background-position: -28px -28.7px;
 }

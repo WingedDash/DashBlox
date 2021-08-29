@@ -108,10 +108,6 @@ const settings = {
         return this.loadedSettings[category][setting];
     },
 
-    all() {
-        return this.loadedSettings;
-    },
-
     async load() {
         let oldSettings = (await dashblox.storage.get("settings")).settings;
 
