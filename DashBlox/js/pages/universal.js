@@ -16,12 +16,6 @@ pages.universal = async () => {
         })
     }
 
-    if (settings.get("theme", "oldRobuxIcons")) {
-        $.watch(".icon-robux-28x28.roblox-popover-close", (selector) => {
-            selector.removeClass("icon-robux-28x28").addClass("icon-nav-robux");
-        })
-    }
-
     $.watch("head", () => {
         if (settings.get("theme", "oldRobuxIcons")) {
             injectCSS("css/robux.css");
