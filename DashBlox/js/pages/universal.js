@@ -37,6 +37,6 @@ pages.universal = async () => {
     })
 
     if (developerMode) {
-        console.log(settings.all());
+        console.log(settings.loadedSettings);
     }
 }

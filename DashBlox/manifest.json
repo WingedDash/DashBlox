@@ -21,7 +21,6 @@
     },
 
     "background": {
-        "persistent": false,
         "scripts": [
             "js/lib/jquery3.6.0.js",
 
