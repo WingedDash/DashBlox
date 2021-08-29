@@ -77,9 +77,11 @@
 
 .store-card-price .icon-robux-16x16,
 .description-text.ng-binding .icon-robux-16x16,
+#textDisplay .robux-price-default-color .icon-robux-16x16,
 .text-overflow.item-card-label.ng-scope .icon-robux-gray-16x16,
 .item-card-caption .text-overflow.item-card-price .icon.icon-robux-16x16,
 .modal-content .modal-body .modal-top-body .modal-message .icon-robux-16x16,
+.modal-content .modal-footer.text-footer.modal-footer-center .icon-robux-gray-16x16,
 #assetsItems .item-card-container .text-overflow.item-card-price .icon-robux-16x16.ng-scope,
 .item-card-container.recommended-item-link .text-overflow.item-card-price .icon-robux-16x16,
 .text-overflow.item-card-price.font-header-2.text-subheader.ng-scope .icon.icon-robux-16x16.ng-scope,
@@ -103,6 +105,28 @@
     margin-top: -3px;
 }
 
+.icon-default-navigation,
+.icon-nav-blog,
+.icon-nav-charactercustomizer,
+.icon-nav-friends,
+.icon-nav-giftcards,
+.icon-nav-group,
+.icon-nav-home,
+.icon-nav-inventory,
+.icon-nav-menu,
+.icon-nav-message,
+.icon-nav-my-feed,
+.icon-nav-notification-stream,
+.icon-nav-profile,
+.icon-nav-robux,
+.icon-robux-28x28,
+.icon-nav-search-white,
+.icon-nav-settings,
+.icon-nav-shop,
+.icon-nav-trade {
+    background-image: url(/css/resources/legacy/navigation_light.svg);
+}
+
 .light-theme .icon-default-navigation,
 .light-theme .icon-nav-blog,
 .light-theme .icon-nav-charactercustomizer,
@@ -117,6 +141,7 @@
 .light-theme .icon-nav-notification-stream,
 .light-theme .icon-nav-profile,
 .light-theme .icon-nav-robux,
+.light-theme .icon-robux-28x28,
 .light-theme .icon-nav-search-white,
 .light-theme .icon-nav-settings,
 .light-theme .icon-nav-shop,
@@ -138,6 +163,7 @@
 .dark-theme .icon-nav-notification-stream,
 .dark-theme .icon-nav-profile,
 .dark-theme .icon-nav-robux,
+.dark-theme .icon-robux-28x28,
 .dark-theme .icon-nav-search-white,
 .dark-theme .icon-nav-settings,
 .dark-theme .icon-nav-shop,
@@ -149,6 +175,27 @@
     background-position: 0 -28.7px;
 }
 
-.icon-nav-robux:hover, a:hover .icon-nav-robux, button:hover .icon-nav-robux {
-    background-position: -28px -28.7px;
+#nav-robux-icon .icon-robux-28x28 {
+    background-position: 0 -28px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    vertical-align: middle;
+    margin-top: -2px;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+}
+
+.icon-nav-robux:hover,
+a:hover .icon-nav-robux,
+button:hover .icon-nav-robux,
+#nav-robux-icon .icon-robux-28x28:hover {
+    background-position: -28px -28px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    vertical-align: middle;
+    margin-top: -2px;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
 }
