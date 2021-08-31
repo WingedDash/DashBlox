@@ -64,18 +64,17 @@ const util = {
 }
 
 Object.assign($, {
-    watch(selector, timeout, callback) {
-        if (typeof(callback) !== "function") {
-            callback = timeout;
-            timeout = 0;
+    watch(selector, callback) {
+        if (typeof callback !== "function") {
+            throw Error("Watch requires a function.");
         }
     
-        if ($(selector).length) {
+        if ($(selector).length >= 1) {
             callback($(selector));
         } else {
-            setTimeout(function() {
-                $.watch(selector, timeout, callback);
-            }, timeout);
+            setTimeout(() => {
+                $.watch(selector, callback);
+            })
         }
     }
 })

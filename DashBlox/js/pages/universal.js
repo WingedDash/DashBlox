@@ -7,8 +7,8 @@ pages.universal = async () => {
 
     if (settings.get("theme", "oldTopBarText")) {
         $.watch(".navbar-fixed-top.rbx-header", () => {
-            $(".font-header-2.nav-menu-title.text-header:contains('Discover')")[0].text = "Games";
-            $(".font-header-2.nav-menu-title.text-header:contains('Avatar Shop')")[0].text = "Catalog";
+            $(".font-header-2.nav-menu-title.text-header:contains('Discover')")[0].innerText = "Games";
+            $(".font-header-2.nav-menu-title.text-header:contains('Avatar Shop')")[0].innerText = "Catalog";
         })
         
         $.watch(".btn-growth-md.btn-secondary-md", (selector) => {
@@ -22,7 +22,7 @@ pages.universal = async () => {
         }
     
         if (settings.get("theme", "fancyScrollBar")) {
-            injectCSS("css/fancyscrollbar.css");
+            injectCSS("css/scrollbar.css");
         }
     
         if (settings.get("theme", "smallChatTab")) {
