@@ -16,8 +16,8 @@
     },
 
     "icons": {
-        "256": "icons/logo/logo256.png",
-        "128": "icons/logo/logo128.png"
+        "256": "resources/icons/logo/256/glow.png",
+        "128": "resources/icons/logo/128/glow.png"
     },
 
     "background": {
@@ -31,8 +31,8 @@
     },
 
     "web_accessible_resources": [
-        "icons/*",
-        "css/*"
+        "css/*",
+        "resources/*"
     ],
 
     "permissions": [

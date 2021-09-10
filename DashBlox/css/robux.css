@@ -6,7 +6,7 @@
 .icon-robux-gray, 
 .icon-robux-gray-16x16,
 .icon-robux-white {
-    background-image: url(/css/resources/legacy/branded_classic.svg);
+    background-image: url(/resources/legacy/branded_classic.svg);
 }
 
 .light-theme .icon-robux, 
@@ -17,7 +17,7 @@
 .light-theme .icon-robux-gray, 
 .light-theme .icon-robux-gray-16x16,
 .light-theme .icon-robux-white {
-    background-image: url(/css/resources/legacy/branded_light.svg);
+    background-image: url(/resources/legacy/branded_light.svg);
 }
 
 .dark-theme .icon-robux, 
@@ -28,7 +28,7 @@
 .dark-theme .icon-robux-gray, 
 .dark-theme .icon-robux-gray-16x16,
 .dark-theme .icon-robux-white {
-    background-image: url(/css/resources/legacy/branded_dark.svg);
+    background-image: url(/resources/legacy/branded_dark.svg);
 }
 
 .icon-robux,
@@ -126,7 +126,7 @@
 .icon-nav-settings,
 .icon-nav-shop,
 .icon-nav-trade {
-    background-image: url(/css/resources/legacy/navigation_light.svg);
+    background-image: url(/resources/legacy/navigation_light.svg);
 }
 
 .light-theme .icon-default-navigation,
@@ -148,7 +148,7 @@
 .light-theme .icon-nav-settings,
 .light-theme .icon-nav-shop,
 .light-theme .icon-nav-trade {
-    background-image: url(/css/resources/legacy/navigation_light.svg);
+    background-image: url(/resources/legacy/navigation_light.svg);
 }
 
 .dark-theme .icon-default-navigation,
@@ -170,7 +170,7 @@
 .dark-theme .icon-nav-settings,
 .dark-theme .icon-nav-shop,
 .dark-theme .icon-nav-trade {
-    background-image: url(/css/resources/legacy/navigation_dark.svg);
+    background-image: url(/resources/legacy/navigation_dark.svg);
 }
 
 .dashblox .icon-nav-robux {
