@@ -5,6 +5,6 @@ pages.settings = () => {
         content.empty();
 
         $("title")[0].text = "Settings - DashBlox";
-        jQuery("link[rel='icon']").attr("href", chrome.extension.getURL("icons/logo/logo256.png"));
+        jQuery("link[rel='icon']").attr("href", chrome.extension.getURL("resources/icons/logo/256/glow.png"));
     })
 }
