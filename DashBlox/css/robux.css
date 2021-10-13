@@ -178,6 +178,7 @@
 }
 
 .icon-robux-28x28#nav-robux,
+.dashblox #nav-robux-icon .icon-robux-28x28,
 .group-detail-stat.col-xs-6.col-md-2 h3.icon-text-wrapper .icon-robux-28x28 {
     background-position: 0 -28px;
     background-repeat: no-repeat;
@@ -192,6 +193,7 @@
 .icon-nav-robux:hover,
 a:hover .icon-nav-robux,
 button:hover .icon-nav-robux,
+.dashblox #nav-robux-icon .icon-robux-28x28:hover,
 #nav-robux-icon .icon-robux-28x28:hover {
     background-position: -28px -28px;
     background-repeat: no-repeat;
