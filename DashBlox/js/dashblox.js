@@ -9,6 +9,23 @@ const backgroundPage = !!(chrome && chrome.extension && chrome.extension.getBack
 
 const storage = chrome.storage.local;
 
+const updateLog = `
+1). DashBlox has been completely rewritten.
+2). New time formats.
+3). Better statistics for assets, now works for bundles, game passes, and badges.
+4). Profile statuses have been readded.
+5). View when a user was last online.
+6). Old robux icons have gotten a huge upgrade, which makes robux icons around the whole platform have the old icons.
+7). The old top bar now has "discovery" changed to "games".
+8). You can change whether you want the site to say "experiences" or "games" now.
+9). You have now have a better looking scrollbar now.
+10). Owners list is temporarily removed, it will be added back for certain assets later.
+11). Overall speed improvements.
+                
+Updated: 13/10/2021
+Version: ${manifest.version}
+`
+
 const dashblox = {
     get: (url, data) => {
         let message = {url: url, data: data, request: "get"};
@@ -71,7 +88,8 @@ const dashblox = {
 const settings = {
     defaultSettings: {
         general: {
-            simpleTimeFormat: true
+            simpleTimeFormat: true,
+            popularTabTop: false
         },
     
         catalog: {
@@ -98,6 +116,7 @@ const settings = {
             fancyScrollBar: false
         },
         
+        otherExtensionWarning: false,
         setupComplete: false
     },
 
@@ -106,6 +125,11 @@ const settings = {
     get(category, setting) {
         if (!setting) {return this.loadedSettings[category]};
         return this.loadedSettings[category][setting];
+    },
+
+    set(category, setting, value) {
+        this.loadedSettings[category][setting] = value;
+        dashblox.storage.save("settings", this.loadedSettings);
     },
 
     async load() {
@@ -118,7 +142,7 @@ const settings = {
             Object.entries(this.defaultSettings).forEach(([categoryName, category]) => {
                 if (typeof categoryName === "string" && category instanceof Object) {
                     Object.entries(category).forEach(([settingName, setting]) => {
-                        if (oldSettings[categoryName] && !oldSettings[categoryName][settingName]) {
+                        if (oldSettings[categoryName] && !oldSettings[categoryName][settingName] === undefined) {
                             oldSettings[categoryName][settingName] = setting;
                         } else if (!oldSettings[categoryName]) {
                             oldSettings[categoryName] = category;

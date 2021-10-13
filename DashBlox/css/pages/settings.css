@@ -1,0 +1,27 @@
+.content {
+    max-width: 970px !important;
+}
+
+#dashblox-settings .menu-vertical-container {
+    float: left;
+}
+
+.dashblox-settings-content {
+    float: left;
+    width: 100%;
+    padding-left: 12px;
+    max-width: 790px;
+}
+
+pre.text-description {
+    white-space: pre-wrap;
+}
+
+#btn-toggle {
+    float: right;
+}
+
+#dashblox-settings .rbx-divider {
+    margin-top: 12px;
+    margin-bottom: 4px;
+}
