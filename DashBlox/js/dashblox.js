@@ -18,7 +18,7 @@ const updateLog = `
 6). Old robux icons have gotten a huge upgrade, which makes robux icons around the whole platform have the old icons.
 7). The old top bar now has "discovery" changed to "games".
 8). You can change whether you want the site to say "experiences" or "games" now.
-9). You have now have a better looking scrollbar now.
+9). You now have a better looking scrollbar now.
 10). Owners list is temporarily removed, it will be added back for certain assets later.
 11). Overall speed improvements.
                 
