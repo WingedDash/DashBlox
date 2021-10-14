@@ -22,7 +22,7 @@ const updateLog = `
 10). Owners list is temporarily removed, it will be added back for certain assets later.
 11). Overall speed improvements.
                 
-Updated: 13/10/2021
+Updated: 10/13/2021
 Version: ${manifest.version}
 `
 
@@ -128,8 +128,15 @@ const settings = {
     },
 
     set(category, setting, value) {
-        this.loadedSettings[category][setting] = value;
-        dashblox.storage.save("settings", this.loadedSettings);
+        if (value == null || value == undefined) {
+            value = setting;
+            this.loadedSettings[category] = value;
+            dashblox.storage.save("settings", this.loadedSettings);
+            console.log("this")
+        } else {
+            this.loadedSettings[category][setting] = value;
+            dashblox.storage.save("settings", this.loadedSettings);
+        }
     },
 
     async load() {
