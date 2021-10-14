@@ -9,8 +9,20 @@ let categories = [
                 preText: updateLog
             },
             {
+                header: "Social Media (13+)",
+                sectionHtml: `<div class="section-content"><a class="icon-social-media-discord" target="_blank" href="https://discord.gg/D2wqedQpTx" style="background-position: -6.5px -8px;"></a><a class="icon-social-media-discord" target="_blank" href="https://twitter.com/WingedDash" style="background-position: -6.5px -134px;"></a><a class="icon-social-media-discord" target="_blank" href="https://github.com/WingedDash" style="background-position: -6.5px -327px;"></a><a class="icon-social-media-discord" target="_blank" href="https://www.roblox.com/users/531629183/profile" style="background-position: -6.5px -455px;"></a></div>`
+            },
+            {
+                header: "Multiple Extensions",
+                text: `Multiple extensions can cause problems with DashBlox, such as the Robux logos not working and possible duplication in some areas, make sure that you have properly configured all of your settings in all of your extensions so that it doesn't cause any problems with DashBlox.`
+            },
+            {
+                header: "Report A Bug",
+                sectionHtml: `</div><div class="section-content"><span class="text-description">Did you find a bug and want to report it? You can report it <a class="text-link" target="_blank" href="https://github.com/WingedDash/DashBlox/issues">here</a>.</span>`
+            },
+            {
                 header: "Privacy Policy",
-                sectionHtml: `</div><div class="section-content"><span class="text-description">You can view the <a class="text-link" href="https://github.com/WingedDash/DashBlox/blob/master/Privacy%20Policy.md">Privacy Policy</a> to see how your data is being used and more.</span>`
+                sectionHtml: `</div><div class="section-content"><span class="text-description">You can view the <a class="text-link" target="_blank" href="https://github.com/WingedDash/DashBlox/blob/master/Privacy%20Policy.md">Privacy Policy</a> to see how your data is being used and more.</span>`
             }
         ]
     },
@@ -104,6 +116,7 @@ let categories = [
                 ]
             },
             {
+                header: "Aesthetic",
                 options: [
                     {
                         header: "Easy to view statistics",
