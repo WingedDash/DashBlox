@@ -6,7 +6,8 @@ let categories = [
         content: [
             {
                 header: "Update Log",
-                preText: updateLog
+                preText: updateLog,
+                sectionHtml: `<div class="section-content"><span class="text-description">You can read the entire <a class="text-link" target="_blank" href="https://github.com/WingedDash/DashBlox/blob/master/Update%20log.md">Update Log</a> on the github page for DashBlox.</span></div>`
             },
             {
                 header: "Social Media (13+)",
@@ -22,7 +23,7 @@ let categories = [
             },
             {
                 header: "Privacy Policy",
-                sectionHtml: `</div><div class="section-content"><span class="text-description">You can view the <a class="text-link" target="_blank" href="https://github.com/WingedDash/DashBlox/blob/master/Privacy%20Policy.md">Privacy Policy</a> to see how your data is being used and more.</span>`
+                sectionHtml: `</div><div class="section-content"><span class="text-description">You can read the <a class="text-link" target="_blank" href="https://github.com/WingedDash/DashBlox/blob/master/Privacy%20Policy.md">Privacy Policy</a> to see how your data is being used and more.</span>`
             }
         ]
     },

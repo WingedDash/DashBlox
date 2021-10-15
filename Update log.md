@@ -1,4 +1,7 @@
 # Update Logs
+* Update Version 2.0.1
+    * Fixed certain issues caused by other extensions.
+---
 * Update Version 2.0.0
     * DashBlox has been completely rewritten.
     * New time formats.
@@ -8,7 +11,7 @@
     * Old robux icons have gotten a huge upgrade, which makes robux icons around the whole platform have the old icons.
     * The old top bar now has "discovery" changed to "games".
     * You can change whether you want the site to say "experiences" or "games" now.
-    * You now have a better looking scrollbar now.
+    * You can now have a better looking scrollbar.
     * Owners list is temporarily removed, it will be added back for certain assets later.
     * Overall speed improvements.
 ---
