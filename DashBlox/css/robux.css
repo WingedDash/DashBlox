@@ -1,175 +1,175 @@
-.icon-robux, 
-.icon-robux-16x16,
-.icon-robux-28x28, 
-.icon-robux-burst-banner, 
-.icon-robux-gold, 
-.icon-robux-gray, 
-.icon-robux-gray-16x16,
-.icon-robux-white {
+.dashblox.icon-robux, 
+.dashblox.icon-robux-16x16,
+.dashblox.icon-robux-28x28, 
+.dashblox.icon-robux-burst-banner, 
+.dashblox.icon-robux-gold, 
+.dashblox.icon-robux-gray, 
+.dashblox.icon-robux-gray-16x16,
+.dashblox.icon-robux-white {
     background-image: url(/resources/legacy/branded_classic.svg);
 }
 
-.light-theme .icon-robux, 
-.light-theme .icon-robux-16x16,
-.light-theme .icon-robux-28x28, 
-.light-theme .icon-robux-burst-banner, 
-.light-theme .icon-robux-gold, 
-.light-theme .icon-robux-gray, 
-.light-theme .icon-robux-gray-16x16,
-.light-theme .icon-robux-white {
+.dashblox.light-theme .icon-robux, 
+.dashblox.light-theme .icon-robux-16x16,
+.dashblox.light-theme .icon-robux-28x28, 
+.dashblox.light-theme .icon-robux-burst-banner, 
+.dashblox.light-theme .icon-robux-gold, 
+.dashblox.light-theme .icon-robux-gray, 
+.dashblox.light-theme .icon-robux-gray-16x16,
+.dashblox.light-theme .icon-robux-white {
     background-image: url(/resources/legacy/branded_light.svg);
 }
 
-.dark-theme .icon-robux, 
-.dark-theme .icon-robux-16x16,
-.dark-theme .icon-robux-28x28, 
-.dark-theme .icon-robux-burst-banner, 
-.dark-theme .icon-robux-gold, 
-.dark-theme .icon-robux-gray, 
-.dark-theme .icon-robux-gray-16x16,
-.dark-theme .icon-robux-white {
+.dashblox.dark-theme .icon-robux, 
+.dashblox.dark-theme .icon-robux-16x16,
+.dashblox.dark-theme .icon-robux-28x28, 
+.dashblox.dark-theme .icon-robux-burst-banner, 
+.dashblox.dark-theme .icon-robux-gold, 
+.dashblox.dark-theme .icon-robux-gray, 
+.dashblox.dark-theme .icon-robux-gray-16x16,
+.dashblox.dark-theme .icon-robux-white {
     background-image: url(/resources/legacy/branded_dark.svg);
 }
 
-.icon-robux,
-.icon-robux-16x16,
-.icon-robux-28x28,
-.icon-robux-gray-16x16 {
+.dashblox .icon-robux,
+.dashblox .icon-robux-16x16,
+.dashblox .icon-robux-28x28,
+.dashblox .icon-robux-gray-16x16 {
     background-position: 0 -112px;
     width: 30px;
     height: 26px;
 }
 
-.product .icon-robux-gold,
-.icon-robux-gold, .icon-robux-gold-16x16,
-#checkout-success-container .product-image .icon-robux-gold {
+.dashblox .product .icon-robux-gold,
+.dashblox .icon-robux-gold, .icon-robux-gold-16x16,
+.dashblox #checkout-success-container .product-image .icon-robux-gold {
     background-position: 0 -500px;
 }
 
-.icon-robux-white,
-.robux-upsell .subscribed .icon-robux-white,
-.btn-growth-md.btn-full-width.unsubscribed.ng-scope .icon-robux-white {
+.dashblox .icon-robux-white,
+.dashblox .robux-upsell .subscribed .icon-robux-white,
+.dashblox .btn-growth-md.btn-full-width.unsubscribed.ng-scope .icon-robux-white {
     background-position: 0 -252px;
     background-size: 72px auto;
     width: 36px;
     height: 36px;
 }
 
-.icon-robux-gray,
-.robux-downsell .icon-robux-gray {
+.dashblox .icon-robux-gray,
+.dashblox .robux-downsell .icon-robux-gray {
     background-position: 0 -114px;
     background-size: 57px auto;
     width: 30px;
     height: 28px
 }
 
-.reseller-price-container .icon-robux-28x28 {
+.dashblox .reseller-price-container .icon-robux-28x28 {
     background-position: 0 -112px;
 }
 
-.icon-robux-price-container .icon-robux-16x16 {
+.dashblox .icon-robux-price-container .icon-robux-16x16 {
     float: left;
     margin-right: 3px;
 }
 
-.store-card-price .icon-robux-16x16 {
+.dashblox .store-card-price .icon-robux-16x16 {
     margin-top: -1px;
 }
 
-.store-card-price .icon-robux-16x16,
-.description-text.ng-binding .icon-robux-16x16,
-#textDisplay .robux-price-default-color .icon-robux-16x16,
-.text-overflow.item-card-label.ng-scope .icon-robux-gray-16x16,
-.item-card-caption .text-overflow.item-card-price .icon.icon-robux-16x16,
-.modal-content .modal-body .modal-top-body .modal-message .icon-robux-16x16,
-.modal-content .modal-footer.text-footer.modal-footer-center .icon-robux-gray-16x16,
-#assetsItems .item-card-container .text-overflow.item-card-price .icon-robux-16x16.ng-scope,
-.item-card-container.recommended-item-link .text-overflow.item-card-price .icon-robux-16x16,
-.text-overflow.item-card-price.font-header-2.text-subheader.ng-scope .icon.icon-robux-16x16.ng-scope,
-.premium-prompt.small.text.field-content.empty-label.wait-for-i18n-format-render a .icon-robux-16x16.wait-for-i18n-format-render {
+.dashblox .store-card-price .icon-robux-16x16,
+.dashblox .description-text.ng-binding .icon-robux-16x16,
+.dashblox #textDisplay .robux-price-default-color .icon-robux-16x16,
+.dashblox .text-overflow.item-card-label.ng-scope .icon-robux-gray-16x16,
+.dashblox .item-card-caption .text-overflow.item-card-price .icon.icon-robux-16x16,
+.dashblox .modal-content .modal-body .modal-top-body .modal-message .icon-robux-16x16,
+.dashblox .modal-content .modal-footer.text-footer.modal-footer-center .icon-robux-gray-16x16,
+.dashblox #assetsItems .item-card-container .text-overflow.item-card-price .icon-robux-16x16.ng-scope,
+.dashblox .item-card-container.recommended-item-link .text-overflow.item-card-price .icon-robux-16x16,
+.dashblox .text-overflow.item-card-price.font-header-2.text-subheader.ng-scope .icon.icon-robux-16x16.ng-scope,
+.dashblox .premium-prompt.small.text.field-content.empty-label.wait-for-i18n-format-render a .icon-robux-16x16.wait-for-i18n-format-render {
     background-position: 0 -64px;
     background-size: 32px auto;
     width: 16px;
     height: 16px;
 }
 
-.border-bottom tr .icon-robux-container .icon-robux-16x16,
-.balance-label.icon-robux-container span .icon-robux-16x16,
-.ng-scope .text-label.icon-robux-container.ng-scope .icon-robux-16x16,
-.create-server-banner-text.text .private-server-price .icon-robux-16x16 {
+.dashblox .border-bottom tr .icon-robux-container .icon-robux-16x16,
+.dashblox .balance-label.icon-robux-container span .icon-robux-16x16,
+.dashblox .ng-scope .text-label.icon-robux-container.ng-scope .icon-robux-16x16,
+.dashblox .create-server-banner-text.text .private-server-price .icon-robux-16x16 {
     background-position: 0 -101px;
     background-size: 50px auto;
     width: 25px;
     height: 23px;
 }
 
-.icon-text-wrapper .icon-robux-16x16 {
+.dashblox .icon-text-wrapper .icon-robux-16x16 {
     margin-top: -3px;
 }
 
-.icon-default-navigation,
-.icon-nav-blog,
-.icon-nav-charactercustomizer,
-.icon-nav-friends,
-.icon-nav-giftcards,
-.icon-nav-group,
-.icon-nav-home,
-.icon-nav-inventory,
-.icon-nav-menu,
-.icon-nav-message,
-.icon-nav-my-feed,
-.icon-nav-notification-stream,
-.icon-nav-profile,
-.icon-nav-robux,
-.icon-robux-28x28#nav-robux,
-.icon-nav-search-white,
-.icon-nav-settings,
-.icon-nav-shop,
-.icon-nav-trade {
+.dashblox .icon-default-navigation,
+.dashblox .icon-nav-blog,
+.dashblox .icon-nav-charactercustomizer,
+.dashblox .icon-nav-friends,
+.dashblox .icon-nav-giftcards,
+.dashblox .icon-nav-group,
+.dashblox .icon-nav-home,
+.dashblox .icon-nav-inventory,
+.dashblox .icon-nav-menu,
+.dashblox .icon-nav-message,
+.dashblox .icon-nav-my-feed,
+.dashblox .icon-nav-notification-stream,
+.dashblox .icon-nav-profile,
+.dashblox .icon-nav-robux,
+.dashblox .icon-robux-28x28#nav-robux,
+.dashblox .icon-nav-search-white,
+.dashblox .icon-nav-settings,
+.dashblox .icon-nav-shop,
+.dashblox .icon-nav-trade {
     background-image: url(/resources/legacy/navigation_light.svg);
 }
 
-.light-theme .icon-default-navigation,
-.light-theme .icon-nav-blog,
-.light-theme .icon-nav-charactercustomizer,
-.light-theme .icon-nav-friends,
-.light-theme .icon-nav-giftcards,
-.light-theme .icon-nav-group,
-.light-theme .icon-nav-home,
-.light-theme .icon-nav-inventory,
-.light-theme .icon-nav-menu,
-.light-theme .icon-nav-message,
-.light-theme .icon-nav-my-feed,
-.light-theme .icon-nav-notification-stream,
-.light-theme .icon-nav-profile,
-.light-theme .icon-nav-robux,
-.light-theme .icon-robux-28x28#nav-robux,
-.light-theme .icon-nav-search-white,
-.light-theme .icon-nav-settings,
-.light-theme .icon-nav-shop,
-.light-theme .icon-nav-trade {
+.dashblox.light-theme .icon-default-navigation,
+.dashblox.light-theme .icon-nav-blog,
+.dashblox.light-theme .icon-nav-charactercustomizer,
+.dashblox.light-theme .icon-nav-friends,
+.dashblox.light-theme .icon-nav-giftcards,
+.dashblox.light-theme .icon-nav-group,
+.dashblox.light-theme .icon-nav-home,
+.dashblox.light-theme .icon-nav-inventory,
+.dashblox.light-theme .icon-nav-menu,
+.dashblox.light-theme .icon-nav-message,
+.dashblox.light-theme .icon-nav-my-feed,
+.dashblox.light-theme .icon-nav-notification-stream,
+.dashblox.light-theme .icon-nav-profile,
+.dashblox.light-theme .icon-nav-robux,
+.dashblox.light-theme .icon-robux-28x28#nav-robux,
+.dashblox.light-theme .icon-nav-search-white,
+.dashblox.light-theme .icon-nav-settings,
+.dashblox.light-theme .icon-nav-shop,
+.dashblox.light-theme .icon-nav-trade {
     background-image: url(/resources/legacy/navigation_light.svg);
 }
 
-.dark-theme .icon-default-navigation,
-.dark-theme .icon-nav-blog,
-.dark-theme .icon-nav-charactercustomizer,
-.dark-theme .icon-nav-friends,
-.dark-theme .icon-nav-giftcards,
-.dark-theme .icon-nav-group,
-.dark-theme .icon-nav-home,
-.dark-theme .icon-nav-inventory,
-.dark-theme .icon-nav-menu,
-.dark-theme .icon-nav-message,
-.dark-theme .icon-nav-my-feed,
-.dark-theme .icon-nav-notification-stream,
-.dark-theme .icon-nav-profile,
-.dark-theme .icon-nav-robux,
-.dark-theme .icon-robux-28x28#nav-robux,
-.dark-theme .icon-nav-search-white,
-.dark-theme .icon-nav-settings,
-.dark-theme .icon-nav-shop,
-.dark-theme .icon-nav-trade {
+.dashblox.dark-theme .icon-default-navigation,
+.dashblox.dark-theme .icon-nav-blog,
+.dashblox.dark-theme .icon-nav-charactercustomizer,
+.dashblox.dark-theme .icon-nav-friends,
+.dashblox.dark-theme .icon-nav-giftcards,
+.dashblox.dark-theme .icon-nav-group,
+.dashblox.dark-theme .icon-nav-home,
+.dashblox.dark-theme .icon-nav-inventory,
+.dashblox.dark-theme .icon-nav-menu,
+.dashblox.dark-theme .icon-nav-message,
+.dashblox.dark-theme .icon-nav-my-feed,
+.dashblox.dark-theme .icon-nav-notification-stream,
+.dashblox.dark-theme .icon-nav-profile,
+.dashblox.dark-theme .icon-nav-robux,
+.dashblox.dark-theme .icon-robux-28x28#nav-robux,
+.dashblox.dark-theme .icon-nav-search-white,
+.dashblox.dark-theme .icon-nav-settings,
+.dashblox.dark-theme .icon-nav-shop,
+.dashblox.dark-theme .icon-nav-trade {
     background-image: url(/resources/legacy/navigation_dark.svg);
 }
 
@@ -177,9 +177,9 @@
     background-position: 0 -28.7px;
 }
 
-.icon-robux-28x28#nav-robux,
+.dashblox .icon-robux-28x28#nav-robux,
 .dashblox #nav-robux-icon .icon-robux-28x28,
-.group-detail-stat.col-xs-6.col-md-2 h3.icon-text-wrapper .icon-robux-28x28 {
+.dashblox .group-detail-stat.col-xs-6.col-md-2 h3.icon-text-wrapper .icon-robux-28x28 {
     background-position: 0 -28px;
     background-repeat: no-repeat;
     background-size: auto auto;
@@ -190,11 +190,10 @@
     height: 28px;
 }
 
-.icon-nav-robux:hover,
-a:hover .icon-nav-robux,
-button:hover .icon-nav-robux,
-.dashblox #nav-robux-icon .icon-robux-28x28:hover,
-#nav-robux-icon .icon-robux-28x28:hover {
+.dashblox .icon-nav-robux:hover,
+.dashblox a:hover .icon-nav-robux,
+.dashblox button:hover .icon-nav-robux,
+.dashblox #nav-robux-icon .icon-robux-28x28:hover {
     background-position: -28px -28px;
     background-repeat: no-repeat;
     background-size: auto auto;
