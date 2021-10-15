@@ -10,6 +10,10 @@ const backgroundPage = !!(chrome && chrome.extension && chrome.extension.getBack
 const storage = chrome.storage.local;
 
 const updateLog = `
+Update 2.0.1:
+1). Fixed certain issues caused by other extensions.
+
+Update 2.0.0:
 1). DashBlox has been completely rewritten.
 2). New time formats.
 3). Better statistics for assets, now works for bundles, game passes, and badges.
@@ -18,12 +22,12 @@ const updateLog = `
 6). Old robux icons have gotten a huge upgrade, which makes robux icons around the whole platform have the old icons.
 7). The old top bar now has "discovery" changed to "games".
 8). You can change whether you want the site to say "experiences" or "games" now.
-9). You now have a better looking scrollbar now.
+9). You can now have a better looking scrollbar.
 10). Owners list is temporarily removed, it will be added back for certain assets later.
 11). Overall speed improvements.
-                
-Updated: 10/13/2021
+
 Version: ${manifest.version}
+Updated: 10/15/2021
 `
 
 const dashblox = {
