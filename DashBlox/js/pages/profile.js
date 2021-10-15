@@ -73,7 +73,7 @@ pages.profile = async (userId) => {
                 selector[0].innerText = "8/8/2014";
             })
     
-            $.watch("#roblox-badges-container > .section-content.remove-panel > .hlist.badge-list > .list-item.asset-item", (selector) => {
+            $.watch("#roblox-badges-container > .section-content > .hlist.badge-list > .list-item.asset-item", (selector) => {
                 $(selector[0]).before(`<li class="list-item asset-item"> <a href="https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb" title="The creator of DashBlox!"> <span class="border asset-thumb-container icon-badge-dashblox-creator" title="The creator of DashBlox!"></span> <span class="font-header-2 text-overflow item-name">DashBlox</span> </a> </li>`)
             })
 
