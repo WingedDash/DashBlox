@@ -81,7 +81,7 @@ let categories = [
                         text: "View the owners of a item that is either something you created or a limited.",
 
                         toggleable: true,
-                        disabled: true,
+                        disabled: false,
                         setting: "assets.ownersList"
                     }
                 ]
@@ -174,6 +174,18 @@ let categories = [
             {
                 options: [
                     {
+                        header: "Grouped home page",
+                        text: "Groups together continue playing, friends playing, and favorites into a group and the rest gets grouped into recommended.",
+
+                        toggleable: true,
+                        disabled: false,
+                        setting: "theme.groupedHomePage"
+                    }
+                ]
+            },
+            {
+                options: [
+                    {
                         header: "Better scrollbar",
                         text: `Makes the scrollbar more modern and work with the theme.`,
 
@@ -258,10 +270,6 @@ pages.settings = () => {
                             sectionContent.append(`<div class="rbx-divider"></div>`);
                             sectionContent.append(`<span class="text-description">${option.text}</span>`);
                         } else {
-                            if (options.length < index) {
-                                sectionContent.append(`<div class="rbx-divider"></div>`);
-                            }
-
                             if (option.header) {
                                 sectionContent.append(`<span class="text-lead">${option.header}</span>`);
                             }
