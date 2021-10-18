@@ -1,11 +1,11 @@
-.dashblox.icon-robux, 
-.dashblox.icon-robux-16x16,
-.dashblox.icon-robux-28x28, 
-.dashblox.icon-robux-burst-banner, 
-.dashblox.icon-robux-gold, 
-.dashblox.icon-robux-gray, 
-.dashblox.icon-robux-gray-16x16,
-.dashblox.icon-robux-white {
+.dashblox .icon-robux, 
+.dashblox .icon-robux-16x16,
+.dashblox .icon-robux-28x28, 
+.dashblox .icon-robux-burst-banner, 
+.dashblox .icon-robux-gold, 
+.dashblox .icon-robux-gray, 
+.dashblox .icon-robux-gray-16x16,
+.dashblox .icon-robux-white {
     background-image: url(/resources/legacy/branded_classic.svg);
 }
 
