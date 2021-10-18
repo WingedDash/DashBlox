@@ -115,6 +115,7 @@ const settings = {
             oldRobuxIcons: false,
             oldTopBarText: false,
             changeBackToGames: false,
+            groupedHomePage: false,
     
             smallChatTab: false,
             fancyScrollBar: false
