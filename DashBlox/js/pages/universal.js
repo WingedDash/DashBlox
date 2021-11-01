@@ -29,7 +29,7 @@ pages.universal = async () => {
             injectCSS("css/chat.css");
         }
     })
-
+    
     if (!settings.get("setupComplete")) {
         $.watch("body", (body) => {
             let blackBarrier = $(`<div style="background-color: rgb(0, 0, 0); opacity: 0.8; height: 1811px; width: 1908px; position: fixed; left: 0px; top: 0px; z-index: 1041;" id="" class=""></div>`).appendTo(body);
@@ -42,7 +42,7 @@ pages.universal = async () => {
 
 Don't worry if you don't want to customize settings right now, you can always do it later by pressing the gear icon in the top right and selecting 'DashBlox".</pre>
                 <div class="settings-confirmation">
-                    <a href="https://www.roblox.com/dashblox/settings" id="confirm-btn" class="btn-primary-md">Customize Settings</a>
+                    <a href="https://${currentUrlPaths[2]}/dashblox/settings" id="confirm-btn" class="btn-primary-md">Customize Settings</a>
                     <a id="decline-btn" class="btn-control-md">Use Default Settings</a>
                 </div>
             </div>`).prependTo(body);
@@ -65,11 +65,17 @@ Don't worry if you don't want to customize settings right now, you can always do
         settingsIcon.click(() => {
             $.watch("#settings-popover-menu", (popover) => {
                 if (!$(".dashblox-rbx-menu-item").length > 0) {
-                    popover.prepend(`<li><a class="rbx-menu-item dashblox-rbx-menu-item" href="https://www.roblox.com/dashblox/settings">DashBlox</a></li>`)
+                    popover.prepend(`<li><a class="rbx-menu-item dashblox-rbx-menu-item" href="https://${currentUrlPaths[2]}/dashblox/settings">DashBlox</a></li>`)
                 }
             })
         })
     })
+
+    if (settings.get("general", "blockAlert")) {
+        $.watch(".alert-container", (alert) => {
+            alert.attr("style", "display: none;");
+        })
+    }
 
     if (developerMode) {
         console.log(settings.loadedSettings);

@@ -55,6 +55,19 @@ let categories = [
                         setting: "general.popularTabTop"
                     }
                 ]
+            },
+            {
+                header: "Roblox",
+                options: [
+                    {
+                        header: "Block Roblox Alerts",
+                        text: "Removes the alert from the top of pages when Roblox sends a alert.",
+
+                        toggleable: true,
+                        disabled: false,
+                        setting: "general.blockAlert"
+                    }
+                ]
             }
         ]
     },

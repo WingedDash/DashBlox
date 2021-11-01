@@ -6,8 +6,6 @@ pages.home = () => {
             let favoritesTab = favorites.next();
 
             $.watch(".game-home-page-carousel-title:Contains('Friend Activity')", (friendsPlaying) => {
-                console.log(friendsPlaying);
-
                 favoritesTab.insertAfter(friendsPlaying.next());
                 favorites.insertAfter(friendsPlaying.next());
     
