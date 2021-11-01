@@ -42,6 +42,12 @@ const pageInfo = {
     settings: {
         paths: ["dashblox"],
         subPaths: ["settings"]
+    },
+
+    viewdeleted: {
+        paths: ["dashblox"],
+        subPaths: ["viewdeleted"],
+        css: ["css/pages/deleted.css"]
     }
 }
 
@@ -65,22 +71,31 @@ async function injectPage(page, id) {
     pages[page](id);
 }
 
-function checkPath(page) {
-    if (page) {
-        for (let path in page.paths) {
-            if (page.paths[path] == currentPageInfo.path) {
-                if (!page.subPaths) {
-                    return true;
+function checkPath(currentPage) {
+    if (currentPage) {
+        let success = false;
+
+        currentPage.paths.forEach((page) => {
+            if (page == currentPageInfo.path) {
+                if (!currentPage.subPaths) {
+                    success = true;
+                    return;
                 } else {
-                    for (let subPath in page.subPaths) {
-                        if (page.subPaths[subPath] == urlDetails.uniqueId) {
-                            urlDetails.uniqueId = currentUrlPaths[5];
-                            return true;
-                        }
+                    if (currentPage.subPaths) {
+                        currentPage.subPaths.forEach((subPath) => {
+                            if (typeof(urlDetails.uniqueId) == "string") {
+                                if (subPath == urlDetails.uniqueId.split("?")[0].split("#")[0]) {
+                                    success = true;
+                                    return;
+                                }
+                            }
+                        })
                     }
                 }
             }
-        }
+        })
+
+        return success;
     }
 }
 

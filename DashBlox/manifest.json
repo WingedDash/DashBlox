@@ -58,6 +58,7 @@
                 "js/pages/home.js",
                 "js/pages/profile.js",
                 "js/pages/settings.js",
+                "js/pages/viewdeleted.js",
                 "js/pages/universal.js",
 
                 "js/util.js"

@@ -93,7 +93,8 @@ const settings = {
     defaultSettings: {
         general: {
             simpleTimeFormat: true,
-            popularTabTop: false
+            popularTabTop: false,
+            blockAlert: false
         },
     
         catalog: {
