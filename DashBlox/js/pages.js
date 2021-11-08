@@ -47,7 +47,7 @@ const pageInfo = {
     viewdeleted: {
         paths: ["dashblox"],
         subPaths: ["viewdeleted"],
-        css: ["css/pages/deleted.css"]
+        css: ["css/pages/viewdeleted.css"]
     }
 }
 
