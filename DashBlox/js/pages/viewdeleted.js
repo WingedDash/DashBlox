@@ -101,6 +101,7 @@ pages.viewdeleted = () => {
                                 </div>
                             </div>
 
+                            <div class="rbx-divider"></div>
                         </div>
                     </div>
                 </div>`)

@@ -10,24 +10,16 @@ const backgroundPage = !!(chrome && chrome.extension && chrome.extension.getBack
 const storage = chrome.storage.local;
 
 const updateLog = `
-Update 2.0.1:
-1). Fixed certain issues caused by other extensions.
-
-Update 2.0.0:
-1). DashBlox has been completely rewritten.
-2). New time formats.
-3). Better statistics for assets, now works for bundles, game passes, and badges.
-4). Profile statuses have been readded.
-5). View when a user was last online.
-6). Old robux icons have gotten a huge upgrade, which makes robux icons around the whole platform have the old icons.
-7). The old top bar now has "discovery" changed to "games".
-8). You can change whether you want the site to say "experiences" or "games" now.
-9). You can now have a better looking scrollbar.
-10). Owners list is temporarily removed, it will be added back for certain assets later.
-11). Overall speed improvements.
+Update 2.1.0:
+- Owners list has been added back.
+- Added a new setting for a grouped home page.
+- Added a new setting to block Roblox alerts.
+- Added a new setting to enable pinned games.
+- Added the ability to view deleted users.
+- Fixed bugs and improved page loading.
 
 Version: ${manifest.version}
-Updated: 10/15/2021
+Updated: 11/10/2021
 `
 
 const dashblox = {
