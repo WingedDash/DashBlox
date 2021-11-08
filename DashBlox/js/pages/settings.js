@@ -15,7 +15,7 @@ let categories = [
             },
             {
                 header: "Multiple Extensions",
-                text: `Multiple extensions can cause problems with DashBlox, such as the Robux logos not working and possible duplication in some areas, make sure that you have properly configured all of your settings in all of your extensions so that it doesn't cause any problems with DashBlox.`
+                text: `Having multiple extensions enabled can cause problems with DashBlox, make sure that you have properly configured all of your settings in all of your extensions so that it doesn't cause any problems with DashBlox.`
             },
             {
                 header: "Report A Bug",
@@ -134,7 +134,7 @@ let categories = [
                 options: [
                     {
                         header: "Easy to view statistics",
-                        text: "Moves the profile information such as join date under the avatar.",
+                        text: "Moves the profile information from the bottom of the page to under currently wearing.",
 
                         toggleable: true,
                         disabled: false,
@@ -147,6 +147,19 @@ let categories = [
     {
         name: "Themes",
         content: [
+            {
+                header: "Home",
+                options: [
+                    {
+                        header: "Grouped home page",
+                        text: "Groups together continue playing, friends playing, and favorites into a group and the rest gets grouped into recommended.",
+
+                        toggleable: true,
+                        disabled: false,
+                        setting: "theme.groupedHomePage"
+                    }
+                ]
+            },
             {
                 header: "Aesthetic",
                 options: [
@@ -181,18 +194,6 @@ let categories = [
                         toggleable: true,
                         disabled: false,
                         setting: "theme.changeBackToGames"
-                    }
-                ]
-            },
-            {
-                options: [
-                    {
-                        header: "Grouped home page",
-                        text: "Groups together continue playing, friends playing, and favorites into a group and the rest gets grouped into recommended.",
-
-                        toggleable: true,
-                        disabled: false,
-                        setting: "theme.groupedHomePage"
                     }
                 ]
             },
