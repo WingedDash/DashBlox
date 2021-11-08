@@ -15,7 +15,7 @@ Update 2.1.0:
 - Added a new setting for a grouped home page.
 - Added a new setting to block Roblox alerts.
 - Added a new setting to enable pinned games.
-- Added the ability to view deleted users.
+- Added the ability to view deleted users. (Experimental)
 - Fixed bugs and improved page loading.
 
 Version: ${manifest.version}
