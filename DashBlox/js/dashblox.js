@@ -19,7 +19,7 @@ Update 2.1.0:
 - Fixed bugs and improved page loading.
 
 Version: ${manifest.version}
-Updated: 11/10/2021
+Updated: 11/20/2021
 `
 
 const dashblox = {
