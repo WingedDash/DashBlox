@@ -14,6 +14,11 @@ let categories = [
                 sectionHtml: `<div class="section-content"><a class="icon-social-media-discord" target="_blank" href="https://discord.gg/D2wqedQpTx" style="background-position: -6.5px -8px;"></a><a class="icon-social-media-discord" target="_blank" href="https://twitter.com/WingedDash" style="background-position: -6.5px -134px;"></a><a class="icon-social-media-discord" target="_blank" href="https://github.com/WingedDash" style="background-position: -6.5px -327px;"></a><a class="icon-social-media-discord" target="_blank" href="https://www.roblox.com/users/531629183/profile" style="background-position: -6.5px -455px;"></a></div>`
             },
             {
+                header: "Experimental Features",
+                icon: "icon-warning",
+                text: `Experimental features are features that are still being worked on, they could have multiple bugs or glitches associated with them.`
+            },
+            {
                 header: "Multiple Extensions",
                 text: `Having multiple extensions enabled can cause problems with DashBlox, make sure that you have properly configured all of your settings in all of your extensions so that it doesn't cause any problems with DashBlox.`
             },
@@ -98,6 +103,19 @@ let categories = [
                         setting: "assets.ownersList"
                     }
                 ]
+            },
+            {
+                header: "Catalog",
+                options: [
+                    {
+                        header: "Most recent items category",
+                        text: "A new category that brings you to the most recent items on the catalog.",
+
+                        toggleable: true,
+                        disabled: false,
+                        setting: "catalog.recentCategory"
+                    }
+                ]
             }
         ]
     },
@@ -126,6 +144,17 @@ let categories = [
                         toggleable: true,
                         disabled: false,
                         setting: "profile.lastOnline"
+                    }
+                ]
+            },
+            {
+                options: [
+                    {
+                        header: "View deleted users",
+                        sectionHtml: `<span class="text-description">You can view any deleted users <a class="text-link" target="_blank" href="https://${currentUrlPaths[2]}/dashblox/viewdeleted">here</a>.</span>`,
+
+                        toggleable: false,
+                        experimental: true
                     }
                 ]
             },
@@ -264,7 +293,11 @@ pages.settings = () => {
                 let section = $(`<div class="section"></div>`).appendTo(".dashblox-settings-content");
 
                 if (categroyContent.header) {
-                    section.append(`<div class="container-header"><h3>${categroyContent.header}</h3></div>`);
+                    let header = $(`<div class="container-header"><h3>${categroyContent.header}</h3></div>`).appendTo(section);
+
+                    if (categroyContent.icon) {
+                        header.children(`h3`).append(` <span class="${categroyContent.icon}"></span>`);
+                    }
                 }
 
                 if (categroyContent.preText) {
@@ -280,17 +313,35 @@ pages.settings = () => {
 
                     categroyContent.options.forEach((option, index) => {
                         if (option.header && option.text) {
-                            sectionContent.append(`<span class="text-lead">${option.header}</span>`);
+                            let header = $(`<span class="text-lead">${option.header}</span>`).appendTo(sectionContent);
                             sectionContent.append(`<div class="rbx-divider"></div>`);
                             sectionContent.append(`<span class="text-description">${option.text}</span>`);
+
+                            if (option.experimental) {
+                                header.append(` <span class="icon-warning"></span><span class="text-error">(Experimental)</span>`);
+                            }
                         } else {
                             if (option.header) {
-                                sectionContent.append(`<span class="text-lead">${option.header}</span>`);
+                                let header = $(`<span class="text-lead">${option.header}</span>`).appendTo(sectionContent);
+
+                                if (option.experimental) {
+                                    if (option.experimental) {
+                                        header.append(` <span class="icon-warning"></span><span class="text-error">(Experimental)</span>`);
+                                    }
+                                }
                             }
 
                             if (option.text) {
                                 sectionContent.append(`<span class="text-description">${option.text}</span>`);
                             }
+                        }
+
+                        if (option.sectionHtml && option.header && !option.text) {
+                            sectionContent.append(`<div class="rbx-divider"></div>`);
+                        }
+
+                        if (option.sectionHtml) {
+                            sectionContent.append(option.sectionHtml);
                         }
 
                         if (option.toggleable) {

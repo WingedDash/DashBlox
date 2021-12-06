@@ -11,15 +11,15 @@ const storage = chrome.storage.local;
 
 const updateLog = `
 Update 2.1.0:
-- Owners list has been added back.
+- Owners list has been re-enabled.
 - Added a new setting for a grouped home page.
 - Added a new setting to block Roblox alerts.
-- Added a new setting to enable pinned games.
+- Added a new setting to pin games.
 - Added the ability to view deleted users. (Experimental)
 - Fixed bugs and improved page loading.
 
 Version: ${manifest.version}
-Updated: 11/20/2021
+Updated: MM/DD/YYYY
 `
 
 const dashblox = {
@@ -90,7 +90,7 @@ const settings = {
         },
     
         catalog: {
-
+            recentCategory: true
         },
     
         assets: {
