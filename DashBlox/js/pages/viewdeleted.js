@@ -4,6 +4,9 @@ pages.viewdeleted = () => {
     let args = currentPageInfo.args;
     let userId = Number(args.userid);
 
+    $("title")[0].text = "View Deleted - DashBlox";
+    jQuery("link[rel='icon']").attr("href", chrome.extension.getURL("resources/icons/logo/256/glow.png"));
+
     if (args.userid) {
         $.watch(".content", async (content) => {
             content.empty();
@@ -164,7 +167,13 @@ pages.viewdeleted = () => {
     } else {
         $.watch(".content", (content) => {
             content.empty();
-            content.append(`<h1 style="text-align: center;">Please provide a valid UserId.</h1>`);
+
+            content.append(`<h1 style="text-align: center;">Please enter a UserId below.</h1>`);
+            content.append(`<div class="form-horizontal ng-scope" style="margin-left: 31.6%;"> <div style="float: left;"> <input class="form-control input-field" placeholder="Enter a UserId" style="height: 38px;width: 420px;"> <!-- ngIf: !layout.shoutError --><!-- end ngIf: !layout.shoutError --> <!-- ngIf: layout.shoutError --> </div> <a class="btn-secondary-md ng-binding">Enter</a> </div>`);
+            content.children(`.form-horizontal.ng-scope`).children(`div`).children(`input`).keyup(() => {
+                console.log("a")
+                content.children(`.form-horizontal.ng-scope`).children(`a`).attr("href", `https://${currentUrlPaths[2]}/dashblox/viewdeleted?userid=${content.children(`.form-horizontal.ng-scope`).children(`div`).children(`input`)[0].value}`);
+            });
         })
     }
 }
