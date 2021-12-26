@@ -1,4 +1,7 @@
 # Update Logs
+* Update Version 2.0.2
+    * Fixed an issue where if the user was under 13, settings wouldn't load.
+---
 * Update Version 2.0.1
     * Fixed certain issues caused by other extensions.
 ---
