@@ -12,15 +12,15 @@ pages.profile = async (userId) => {
                     selector.after(`<div class="header-user-status"> <span class="text">"${userStatus.status}"</span> </div>`)
                 }
         
-                if (authUser.userId === userId) {
-                    let updateStatus = $("#popover-content > ul > li:nth-child(5)");
+                // if (authUser.userId === userId) {
+                //     let updateStatus = $("#popover-content > ul > li:nth-child(5)");
     
-                    if (updateStatus.length > 0) {
-                        updateStatus.removeClass("ng-hide");
+                //     if (updateStatus.length > 0) {
+                //         updateStatus.removeClass("ng-hide");
                         
-                        $("#popover-content > ul > li:nth-child(5) > a").attr("href", "https://www.roblox.com/feeds/");
-                    }
-                }
+                //         $("#popover-content > ul > li:nth-child(5) > a").attr("href", "https://www.roblox.com/feeds/");
+                //     }
+                // }
             } catch (err) {
                 if (developerMode) {
                     console.error(err);
