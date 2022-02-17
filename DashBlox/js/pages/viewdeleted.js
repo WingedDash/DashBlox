@@ -98,22 +98,6 @@ pages.viewdeleted = () => {
                 </div>
                 `)
 
-                if (settings.get("profile", "profileStatus")) {
-                    $.watch(".header-caption > .header-names", async (selector) => {
-                        try {
-                            let userStatus = await $.get(`https://users.roblox.com/v1/users/${userId}/status`);
-                
-                            if (userStatus.status) {
-                                selector.after(`<div class="header-user-status"> <span class="text">"${userStatus.status}"</span> </div>`)
-                            }
-                        } catch (err) {
-                            if (developerMode) {
-                                console.error(err);
-                            }
-                        }
-                    })
-                }
-
                 let friendsList = await dashblox.get(`https://friends.roblox.com/v1/users/${userId}/friends?userSort=Alphabetical`);
 
                 let friendsIds = [];

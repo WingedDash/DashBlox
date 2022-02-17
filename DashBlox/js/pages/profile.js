@@ -1,37 +1,16 @@
 "use strict"
 
 pages.profile = async (userId) => {
-    let authUser = await util.getAuthUser();
-
-    if (settings.get("profile", "profileStatus")) {
-        $.watch(".header-caption > .header-names", async (selector) => {
-            try {
-                let userStatus = await $.get(`https://users.roblox.com/v1/users/${userId}/status`);
-    
-                if (userStatus.status) {
-                    selector.after(`<div class="header-user-status"> <span class="text">"${userStatus.status}"</span> </div>`)
-                }
-        
-                // if (authUser.userId === userId) {
-                //     let updateStatus = $("#popover-content > ul > li:nth-child(5)");
-    
-                //     if (updateStatus.length > 0) {
-                //         updateStatus.removeClass("ng-hide");
-                        
-                //         $("#popover-content > ul > li:nth-child(5) > a").attr("href", "https://www.roblox.com/feeds/");
-                //     }
-                // }
-            } catch (err) {
-                if (developerMode) {
-                    console.error(err);
-                }
-            }
-        })
-    }
+    // let authUser = await util.getAuthUser();
 
     if (settings.get("profile", "lastOnline")) {
         try {
             let onlineStats = await dashblox.get(`https://api.roblox.com/users/${Number(userId)}/onlinestatus`);
+
+            if (!onlineStats) {
+                return;
+            }
+
             let lastOnline = onlineStats.LastOnline;
             let presenceType = onlineStats.PresenceType;
 
@@ -41,7 +20,7 @@ pages.profile = async (userId) => {
             })
         } catch (error) {
             if (developerMode) {
-                console.error(error);
+                console.log(error);
             }
         }
     }
@@ -74,7 +53,7 @@ pages.profile = async (userId) => {
             })
     
             $.watch("#roblox-badges-container > .section-content > .hlist.badge-list > .list-item.asset-item", (selector) => {
-                $(selector[0]).before(`<li class="list-item asset-item"> <a href="https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb" title="The creator of DashBlox!"> <span class="border asset-thumb-container icon-badge-dashblox-creator" title="The creator of DashBlox!"></span> <span class="font-header-2 text-overflow item-name">DashBlox</span> </a> </li>`)
+                $(selector[0]).before(`<li class="list-item asset-item"> <a href="https://chrome.google.com/webstore/detail/dashblox/ogffnhpicoghhpcbememhijlbdejchjb" title="The creator of DashBlox!"> <span class="border asset-thumb-container icon-badge-dashblox-creator" title="The creator of DashBlox!"></span> <span class="font-header-2 text-overflow item-name">DashBlox</span> </a> </li>`);
             })
 
             break;

@@ -124,16 +124,6 @@ let categories = [
         content: [
             {
                 header: "Information",
-                options: [
-                    {
-                        header: "Profile statuses",
-                        text: "Allows you to see profile statuses.",
-
-                        toggleable: true,
-                        disabled: false,
-                        setting: "profile.profileStatus"
-                    }
-                ]
             },
             {
                 options: [

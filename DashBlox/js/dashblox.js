@@ -99,7 +99,7 @@ const settings = {
         },
     
         profile: {
-            profileStatus: true,
+            profileStatus: false, // Disabled
             lastOnline: true,
             easyStatistics: false
         },
