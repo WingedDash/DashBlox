@@ -126,7 +126,7 @@ function injectCSSPages() {
 }
 
 function injectCSS(css) {
-    $("head").append(`<link rel="stylesheet" href="${chrome.extension.getURL(css)}">`);
+    $("head").append(`<link rel="stylesheet" href="${chrome.runtime.getURL(css)}">`);
 }
 
 let generateArgs = () => {

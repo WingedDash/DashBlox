@@ -70,7 +70,7 @@ pages.assets = async (assetId) => {
                     let item = assetDetails.items[index];
 
                     if (item.type === "Asset") {
-                        asset = await dashblox.get(`https://api.roblox.com/marketplace/productinfo`, {assetId: item.id});
+                        asset = await dashblox.get(`https://api.roblox.com/marketplace/productinfo?assetId=${item.id}`);
                         break;
                     }
                 }
@@ -92,8 +92,8 @@ pages.assets = async (assetId) => {
             }
 
             default: {
-                let asset = assetPage == "game-pass" ? await dashblox.get(`https://api.roblox.com/marketplace/game-pass-product-info`, {gamepassId: assetId}) : await dashblox.get(`https://api.roblox.com/marketplace/productinfo`, {assetId: assetId});
-        
+                let asset = assetPage == "game-pass" ? await dashblox.get(`https://api.roblox.com/marketplace/game-pass-product-info?gamepassId=${assetId}`) : await dashblox.get(`https://api.roblox.com/marketplace/productinfo?assetId=${assetId}`);
+                
                 if (!asset) {
                     return;
                 }

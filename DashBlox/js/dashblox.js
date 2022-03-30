@@ -5,9 +5,9 @@ const manifest = runtime.getManifest();
 
 const developerMode = (manifest.short_name === "DashBlox_dev");
 
-const backgroundPage = !!(chrome && chrome.extension && chrome.extension.getBackgroundPage);
-
 const storage = chrome.storage.local;
+
+const serviceWorker = !self.window;
 
 const updateLog = `
 Update 2.1.0:
@@ -17,14 +17,15 @@ Update 2.1.0:
 - Added a new setting to pin games.
 - Added the ability to view deleted users. (Experimental)
 - Fixed bugs and improved page loading.
+- Updated to Manifest Version 3.
 
 Version: ${manifest.version}
 Updated: MM/DD/YYYY
 `
 
 const dashblox = {
-    get: (url, data) => {
-        let message = {url: url, data: data, request: "get"};
+    get: (url) => {
+        let message = {url: url, request: "get"};
 
         return new Promise((resolve, reject) => {
             runtime.sendMessage(message, (response) => {
@@ -49,8 +50,8 @@ const dashblox = {
         })
     },
 
-    ajax: (data) => {
-        let message = {data: data, request: "ajax"};
+    fetch: (data) => {
+        let message = {data: data, request: "fetch"};
 
         return new Promise((resolve, reject) => {
             runtime.sendMessage(message, (response) => {
@@ -166,26 +167,58 @@ const settings = {
     }
 }
 
-if (backgroundPage) {
+if (serviceWorker) {
     runtime.onMessage.addListener((message, sender, sendMessage) => {
         switch (message.request) {
             case "get":
-                $.get(message.url, message.data, sendMessage);
+                fetch(message.url, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then((response) => {
+                    response.json().then((data) => {
+                        sendMessage(data);
+                    })
+                });
+
                 break;
             case "post":
-                $.post(message.url, message.data, sendMessage);
+                fetch(message.url, {
+                    method: "POST",
+                    body: JSON.stringify(message.data),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then((response) => {
+                    response.json().then((data) => {
+                        sendMessage(data);
+                    })
+                });
+
                 break;
-            case "ajax":
-                $.ajax(message.data, sendMessage);
+            case "fetch":
+                fetch(message.data).then((response) => {
+                    response.json().then((data) => {
+                        sendMessage(data);
+                    })
+                });
+                
                 break;
         }
     
         return true;
     })
-
+    
     runtime.onUpdateAvailable.addListener((details) => {
         runtime.reload();
     })
+    
+    try {
+        self.importScripts("background/browseraction.js");
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 settings.load();

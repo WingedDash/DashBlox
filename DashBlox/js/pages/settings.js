@@ -386,7 +386,7 @@ pages.settings = () => {
         content.empty();
 
         $("title")[0].text = "Settings - DashBlox";
-        jQuery("link[rel='icon']").attr("href", chrome.extension.getURL("resources/icons/logo/256/glow.png"));
+        jQuery("link[rel='icon']").attr("href", chrome.runtime.getURL("resources/icons/logo/256/glow.png"));
 
         content.append(`
         <div id="dashblox-settings">

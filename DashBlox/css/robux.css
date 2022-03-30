@@ -178,13 +178,20 @@
 }
 
 .dashblox .icon-robux-28x28#nav-robux,
-.dashblox #nav-robux-icon .icon-robux-28x28,
-.dashblox .group-detail-stat.col-xs-6.col-md-2 h3.icon-text-wrapper .icon-robux-28x28 {
+.dashblox #nav-robux-icon .icon-robux-28x28 {
     background-position: 0 -28px;
     background-repeat: no-repeat;
     background-size: auto auto;
     vertical-align: middle;
-    margin-top: -2px;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+}
+
+.dashblox .group-detail-stat.col-xs-6.col-md-2 h3.icon-text-wrapper .icon-robux-28x28 {
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    vertical-align: middle;
     display: inline-block;
     width: 28px;
     height: 28px;
@@ -198,7 +205,6 @@
     background-repeat: no-repeat;
     background-size: auto auto;
     vertical-align: middle;
-    margin-top: -2px;
     display: inline-block;
     width: 28px;
     height: 28px;

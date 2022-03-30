@@ -36,7 +36,7 @@ pages.universal = async () => {
             let setupNotification = $(`
             <div class="dashblox-setup-notification">
                 <div class="section-content">
-                    <img src="${chrome.extension.getURL("/resources/icons/logo/256/normal.png")}" class="dashblox-icon">
+                    <img src="${chrome.runtime.getURL("/resources/icons/logo/256/normal.png")}" class="dashblox-icon">
                 <h3>Thank you for installing DashBlox!</h3>
                 <pre class="text">DashBlox has a lot of features that aren't enabled by default, and if you want to customize the way DashBlox modifies Roblox, you can customize it in DashBlox settings.
 

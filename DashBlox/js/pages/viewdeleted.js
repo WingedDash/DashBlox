@@ -5,7 +5,7 @@ pages.viewdeleted = () => {
     let userId = Number(args.userid);
 
     $("title")[0].text = "View Deleted - DashBlox";
-    jQuery("link[rel='icon']").attr("href", chrome.extension.getURL("resources/icons/logo/256/glow.png"));
+    jQuery("link[rel='icon']").attr("href", chrome.runtime.getURL("resources/icons/logo/256/glow.png"));
 
     if (args.userid) {
         $.watch(".content", async (content) => {
