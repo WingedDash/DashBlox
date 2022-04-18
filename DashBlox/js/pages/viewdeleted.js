@@ -53,15 +53,15 @@ pages.viewdeleted = () => {
                                         <ul class="details-info">
                                             <li>
                                                 <div class="text-label font-caption-header ng-binding">Friends</div>
-                                                <a class="text-name" href="https://${currentUrlPaths[2]}/users/${userId}/friends#!/friends"> <span class="font-header-2 ng-binding">${friends.count}</span> </a>
+                                                <a class="text-name" href="https://${currentUrlPaths[2]}/users/${userId}/friends#!/friends"> <span class="font-header-2 ng-binding">${friends.count.toLocaleString()}</span> </a>
                                             </li>
                                             <li>
                                                 <div class="text-label font-caption-header ng-binding">Followers</div>
-                                                <a class="text-name" href="https://${currentUrlPaths[2]}/users/${userId}/friends#!/followers"> <span class="font-header-2 ng-binding">${followers.count}</span> </a>
+                                                <a class="text-name" href="https://${currentUrlPaths[2]}/users/${userId}/friends#!/followers"> <span class="font-header-2 ng-binding">${followers.count.toLocaleString()}</span> </a>
                                             </li>
                                             <li>
                                                 <div class="text-label font-caption-header ng-binding">Following</div>
-                                                <a class="text-name" href="https://${currentUrlPaths[2]}/users/${userId}/friends#!/following"> <span class="font-header-2 ng-binding">${followings.count}</span> </a>
+                                                <a class="text-name" href="https://${currentUrlPaths[2]}/users/${userId}/friends#!/following"> <span class="font-header-2 ng-binding">${followings.count.toLocaleString()}</span> </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -152,11 +152,39 @@ pages.viewdeleted = () => {
         $.watch(".content", (content) => {
             content.empty();
 
-            content.append(`<h1 style="text-align: center;">Please enter a UserId below.</h1>`);
-            content.append(`<div class="form-horizontal ng-scope" style="margin-left: 31.6%;"> <div style="float: left;"> <input class="form-control input-field" placeholder="Enter a UserId" style="height: 38px;width: 420px;"> <!-- ngIf: !layout.shoutError --><!-- end ngIf: !layout.shoutError --> <!-- ngIf: layout.shoutError --> </div> <a class="btn-secondary-md ng-binding">Enter</a> </div>`);
+            let boxText = "";
+
+            content.append(`<h1 style="text-align: center;">Please enter a Username or a UserId below.</h1>`);
+            content.append(`<div class="form-horizontal ng-scope" style="margin-left: 31.6%;"> <div style="float: left;"> <input class="form-control input-field" placeholder="Enter a Username or a UserId" style="height: 38px;width: 420px;"> <!-- ngIf: !layout.shoutError --><!-- end ngIf: !layout.shoutError --> <!-- ngIf: layout.shoutError --> </div> <a class="btn-secondary-md ng-binding">Enter</a> </div>`);
             content.children(`.form-horizontal.ng-scope`).children(`div`).children(`input`).keyup(() => {
-                console.log("a")
-                content.children(`.form-horizontal.ng-scope`).children(`a`).attr("href", `https://${currentUrlPaths[2]}/dashblox/viewdeleted?userid=${content.children(`.form-horizontal.ng-scope`).children(`div`).children(`input`)[0].value}`);
+                boxText = content.children(`.form-horizontal.ng-scope`).children(`div`).children(`input`)[0].value;
+            });
+
+            let loadProfile = async () => {
+                let isValid = (boxText != "");
+                let isUserId = (isValid && !isNaN(Number(boxText)));
+
+                if (isUserId) {
+                    location.href = `https://${currentUrlPaths[2]}/dashblox/viewdeleted?userid=${Number(boxText)}`;
+                    return;
+                }
+
+                if (isValid) {
+                    let data = await dashblox.get(`https://api.roblox.com/users/get-by-username?username=${boxText}`);
+                    location.href = `https://${currentUrlPaths[2]}/dashblox/viewdeleted?userid=${data.Id}`;
+                }
+            }
+
+            $(`.form-horizontal.ng-scope .btn-secondary-md.ng-binding`).click(async () => {
+                loadProfile();
+            })
+
+            document.addEventListener("keyup", (pressed) => {
+                if (pressed.key === 'Enter') {
+                    if ($(`.form-horizontal.ng-scope div .form-control.input-field`).is(":focus")) {
+                        loadProfile();
+                    }
+                }
             });
         })
     }

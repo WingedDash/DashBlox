@@ -40,7 +40,7 @@ let categories = [
                 options: [
                     {
                         header: "Time Format",
-                        text: "Decides which type of format your prefer it to be in.",
+                        text: "Changes whether to revert back to the old time format.",
 
                         toggleable: true,
                         disabled: false,
@@ -52,8 +52,8 @@ let categories = [
                 header: "Games",
                 options: [
                     {
-                        header: "Popular tab back on the top of the page",
-                        text: "When looking for games, the popular tab will be at the very top of the page.",
+                        header: "Revert Popular Tab Changes",
+                        text: "Changes the position of the popular tab to the top of the games page.",
 
                         toggleable: true,
                         disabled: false,
@@ -83,8 +83,8 @@ let categories = [
                 header: "Assets",
                 options: [
                     {
-                        header: "Item statistics",
-                        text: "Get certain statistics about an item on the catalog or library.",
+                        header: "Item Statistics",
+                        text: "Shows you more information about an item on the catalog.",
 
                         toggleable: true,
                         disabled: false,
@@ -95,8 +95,8 @@ let categories = [
             {
                 options: [
                     {
-                        header: "Owners list",
-                        text: "View the owners of a item that is either something you created or a limited.",
+                        header: "Owners List",
+                        text: "View the owners of an item on the catalog that is something you created, or is a limited.",
 
                         toggleable: true,
                         disabled: false,
@@ -108,8 +108,8 @@ let categories = [
                 header: "Catalog",
                 options: [
                     {
-                        header: "Most recent items category",
-                        text: "A new category that brings you to the most recent items on the catalog.",
+                        header: "Most Recent Items",
+                        text: "This adds a new category that lets you quickly see the most recent items on the catalog.",
 
                         toggleable: true,
                         disabled: false,
@@ -129,7 +129,7 @@ let categories = [
                 options: [
                     {
                         header: "Last Online",
-                        text: "View when a user was last online on their profile.",
+                        text: "This lets you view the last time a user was online on their profile.",
 
                         toggleable: true,
                         disabled: false,
@@ -140,8 +140,8 @@ let categories = [
             {
                 options: [
                     {
-                        header: "View deleted users",
-                        sectionHtml: `<span class="text-description">You can view any deleted users <a class="text-link" target="_blank" href="https://${currentUrlPaths[2]}/dashblox/viewdeleted">here</a>.</span>`,
+                        header: "View Deleted Users",
+                        sectionHtml: `<span class="text-description">You can view deleted users <a class="text-link" target="_blank" href="https://${currentUrlPaths[2]}/dashblox/viewdeleted">here</a>.</span>`,
 
                         toggleable: false,
                         experimental: true
@@ -152,8 +152,8 @@ let categories = [
                 header: "Aesthetic",
                 options: [
                     {
-                        header: "Easy to view statistics",
-                        text: "Moves the profile information from the bottom of the page to under currently wearing.",
+                        header: "Change Profile Statistics Location",
+                        text: "Changes the position of user statistics on a user's profile to be more viewable.",
 
                         toggleable: true,
                         disabled: false,
@@ -170,8 +170,8 @@ let categories = [
                 header: "Home",
                 options: [
                     {
-                        header: "Grouped home page",
-                        text: "Groups together continue playing, friends playing, and favorites into a group and the rest gets grouped into recommended.",
+                        header: "Grouped Home Page",
+                        text: "Groups together continue playing, friends playing, and favorites and the rest get grouped into recommended.",
 
                         toggleable: true,
                         disabled: false,
@@ -183,7 +183,7 @@ let categories = [
                 header: "Aesthetic",
                 options: [
                     {
-                        header: "Original topbar",
+                        header: "Original Topbar Text",
                         text: `Replaces the top bar text with "games" and "catalog".`,
 
                         toggleable: true,
@@ -195,7 +195,7 @@ let categories = [
             {
                 options: [
                     {
-                        header: "Old Robux icons",
+                        header: "Old Robux Icons",
                         text: "Replaces the new Robux icon with the older one.",
 
                         toggleable: true,
@@ -207,8 +207,8 @@ let categories = [
             {
                 options: [
                     {
-                        header: "Experiences to games",
-                        text: `Reverts "experiences" back to "games" as it originally was.`,
+                        header: "Revert Experiences Back To Games",
+                        text: `Reverts the "experiences" update back to "games".`,
 
                         toggleable: true,
                         disabled: false,
@@ -220,8 +220,8 @@ let categories = [
             {
                 options: [
                     {
-                        header: "Better scrollbar",
-                        text: `Makes the scrollbar more modern and work with the theme.`,
+                        header: "Better Scrollbar",
+                        text: `Changes the scrollbar to be more modern and work with the Roblox theme.`,
 
                         toggleable: true,
                         disabled: false,
@@ -232,8 +232,8 @@ let categories = [
             {
                 options: [
                     {
-                        header: "Small chat tab",
-                        text: `Changes the chat tab to be smaller.`,
+                        header: "Small Chat Tab",
+                        text: `Changes the chat tab to a smaller size.`,
 
                         toggleable: true,
                         disabled: false,

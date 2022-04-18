@@ -15,7 +15,10 @@ Update 2.1.0:
 - Added a new setting for a grouped home page.
 - Added a new setting to block Roblox alerts.
 - Added a new setting to pin games.
+- Added a new setting for the most recent catalog items.
 - Added the ability to view deleted users. (Experimental)
+- Removed profile statistics. (Roblox patched it)
+- Tweaked the settings page.
 - Fixed bugs and improved page loading.
 - Updated to Manifest Version 3.
 
