@@ -4,6 +4,7 @@ const runtime = chrome.runtime;
 const manifest = runtime.getManifest();
 
 const developerMode = (manifest.short_name === "DashBlox_dev");
+const betaMode = (manifest.short_name === "DashBlox_beta");
 
 const storage = chrome.storage.local;
 
@@ -17,18 +18,20 @@ Update 2.1.0:
 - Added a new setting to pin games.
 - Added a new setting for the most recent catalog items.
 - Added the ability to view deleted users. (Experimental)
-- Removed profile statistics. (Roblox patched it)
+- Readded the setting to view owners list.
+- Removed profile statuses. (Roblox patched it)
 - Tweaked the settings page.
 - Fixed bugs and improved page loading.
 - Updated to Manifest Version 3.
 
+Build: ${(!developerMode && !betaMode) ? "Stable" : (developerMode && !betaMode) ? "Development" : "Beta"}
 Version: ${manifest.version}
 Updated: MM/DD/YYYY
 `
 
 const dashblox = {
-    get: (url) => {
-        let message = {url: url, request: "get"};
+    get: (url, data) => {
+        let message = {url: url, data: data || {}, request: "get"};
 
         return new Promise((resolve, reject) => {
             runtime.sendMessage(message, (response) => {
@@ -85,96 +88,108 @@ const dashblox = {
     }
 }
 
-const settings = {
-    defaultSettings: {
-        general: {
-            simpleTimeFormat: true,
-            popularTabTop: false,
-            blockAlert: false
-        },
-    
-        catalog: {
-            recentCategory: true
-        },
-    
-        assets: {
-            assetStats: true,
-            ownersList: true
-        },
-    
-        profile: {
-            profileStatus: false, // Disabled
-            lastOnline: true,
-            easyStatistics: false
-        },
-    
-        theme: {
-            oldRobuxIcons: false,
-            oldTopBarText: false,
-            changeBackToGames: false,
-            groupedHomePage: false,
-    
-            smallChatTab: false,
-            fancyScrollBar: false
-        },
+class SettingsClass {
+    constructor () {
+        this.loadedSettings = null;
         
-        otherExtensionWarning: false,
-        setupComplete: false
-    },
+        this.defaultSettings = {
+            general: {
+                simpleTimeFormat: true,
+                popularTabTop: false,
+                blockAlert: false
+            },
+        
+            catalog: {
+                recentCategory: true
+            },
+        
+            assets: {
+                assetStats: true,
+                ownersList: true
+            },
+        
+            profile: {
+                profileStatus: undefined, // Disabled.
+                lastOnline: true,
+                easyStatistics: false
+            },
+        
+            theme: {
+                oldRobuxIcons: false,
+                oldTopBarText: false,
+                changeBackToGames: false,
+                groupedHomePage: false,
+        
+                smallChatTab: false,
+                fancyScrollBar: false
+            },
+            
+            currentSubDomain: "www.roblox.com",
+            otherExtensionWarning: undefined, // Unused.
+            setupComplete: false
+        };
 
-    loadedSettings: null,
+        this.init();
+    }
 
-    get(category, setting) {
-        if (!setting) {return this.loadedSettings[category]};
-        return this.loadedSettings[category][setting];
-    },
+    async init () { // Rewrite?
+        let storageSettings = (await dashblox.storage.get("settings")).settings;
 
-    set(category, setting, value) {
-        if (value == null || value == undefined) {
-            value = setting;
-            this.loadedSettings[category] = value;
-            dashblox.storage.save("settings", this.loadedSettings);
-            console.log("this")
-        } else {
-            this.loadedSettings[category][setting] = value;
-            dashblox.storage.save("settings", this.loadedSettings);
-        }
-    },
-
-    async load() {
-        let oldSettings = (await dashblox.storage.get("settings")).settings;
-
-        if (!oldSettings) {
+        if (!storageSettings) {
             this.loadedSettings = this.defaultSettings;
             dashblox.storage.save("settings", this.loadedSettings);
         } else {
             Object.entries(this.defaultSettings).forEach(([categoryName, category]) => {
                 if (typeof categoryName === "string" && category instanceof Object) {
                     Object.entries(category).forEach(([settingName, setting]) => {
-                        if (oldSettings[categoryName] && !oldSettings[categoryName][settingName] === undefined) {
-                            oldSettings[categoryName][settingName] = setting;
-                        } else if (!oldSettings[categoryName]) {
-                            oldSettings[categoryName] = category;
+                        if (storageSettings[categoryName] && !storageSettings[categoryName][settingName] === undefined) {
+                            storageSettings[categoryName][settingName] = setting;
+                        } else if (!storageSettings[categoryName]) {
+                            storageSettings[categoryName] = category;
                         }
                     })
                 } else if (typeof categoryName === "string" && !category instanceof Object) {
-                    if (!oldSettings[categoryName]) {
-                        oldSettings[categoryName] = category;
+                    if (!storageSettings[categoryName]) {
+                        storageSettings[categoryName] = category;
                     }
                 }
             })
 
-            this.loadedSettings = oldSettings;
+            this.loadedSettings = storageSettings;
+            dashblox.storage.save("settings", this.loadedSettings);
+        }
+
+        this.defaultSettings = null; // Assuming this helps.
+    }
+
+    get (category, setting) {
+        if (!setting) {return this.loadedSettings[category]};
+        return this.loadedSettings[category][setting];
+    }
+
+    set (category, setting, value) {
+        if (value == null || value == undefined) {
+            value = setting;
+            this.loadedSettings[category] = value;
+            dashblox.storage.save("settings", this.loadedSettings);
+        } else {
+            this.loadedSettings[category][setting] = value;
             dashblox.storage.save("settings", this.loadedSettings);
         }
     }
 }
 
+const settings = new SettingsClass();
+
 if (serviceWorker) {
     runtime.onMessage.addListener((message, sender, sendMessage) => {
         switch (message.request) {
             case "get":
-                fetch(message.url, {
+                let dataString = Object.entries(message.data).map(([key, value]) => {
+                    return `${key}=${value}`;
+                }).join("&");
+
+                fetch(`${message.url}${Object.keys(message.data).length > 0 ? "?" : ""}${dataString}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json"
@@ -223,5 +238,3 @@ if (serviceWorker) {
         console.error(error);
     }
 }
-
-settings.load();

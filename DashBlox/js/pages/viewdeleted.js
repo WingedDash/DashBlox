@@ -1,6 +1,6 @@
 "use strict"
 
-pages.viewdeleted = () => {
+pages.viewdeleted = () => { // This entire page is experimental, I plan on polishing this code a lot more.
     let args = currentPageInfo.args;
     let userId = Number(args.userid);
 
@@ -22,7 +22,7 @@ pages.viewdeleted = () => {
             let followers = await dashblox.get(`https://friends.roblox.com/v1/users/${userId}/followers/count`);
             let followings = await dashblox.get(`https://friends.roblox.com/v1/users/${userId}/followings/count`);
 
-            let userThumbnails = await dashblox.get(`https://thumbnails.roblox.com/v1/users/avatar-headshot?format=Png&isCircular=true&size=150x150&userIds=${userId}`);
+            let userThumbnails = await dashblox.get(`https://thumbnails.roblox.com/v1/users/avatar-headshot`, {format: "Png", isCircular: true, size: "150x150", userIds: userId});
 
             if (userThumbnails.data && typeof friends.count === "number" && typeof followers.count === "number" && typeof followings.count === "number") {
                 let userThumbnail = userThumbnails.data[0].imageUrl;
@@ -110,7 +110,7 @@ pages.viewdeleted = () => {
                     })
                 }
 
-                let friendThumbnails = await dashblox.get(`https://thumbnails.roblox.com/v1/users/avatar-headshot?format=Png&isCircular=false&size=150x150&userIds=${friendsIds.join(",")}`);
+                let friendThumbnails = await dashblox.get(`https://thumbnails.roblox.com/v1/users/avatar-headshot`, {format: "Png", isCircular: false, size: "150x150", userIds: friendsIds.join(",")});
 
                 let friendThumbnailIds = {};
     
@@ -170,7 +170,7 @@ pages.viewdeleted = () => {
                 }
 
                 if (isValid) {
-                    let data = await dashblox.get(`https://api.roblox.com/users/get-by-username?username=${boxText}`);
+                    let data = await dashblox.get(`https://api.roblox.com/users/get-by-username`, {username: boxText});
                     location.href = `https://${currentUrlPaths[2]}/dashblox/viewdeleted?userid=${data.Id}`;
                 }
             }

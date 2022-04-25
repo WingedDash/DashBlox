@@ -7,9 +7,9 @@
     "description": "Creates new features that otherwise are missing, removed, or don't exist.",
 
     "author": "WingedDash",
-    "version": "2.0.2",
+    "version": "2.1.0",
 
-    "minimum_chrome_version": "80",
+    "minimum_chrome_version": "88",
 
     "action": {
         "default_title": "DashBlox"

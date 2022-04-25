@@ -4,8 +4,10 @@
     height: 50%;
     top: 0;
     left: 0;
-    margin-left: 650px;
-    margin-top: 200px;
+    /* margin-left: 650px;
+    margin-top: 200px; */
+    margin-left: 35%;
+    margin-top: 10%;
     z-index: 1042;
 }
 

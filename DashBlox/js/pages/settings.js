@@ -49,19 +49,6 @@ let categories = [
                 ]
             },
             {
-                header: "Games",
-                options: [
-                    {
-                        header: "Revert Popular Tab Changes",
-                        text: "Changes the position of the popular tab to the top of the games page.",
-
-                        toggleable: true,
-                        disabled: false,
-                        setting: "general.popularTabTop"
-                    }
-                ]
-            },
-            {
                 header: "Roblox",
                 options: [
                     {
@@ -74,6 +61,38 @@ let categories = [
                     }
                 ]
             }
+        ]
+    },
+    {
+        name: "Games",
+        content: [
+            {
+                header: "Discovery Page",
+                options: [
+                    {
+                        header: "Revert Popular Tab Changes",
+                        text: "Changes the position of the popular tab to the top of the games page.",
+
+                        toggleable: true,
+                        disabled: false,
+                        setting: "general.popularTabTop"
+                    }
+                ]
+            },
+            {
+                header: "Games Page",
+                options: [
+                    {
+                        header: "Revert Experiences Back To Games",
+                        text: `Reverts the "experiences" update back to "games".`,
+
+                        toggleable: true,
+                        disabled: false,
+                        experimental: true,
+                        setting: "theme.changeBackToGames"
+                    }
+                ]
+            },
         ]
     },
     {
@@ -120,7 +139,7 @@ let categories = [
         ]
     },
     {
-        name: "Profile",
+        name: "Profiles",
         content: [
             {
                 header: "Information",
@@ -141,7 +160,7 @@ let categories = [
                 options: [
                     {
                         header: "View Deleted Users",
-                        sectionHtml: `<span class="text-description">You can view deleted users <a class="text-link" target="_blank" href="https://${currentUrlPaths[2]}/dashblox/viewdeleted">here</a>.</span>`,
+                        sectionHtml: `<span class="text-description">You can view deleted users <a class="text-link" href="https://${currentUrlPaths[2]}/dashblox/viewdeleted">here</a>.</span>`,
 
                         toggleable: false,
                         experimental: true
@@ -201,19 +220,6 @@ let categories = [
                         toggleable: true,
                         disabled: false,
                         setting: "theme.oldRobuxIcons"
-                    }
-                ]
-            },
-            {
-                options: [
-                    {
-                        header: "Revert Experiences Back To Games",
-                        text: `Reverts the "experiences" update back to "games".`,
-
-                        toggleable: true,
-                        disabled: false,
-                        experimental: true,
-                        setting: "theme.changeBackToGames"
                     }
                 ]
             },

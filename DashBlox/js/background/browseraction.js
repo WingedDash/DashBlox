@@ -1,3 +1,4 @@
 chrome.action.onClicked.addListener(() => {
-    chrome.tabs.update({url: "https://www.roblox.com/dashblox/settings"});
+    let currentSubDomain = settings.get("currentSubDomain") || "www.roblox.com";
+    chrome.tabs.update({url: `https://${currentSubDomain}/dashblox/settings`});
 })

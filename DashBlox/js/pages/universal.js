@@ -32,7 +32,7 @@ pages.universal = async () => {
     
     if (!settings.get("setupComplete")) {
         $.watch("body", (body) => {
-            let blackBarrier = $(`<div style="background-color: rgb(0, 0, 0); opacity: 0.8; height: 1811px; width: 1908px; position: fixed; left: 0px; top: 0px; z-index: 1041;" id="" class=""></div>`).appendTo(body);
+            let blackBarrier = $(`<div style="background-color: rgb(0, 0, 0); opacity: 0.8; height: 100%; width: 100%; position: fixed; left: 0px; top: 0px; z-index: 1041;" id="" class=""></div>`).appendTo(body);
             let setupNotification = $(`
             <div class="dashblox-setup-notification">
                 <div class="section-content">
@@ -75,6 +75,10 @@ Don't worry if you don't want to customize settings right now, you can always do
         $.watch(".alert-container", (alert) => {
             alert.attr("style", "display: none;");
         })
+    }
+
+    if (settings.get("currentSubDomain") != currentUrlPaths[2]) { // Why did Roblox make this more complicated than it should be?
+        settings.set("currentSubDomain", currentUrlPaths[2]);
     }
 
     if (developerMode) {
