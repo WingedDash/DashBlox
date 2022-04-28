@@ -48,7 +48,8 @@
 
 .dashblox .icon-robux-white,
 .dashblox .robux-upsell .subscribed .icon-robux-white,
-.dashblox .btn-growth-md.btn-full-width.unsubscribed.ng-scope .icon-robux-white {
+.dashblox .btn-growth-md.btn-full-width.unsubscribed.ng-scope .icon-robux-white,
+.dashblox #game-details-play-button-container .btn-full-width.btn-common-play-game-lg.btn-primary-md.btn-min-width .icon-robux-white {
     background-position: 0 -252px;
     background-size: 72px auto;
     width: 36px;
@@ -78,7 +79,9 @@
 
 .dashblox .store-card-price .icon-robux-16x16,
 .dashblox .description-text.ng-binding .icon-robux-16x16,
+.dashblox .modal-content .modal-footer .icon-robux-gray-16x16,
 .dashblox #textDisplay .robux-price-default-color .icon-robux-16x16,
+.dashblox .modal-content .modal-body .modal-message .icon-robux-16x16,
 .dashblox .text-overflow.item-card-label.ng-scope .icon-robux-gray-16x16,
 .dashblox .item-card-caption .text-overflow.item-card-price .icon.icon-robux-16x16,
 .dashblox .modal-content .modal-body .modal-top-body .modal-message .icon-robux-16x16,
