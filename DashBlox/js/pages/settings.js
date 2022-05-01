@@ -36,6 +36,19 @@ let categories = [
         name: "General",
         content: [
             {
+                header: "DashBlox",
+                options: [
+                    {
+                        header: "DashBlox Update Notifications",
+                        text: "Get notified when DashBlox has a new major update, allowing you to explore new settings and features when they're available.",
+
+                        toggleable: true,
+                        disabled: false,
+                        setting: "general.dashbloxUpdates"
+                    }
+                ]
+            },
+            {
                 header: "Catalog",
                 options: [
                     {
@@ -81,6 +94,18 @@ let categories = [
             },
             {
                 header: "Games Page",
+                options: [
+                    {
+                        header: "Pinning Games",
+                        text: "Allows you to pin games to your home page.",
+
+                        toggleable: true,
+                        disabled: false,
+                        setting: "games.pinningGames"
+                    }
+                ]
+            },
+            {
                 options: [
                     {
                         header: "Revert Experiences Back To Games",

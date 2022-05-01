@@ -17,6 +17,7 @@ Update 2.1.0:
 - Added a new setting to block Roblox alerts.
 - Added a new setting to pin games.
 - Added a new setting for the most recent catalog items.
+- Added a new setting for DashBlox updates.
 - Added the ability to view deleted users. (Experimental)
 - Readded the setting to view owners list.
 - Removed profile statuses. (Roblox patched it)
@@ -94,9 +95,14 @@ class SettingsClass {
         
         this.defaultSettings = {
             general: {
+                dashbloxUpdates: true,
                 simpleTimeFormat: true,
                 popularTabTop: false,
                 blockAlert: false
+            },
+
+            games: {
+                pinningGames: true
             },
         
             catalog: {
