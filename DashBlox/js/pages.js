@@ -21,7 +21,8 @@ const pageInfo = {
 
     games: {
         hasIds: true,
-        paths: ["games"]
+        paths: ["games"],
+        css: ["css/pages/games.css"]
     },
 
     groups: {

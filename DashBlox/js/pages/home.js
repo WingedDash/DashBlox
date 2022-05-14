@@ -9,6 +9,7 @@ pages.home = () => {
                 favoritesTab.insertAfter(friendsPlaying.next());
                 favorites.insertAfter(friendsPlaying.next());
     
+                favoritesTab.after(`<div class="rbx-divider"></div>`);
                 favoritesTab.after(`<h1 style="text-align: center;">Recommended</h1>`);
             })
         })

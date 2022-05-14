@@ -12,7 +12,6 @@ const serviceWorker = !self.window;
 
 const updateLog = `
 Update 2.1.0:
-- Owners list has been re-enabled.
 - Added a new setting for a grouped home page.
 - Added a new setting to block Roblox alerts.
 - Added a new setting to pin games.
@@ -138,7 +137,7 @@ class SettingsClass {
         this.init();
     }
 
-    async init () { // Rewrite?
+    async init () { // Rewrite this, stop using "forEach" and it needs to be more polished.
         let storageSettings = (await dashblox.storage.get("settings")).settings;
 
         if (!storageSettings) {
@@ -168,12 +167,12 @@ class SettingsClass {
         this.defaultSettings = null; // Assuming this helps.
     }
 
-    get (category, setting) {
+    get (category, setting) { // Rewrite this, it shouldn't be reliant on the setting existing in a specific location.
         if (!setting) {return this.loadedSettings[category]};
         return this.loadedSettings[category][setting];
     }
 
-    set (category, setting, value) {
+    set (category, setting, value) { // Rewrite this, it shouldn't be reliant on a setting being in a specific location.
         if (value == null || value == undefined) {
             value = setting;
             this.loadedSettings[category] = value;

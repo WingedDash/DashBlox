@@ -1,0 +1,50 @@
+.game-extra-context {
+    position: absolute;
+    top: 6px;
+    right: 0px;
+    z-index: 2;
+}
+
+.game-pin-icon {
+    background-position: -15px -5px;
+    background-size: 50px 60px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(/resources/games/pin-light.png);
+}
+
+.light-theme .game-pin-icon {
+    background-position: -15px -5px;
+    background-size: 50px 60px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(/resources/games/pin-light.png);
+}
+
+.dark-theme .game-pin-icon {
+    background-position: -15px -5px;
+    background-size: 50px 60px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(/resources/games/pin-dark.png);
+}
+
+.game-pin-icon:hover {
+    background-position: -15px -33px;
+}
+
+.game-pin-icon.active {
+    background-position: -15px -33px;
+    background-size: 50px 60px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(/resources/games/pin.png);
+}
