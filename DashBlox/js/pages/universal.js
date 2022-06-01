@@ -61,7 +61,7 @@ Don't worry if you don't want to customize settings right now, you can always do
         })
     }
 
-    $.watch("#settings-icon", (settingsIcon) => {
+    $.watch("#navbar-settings button", (settingsIcon) => {
         settingsIcon.click(() => {
             $.watch("#settings-popover-menu", (popover) => {
                 if (!$(".dashblox-rbx-menu-item").length > 0) {
