@@ -114,7 +114,7 @@ class SettingsClass {
             },
         
             profile: {
-                profileStatus: undefined, // Disabled.
+                profileStatus: undefined, // Removed.
                 lastOnline: true,
                 easyStatistics: false
             },
