@@ -11,4 +11,10 @@ pages.discover = () => {
             popularTab.insertBefore($($(".games-list-container.is-windows")[0]));
         })
     }
+
+    if (settings.get("theme", "changeBackToGames")) {
+        $.watch(".games-list-header h1", (selector) => {
+            selector[0].innerText = "Games"
+        })
+    }
 }

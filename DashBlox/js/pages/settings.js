@@ -224,6 +224,20 @@ let categories = [
                 ]
             },
             {
+                options: [
+                    {
+                        header: "Classic Home Page",
+                        text: "Replaces the home page header with your profile picture and name.",
+
+                        developmentVisible: true,
+
+                        toggleable: true,
+                        disabled: false,
+                        setting: "theme.profileHomePage"
+                    }
+                ]
+            },
+            {
                 header: "Aesthetic",
                 options: [
                     {
@@ -276,7 +290,7 @@ let categories = [
     }
 ]
 
-pages.settings = () => {
+pages.settings = () => { // Replace all "forEach" functions, rewrite most of the code.
     var settingsCooldown = false;
     var selectedCategory = "";
 
@@ -291,13 +305,13 @@ pages.settings = () => {
         throw new Error(`Could not find category under the name ${name}`);
     }
 
-    function getSetting(setting) {
+    function getSetting(setting) { // Rewrite this.
         let settingCategories = setting.split(".");
 
         return [settings.get(settingCategories[0], settingCategories[1]), settingCategories];
     }
 
-    function loadCategory(name) {
+    function loadCategory(name) { // Rewrite this.
         if (!settingsCooldown && name != selectedCategory) {
             settingsCooldown = true;
 
@@ -334,6 +348,13 @@ pages.settings = () => {
                     let sectionContent = $(`</div><div class="section-content"></div>`).appendTo(section);
 
                     categroyContent.options.forEach((option, index) => {
+                        if (option.developmentVisible) {
+                            if (!developerMode) {
+                                section.remove();
+                                return;
+                            }
+                        }
+
                         if (option.header && option.text) {
                             let header = $(`<span class="text-lead">${option.header}</span>`).appendTo(sectionContent);
                             sectionContent.append(`<div class="rbx-divider"></div>`);

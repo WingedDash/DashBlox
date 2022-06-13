@@ -19,8 +19,15 @@ let determinEndDate = (date) => {
     }
 }
 
-const util = {
-    getAuthUser: () => {
+class DashBloxUtil {
+    constructor () {
+        this.domains = ["www.roblox.com", "web.roblox.com"];
+        this.blockedPaths = ["user-sponsorship", "userads"];
+
+        this.init();
+    }
+
+    getAuthUser () {
         return new Promise (async (resolve, reject) => {
             let auth = await dashblox.get(`https://users.roblox.com/v1/users/authenticated`);
     
@@ -42,9 +49,9 @@ const util = {
                 message: "Failed to get authenticated user."
             })
         })
-    },
+    }
 
-    timeFormat: (date) => {
+    timeFormat (date) {
         date = new Date(date);
 
         let hours = date.getHours();
@@ -61,9 +68,31 @@ const util = {
             return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()} @ ${hours}:${minutes} ${zone}`;
         }
     }
+
+    init () {
+        const begin = () => {
+            if (settings.loadedSettings instanceof Object) {
+                injectPages(); // This needs to be changed.
+                injectPage("universal");
+            
+                $.watch("head", () => {
+                    injectCSS("css/universal.css");
+                    injectCSSPages(); // This needs to be different in order to add themes.
+                })
+            } else {
+                setTimeout(begin, 0);
+            }
+        }
+
+        if (this.domains.includes(currentUrlPaths[2]) && !this.blockedPaths.includes(currentPageInfo.path)) {
+            begin();
+        }
+    }
 }
 
-Object.assign($, {
+const util = new DashBloxUtil();
+
+Object.assign($, { // Once jquery is removed and I make a new one, write this into it. 
     watch(selector, callback) {
         if (typeof callback !== "function") {
             throw Error("Watch requires a function.");
@@ -78,21 +107,3 @@ Object.assign($, {
         }
     }
 })
-
-if (currentPageInfo.path != "user-sponsorship" && currentPageInfo.path != "userads") {
-    let init = () => {
-        if (settings.loadedSettings instanceof Object) {
-            injectPages();
-            injectPage("universal");
-        
-            $.watch("head", () => {
-                injectCSS("css/universal.css");
-                injectCSSPages();
-            })
-        } else {
-            setTimeout(init, 0);
-        }
-    }
-
-    init();
-}

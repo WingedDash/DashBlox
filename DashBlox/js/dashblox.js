@@ -88,7 +88,7 @@ const dashblox = {
     }
 }
 
-class SettingsClass {
+class DashBloxSettings {
     constructor () {
         this.loadedSettings = null;
         
@@ -122,8 +122,9 @@ class SettingsClass {
             theme: {
                 oldRobuxIcons: false,
                 oldTopBarText: false,
-                changeBackToGames: false,
+                changeBackToGames: false, // Expiremental, lots of pages that can be broken by a simple roblox update.
                 groupedHomePage: false,
+                profileHomePage: false, // Not ready yet.
         
                 smallChatTab: false,
                 fancyScrollBar: false
@@ -184,7 +185,7 @@ class SettingsClass {
     }
 }
 
-const settings = new SettingsClass();
+const settings = new DashBloxSettings();
 
 if (serviceWorker) {
     runtime.onMessage.addListener((message, sender, sendMessage) => {
@@ -237,7 +238,7 @@ if (serviceWorker) {
         runtime.reload();
     })
     
-    try {
+    try { // Reminder: Check chrome for better practice in the future.
         self.importScripts("background/browseraction.js");
     } catch (error) {
         console.error(error);
