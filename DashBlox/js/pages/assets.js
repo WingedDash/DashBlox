@@ -62,7 +62,7 @@ pages.assets = async (assetId) => {
             
                 let bundle = null;
     
-                for (let index in assetDetails.items) { // This fetches a 
+                for (let index in assetDetails.items) { // This fetches an asset inside of the bundle to get the information.
                     let item = assetDetails.items[index];
 
                     if (item.type === "Asset") {

@@ -231,6 +231,7 @@ let categories = [
 
                         toggleable: true,
                         disabled: false,
+                        experimental: true,
                         setting: "theme.profileHomePage"
                     }
                 ]

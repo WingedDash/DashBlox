@@ -31,7 +31,8 @@ const pageInfo = {
     },
 
     home: {
-        paths: ["home"]
+        paths: ["home"],
+        css: ["css/pages/home.css"]
     },
 
     profile: {
