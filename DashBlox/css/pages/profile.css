@@ -5,12 +5,12 @@
 
     display: inline-block;
     vertical-align: middle;
-    background-position: -140px -980px;
+    background-position: -140px -998px;
 }
 
 @media (max-width: 767px) {
     .section-content .icon-badge-dashblox-creator {
-        background-position: -85px -595px;
+        background-position: -85px -606px;
     }
 }
 

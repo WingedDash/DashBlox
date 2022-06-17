@@ -24,6 +24,11 @@
     position: absolute;
     transform: translate(-50%, -50%);
     object-fit: contain;
+
+    background-image: url(/resources/icons/logo/vector-logo.svg);
+    background-size: 90%;
+    background-position: 50% 0px;
+    background-repeat: no-repeat;
 }
 
 .dashblox-setup-notification h3 {

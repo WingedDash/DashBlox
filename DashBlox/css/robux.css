@@ -6,7 +6,7 @@
 .dashblox .icon-robux-gray, 
 .dashblox .icon-robux-gray-16x16,
 .dashblox .icon-robux-white {
-    background-image: url(/resources/legacy/branded_classic.svg);
+    background-image: url(/resources/navigation/branded_classic.svg);
 }
 
 .dashblox.light-theme .icon-robux, 
@@ -17,7 +17,7 @@
 .dashblox.light-theme .icon-robux-gray, 
 .dashblox.light-theme .icon-robux-gray-16x16,
 .dashblox.light-theme .icon-robux-white {
-    background-image: url(/resources/legacy/branded_light.svg);
+    background-image: url(/resources/navigation/branded_light.svg);
 }
 
 .dashblox.dark-theme .icon-robux, 
@@ -28,7 +28,7 @@
 .dashblox.dark-theme .icon-robux-gray, 
 .dashblox.dark-theme .icon-robux-gray-16x16,
 .dashblox.dark-theme .icon-robux-white {
-    background-image: url(/resources/legacy/branded_dark.svg);
+    background-image: url(/resources/navigation/branded_dark.svg);
 }
 
 .dashblox .icon-robux,
@@ -129,7 +129,7 @@
 .dashblox .icon-nav-settings,
 .dashblox .icon-nav-shop,
 .dashblox .icon-nav-trade {
-    background-image: url(/resources/legacy/navigation_light.svg);
+    background-image: url(/resources/navigation/navigation_light.svg);
 }
 
 .dashblox.light-theme .icon-default-navigation,
@@ -151,7 +151,7 @@
 .dashblox.light-theme .icon-nav-settings,
 .dashblox.light-theme .icon-nav-shop,
 .dashblox.light-theme .icon-nav-trade {
-    background-image: url(/resources/legacy/navigation_light.svg);
+    background-image: url(/resources/navigation/navigation_light.svg);
 }
 
 .dashblox.dark-theme .icon-default-navigation,
@@ -173,7 +173,7 @@
 .dashblox.dark-theme .icon-nav-settings,
 .dashblox.dark-theme .icon-nav-shop,
 .dashblox.dark-theme .icon-nav-trade {
-    background-image: url(/resources/legacy/navigation_dark.svg);
+    background-image: url(/resources/navigation/navigation_dark.svg);
 }
 
 .dashblox .icon-nav-robux {
