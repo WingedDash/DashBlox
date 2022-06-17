@@ -124,7 +124,7 @@ class DashBloxSettings {
                 oldTopBarText: false,
                 changeBackToGames: false, // Expiremental, lots of pages that can be broken by a simple roblox update.
                 groupedHomePage: false,
-                profileHomePage: false, // Not ready yet.
+                profileHomePage: false,
         
                 smallChatTab: false,
                 fancyScrollBar: false

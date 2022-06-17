@@ -26,18 +26,16 @@ function getBadgeRarity(rarity) {
 }
 
 pages.assets = async (assetId) => {
-    let assetPage = currentPageInfo.path;
+    const assetPage = currentPageInfo.path;
 
     if (settings.get("assets", "assetStats")) {
         switch (assetPage) {
             case "badges": {
-                let badge = await dashblox.get(`https://badges.roblox.com/v1/badges/${assetId}`);
+                const badge = await dashblox.get(`https://badges.roblox.com/v1/badges/${assetId}`);
 
-                if (!badge) {
-                    return;
-                }
+                if (!badge) return;
     
-                let winRate = (badge.statistics.winRatePercentage * 100).toFixed(1);
+                const winRate = (badge.statistics.winRatePercentage * 100).toFixed(1);
         
                 $.watch(".clearfix.toggle-target.item-field-container", (description) => {
                     $(".clearfix.item-field-container:contains('Updated')").remove();
@@ -58,47 +56,41 @@ pages.assets = async (assetId) => {
             }
 
             case "bundles": {
-                let assetDetails = await dashblox.get(`https://catalog.roblox.com/v1/bundles/${assetId}/details`);
+                const assetDetails = await dashblox.get(`https://catalog.roblox.com/v1/bundles/${assetId}/details`);
 
-                if (!assetDetails) {
-                    return;
-                }
+                if (!assetDetails) return;
             
-                let asset = null;
+                let bundle = null;
     
-                for (let index in assetDetails.items) {
+                for (let index in assetDetails.items) { // This fetches a 
                     let item = assetDetails.items[index];
 
                     if (item.type === "Asset") {
-                        asset = await dashblox.get(`https://api.roblox.com/marketplace/productinfo`, {assetId: item.id});
+                        bundle = await dashblox.get(`https://api.roblox.com/marketplace/productinfo`, {assetId: item.id});
                         break;
                     }
                 }
 
-                if (!asset) {
-                    return;
-                }
+                if (!bundle) return;
 
                 $.watch(".clearfix.toggle-target.item-field-container", (description) => {
-                    description.before(`<div class="clearfix item-field-container" data-itemstats="Created"><div class="text-label field-label">Created</div><span class="field-content ">${util.timeFormat(asset.Created)}</span></div>`);
-                    description.before(`<div class="clearfix item-field-container" data-itemstats="Updated"><div class="text-label field-label">Updated</div><span class="field-content ">${util.timeFormat(asset.Updated)}</span></div>`);
+                    description.before(`<div class="clearfix item-field-container" data-itemstats="Created"><div class="text-label field-label">Created</div><span class="field-content ">${util.timeFormat(bundle.Created)}</span></div>`);
+                    description.before(`<div class="clearfix item-field-container" data-itemstats="Updated"><div class="text-label field-label">Updated</div><span class="field-content ">${util.timeFormat(bundle.Updated)}</span></div>`);
                 })
 
                 if (developerMode) {
-                    console.log(asset);
+                    console.log(bundle);
                 }
 
                 break;
             }
 
             default: {
-                let asset = assetPage == "game-pass" ? await dashblox.get(`https://api.roblox.com/marketplace/game-pass-product-info`, {gamepassId: assetId}) : await dashblox.get(`https://api.roblox.com/marketplace/productinfo`, {assetId: assetId});
+                const asset = (assetPage == "game-pass" ? await dashblox.get(`https://api.roblox.com/marketplace/game-pass-product-info`, {gamepassId: assetId}) : await dashblox.get(`https://api.roblox.com/marketplace/productinfo`, {assetId: assetId}));
                 
-                if (!asset) {
-                    return;
-                }
+                if (!asset) return;
 
-                let authUser = await util.getAuthUser();
+                const authUser = await util.getAuthUser();
                 let creatorId = asset.Creator.Id;
     
                 if (asset.Creator.CreatorType === "Group") {

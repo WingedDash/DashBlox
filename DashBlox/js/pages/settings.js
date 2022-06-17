@@ -229,8 +229,6 @@ let categories = [
                         header: "Classic Home Page",
                         text: "Replaces the home page header with your profile picture and name.",
 
-                        developmentVisible: true,
-
                         toggleable: true,
                         disabled: false,
                         setting: "theme.profileHomePage"
