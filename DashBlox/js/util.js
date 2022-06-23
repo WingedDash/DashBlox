@@ -39,9 +39,9 @@ class DashBloxUtil {
                 })
             } else {
                 resolve({
-                    username: "",
-                    displayName: "",
-                    userId: 0
+                    username: null,
+                    displayName: null,
+                    userId: null
                 })
             }
             

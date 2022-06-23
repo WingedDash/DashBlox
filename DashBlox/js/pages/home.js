@@ -31,7 +31,7 @@ pages.home = async () => {
                         </span>
                     </a>
                 
-                    <h1>${authUser.displayName}</h1>
+                    <h1>${authUser.displayName || "???"}</h1>
                 </div>`)
 
                 selector.remove();

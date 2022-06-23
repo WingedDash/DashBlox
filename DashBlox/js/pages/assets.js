@@ -99,7 +99,7 @@ pages.assets = async (assetId) => {
     
                         if (groupMembership) {
                             if (groupMembership.permissions.groupEconomyPermissions.manageGroupGames) {
-                                creatorId = authUser.userId;
+                                creatorId = authUser.userId || 0;
                             }
                         }
                     } catch (message) {
