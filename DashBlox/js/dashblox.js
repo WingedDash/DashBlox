@@ -17,6 +17,8 @@ Update 2.1.0:
 - Added a new setting to pin games.
 - Added a new setting for the most recent catalog items.
 - Added a new setting for DashBlox updates.
+- Added a new setting for original navigation icons.
+- Added a new setting to get the classic home page back. (Experimental)
 - Added the ability to view deleted users. (Experimental)
 - Readded the setting to view owners list.
 - Removed profile statuses. (Roblox patched it)
@@ -122,9 +124,10 @@ class DashBloxSettings {
             theme: {
                 oldRobuxIcons: false,
                 oldTopBarText: false,
-                changeBackToGames: false, // Expiremental, lots of pages that can be broken by a simple roblox update.
                 groupedHomePage: false,
-                profileHomePage: false,
+                profileHomePage: false, // Experimental, the removal of this feature itself it worrying.
+                changeBackToGames: false, // Experimental, lots of pages that can be broken by a simple roblox update.
+                oldNavigationIcons: false,
         
                 smallChatTab: false,
                 fancyScrollBar: false

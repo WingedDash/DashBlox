@@ -252,12 +252,24 @@ let categories = [
             {
                 options: [
                     {
-                        header: "Old Robux Icons",
+                        header: "Original Robux Icons",
                         text: "Replaces the new Robux icon with the older one.",
 
                         toggleable: true,
                         disabled: false,
                         setting: "theme.oldRobuxIcons"
+                    }
+                ]
+            },
+            {
+                options: [
+                    {
+                        header: "Original Navigation Icons",
+                        text: "Replaces the new navigation icons with the older ones.",
+
+                        toggleable: true,
+                        disabled: false,
+                        setting: "theme.oldNavigationIcons"
                     }
                 ]
             },
@@ -281,6 +293,7 @@ let categories = [
 
                         toggleable: true,
                         disabled: false,
+                        experimental: true,
                         setting: "theme.smallChatTab"
                     }
                 ]

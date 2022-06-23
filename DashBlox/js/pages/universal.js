@@ -5,6 +5,10 @@ pages.universal = async () => {
         body.addClass('dashblox');
     })
 
+    $.watch("#navigation-container", (selector) => {
+        selector.addClass('dashblox');
+    })
+
     if (settings.get("theme", "oldTopBarText")) {
         $.watch(".navbar-fixed-top.rbx-header", () => {
             $(".font-header-2.nav-menu-title.text-header:contains('Discover')")[0].innerText = "Games";
@@ -19,6 +23,10 @@ pages.universal = async () => {
     $.watch("head", () => {
         if (settings.get("theme", "oldRobuxIcons")) {
             injectCSS("css/robux.css");
+        }
+
+        if (settings.get("theme", "oldNavigationIcons")) {
+            injectCSS("css/navigationIcons.css");
         }
     
         if (settings.get("theme", "fancyScrollBar")) {
