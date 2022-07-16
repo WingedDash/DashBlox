@@ -1,5 +1,7 @@
 "use strict"
 
+// I am delaying the update for viewing deleted users as this is very unfinished and I just need to finish the other things for now.
+
 pages.viewdeleted = () => { // This entire page is experimental, I plan on polishing this code a lot more.
     let args = currentPageInfo.args;
     let userId = Number(args.userid);

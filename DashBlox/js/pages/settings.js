@@ -181,17 +181,17 @@ let categories = [
                     }
                 ]
             },
-            {
-                options: [
-                    {
-                        header: "View Deleted Users",
-                        sectionHtml: `<span class="text-description">You can view deleted users <a class="text-link" href="https://${currentUrlPaths[2]}/dashblox/viewdeleted">here</a>.</span>`,
+            // {
+            //     options: [
+            //         {
+            //             header: "View Deleted Users",
+            //             sectionHtml: `<span class="text-description">You can view deleted users <a class="text-link" href="https://${currentUrlPaths[2]}/dashblox/viewdeleted">here</a>.</span>`,
 
-                        toggleable: false,
-                        experimental: true
-                    }
-                ]
-            },
+            //             toggleable: false,
+            //             experimental: true
+            //         }
+            //     ]
+            // },
             {
                 header: "Aesthetic",
                 options: [
@@ -320,7 +320,7 @@ pages.settings = () => { // Replace all "forEach" functions, rewrite most of the
     function getSetting(setting) { // Rewrite this.
         let settingCategories = setting.split(".");
 
-        return [settings.get(settingCategories[0], settingCategories[1]), settingCategories];
+        return [settings.get(setting)];
     }
 
     function loadCategory(name) { // Rewrite this.
@@ -410,17 +410,16 @@ pages.settings = () => { // Replace all "forEach" functions, rewrite most of the
                             toggle.click(() => {
                                 let getSettingOptions = getSetting(option.setting);
                                 let setting = getSettingOptions[0];
-                                let categories = getSettingOptions[1];
 
                                 if (!toggleCoolDown) {
                                     toggleCoolDown = true;
 
                                     if (!option.disabled) {
                                         if (setting) {
-                                            settings.set(categories[0], categories[1], false);
+                                            settings.set(option.setting, false);
                                             toggle.removeClass("on");
                                         } else {
-                                            settings.set(categories[0], categories[1], true);
+                                            settings.set(option.setting, true);
                                             toggle.addClass("on");
                                         }
                                     }

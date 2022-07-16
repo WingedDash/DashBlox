@@ -62,7 +62,7 @@ class DashBloxUtil {
         hours = hours ? hours : 12;
         minutes = minutes < 10 ? '0'+minutes: minutes;
 
-        if (settings.get("general", "simpleTimeFormat")) {
+        if (settings.get("general.simpleTimeFormat")) {
             return `${months[date.getMonth()]} ${date.getDate()}${determinEndDate(date.getDate())}, ${date.getFullYear()} @ ${hours}:${minutes} ${zone}`;
         } else {
             return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()} @ ${hours}:${minutes} ${zone}`;

@@ -19,7 +19,6 @@ Update 2.1.0:
 - Added a new setting for DashBlox updates.
 - Added a new setting for original navigation icons.
 - Added a new setting to get the classic home page back. (Experimental)
-- Added the ability to view deleted users. (Experimental)
 - Readded the setting to view owners list.
 - Removed profile statuses. (Roblox patched it)
 - Tweaked the settings page.
@@ -141,43 +140,71 @@ class DashBloxSettings {
         this.init();
     }
 
-    async init () { // Rewrite this, stop using "forEach" and it needs to be more polished.
-        let storageSettings = (await dashblox.storage.get("settings")).settings;
+    async init () {
+        const storageSettings = (await dashblox.storage.get("settings")).settings;
 
         if (!storageSettings) {
             this.loadedSettings = this.defaultSettings;
             dashblox.storage.save("settings", this.loadedSettings);
         } else {
-            Object.entries(this.defaultSettings).forEach(([categoryName, category]) => {
-                if (typeof categoryName === "string" && category instanceof Object) {
-                    Object.entries(category).forEach(([settingName, setting]) => {
-                        if (storageSettings[categoryName] && !storageSettings[categoryName][settingName] === undefined) {
-                            storageSettings[categoryName][settingName] = setting;
-                        } else if (!storageSettings[categoryName]) {
-                            storageSettings[categoryName] = category;
-                        }
-                    })
-                } else if (typeof categoryName === "string" && !category instanceof Object) {
-                    if (!storageSettings[categoryName]) {
-                        storageSettings[categoryName] = category;
-                    }
-                }
-            })
-
             this.loadedSettings = storageSettings;
-            dashblox.storage.save("settings", this.loadedSettings);
         }
 
-        this.defaultSettings = null; // Assuming this helps.
+        this.defaultSettings = undefined;
     }
 
-    get (category, setting) { // Rewrite this, it shouldn't be reliant on the setting existing in a specific location.
-        if (!setting) {return this.loadedSettings[category]};
-        return this.loadedSettings[category][setting];
+    get (rawLocation) {
+        if (!rawLocation instanceof String) return;
+
+        const location = rawLocation.split(".");
+        
+        let previousCategory = null;
+        let currentCategory = this.loadedSettings;
+
+        let successful = false;
+
+        for (const data of location) {
+            previousCategory = currentCategory;
+            currentCategory = currentCategory?.[data];
+        }
+
+        for (const key of Object.keys(previousCategory)) {
+            if (key == location[location.length - 1]) {
+                successful = true;
+            }
+        }
+
+        if (!successful) return;
+
+        return currentCategory;
     }
 
-    set (category, setting, value) { // Rewrite this, it shouldn't be reliant on a setting being in a specific location.
-        if (value == null || value == undefined) {
+    set (rawLocation, value) {
+        // if (!rawLocation instanceof String) return;
+        // if (!value) return;
+
+        // const location = rawLocation.split(".");
+        
+        // let currentCategory = this.loadedSettings;
+
+        // for (const index in location) {
+        //     const data = location[index];
+
+        //     currentCategory = currentCategory?.[data];
+
+        //     if (currentCategory == null) {
+        //         if (index == (location.length - 1)) {
+        //             break;
+        //         }
+
+        //         currentCategory = {};
+        //     }
+        // }
+
+        // currentCategory = value;
+
+        // dashblox.storage.save("settings", this.loadedSettings);
+        if (value == null) {
             value = setting;
             this.loadedSettings[category] = value;
             dashblox.storage.save("settings", this.loadedSettings);

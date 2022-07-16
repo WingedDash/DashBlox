@@ -1,7 +1,7 @@
 "use strict"
 
 pages.home = async () => {
-    if (settings.get("theme", "groupedHomePage")) {
+    if (settings.get("theme.groupedHomePage")) {
         $.watch(".game-home-page-carousel-title:Contains('Favorites')", (favorites) => {
             let favoritesTab = favorites.next();
 
@@ -15,7 +15,7 @@ pages.home = async () => {
         })
     }
 
-    if (settings.get("theme", "profileHomePage")) {
+    if (settings.get("theme.profileHomePage")) {
         const authUser = await util.getAuthUser();
 
         if (authUser.userId > 0) {
@@ -39,7 +39,7 @@ pages.home = async () => {
         }
     }
 
-    if (settings.get("theme", "changeBackToGames")) {
+    if (settings.get("theme.changeBackToGames")) {
         $.watch(".font-header-1", () => {
             try {
                 $("#place-list > .game-home-page-container > .game-home-page-carousel-title > .font-header-1:Contains('Continue')")[0].innerText = "Continue Playing";

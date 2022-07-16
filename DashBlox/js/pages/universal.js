@@ -9,7 +9,7 @@ pages.universal = async () => {
         selector.addClass('dashblox');
     })
 
-    if (settings.get("theme", "oldTopBarText")) {
+    if (settings.get("theme.oldTopBarText")) {
         $.watch(".navbar-fixed-top.rbx-header", () => {
             $(".font-header-2.nav-menu-title.text-header:contains('Discover')")[0].innerText = "Games";
             $(".font-header-2.nav-menu-title.text-header:contains('Avatar Shop')")[0].innerText = "Catalog";
@@ -21,19 +21,19 @@ pages.universal = async () => {
     }
 
     $.watch("head", () => {
-        if (settings.get("theme", "oldRobuxIcons")) {
+        if (settings.get("theme.oldRobuxIcons")) {
             injectCSS("css/robux.css");
         }
 
-        if (settings.get("theme", "oldNavigationIcons")) {
+        if (settings.get("theme.oldNavigationIcons")) {
             injectCSS("css/navigationIcons.css");
         }
     
-        if (settings.get("theme", "fancyScrollBar")) {
+        if (settings.get("theme.fancyScrollBar")) {
             injectCSS("css/scrollbar.css");
         }
     
-        if (settings.get("theme", "smallChatTab")) {
+        if (settings.get("theme.smallChatTab")) {
             injectCSS("css/chat.css");
         }
     })
@@ -77,7 +77,7 @@ pages.universal = async () => {
         })
     })
 
-    if (settings.get("general", "blockAlert")) {
+    if (settings.get("general.blockAlert")) {
         $.watch(".alert-container", (alert) => {
             alert.attr("style", "display: none;");
         })

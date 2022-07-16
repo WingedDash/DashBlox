@@ -28,7 +28,7 @@ function getBadgeRarity(rarity) {
 pages.assets = async (assetId) => {
     const assetPage = currentPageInfo.path;
 
-    if (settings.get("assets", "assetStats")) {
+    if (settings.get("assets.assetStats")) {
         switch (assetPage) {
             case "badges": {
                 const badge = await dashblox.get(`https://badges.roblox.com/v1/badges/${assetId}`);
@@ -86,7 +86,7 @@ pages.assets = async (assetId) => {
             }
 
             default: {
-                const asset = (assetPage == "game-pass" ? await dashblox.get(`https://api.roblox.com/marketplace/game-pass-product-info`, {gamepassId: assetId}) : await dashblox.get(`https://api.roblox.com/marketplace/productinfo`, {assetId: assetId}));
+                const asset = (assetPage == "game-pass" ? await dashblox.get(`https://api.roblox.com/marketplace/game-pass-product-info`, {gamepassId: assetId}) : await dashblox.get(`https://economy.roblox.com/v2/assets/${assetId}/details`));
                 
                 if (!asset) return;
 

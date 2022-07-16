@@ -7,8 +7,7 @@ const pageInfo = {
     },
 
     avatar: {
-        paths: ["my"],
-        subPaths: ["avatar"]
+        paths: ["my/avatar"]
     },
 
     catalog: {
@@ -42,13 +41,11 @@ const pageInfo = {
     },
 
     settings: {
-        paths: ["dashblox"],
-        subPaths: ["settings"]
+        paths: ["dashblox/settings"]
     },
 
     viewdeleted: {
-        paths: ["dashblox"],
-        subPaths: ["viewdeleted"],
+        paths: ["dashblox/viewdeleted"],
         css: ["css/pages/viewdeleted.css"]
     }
 }
@@ -75,6 +72,18 @@ async function injectPage(page, id) {
 
 function checkPath(currentPage) {
     if (currentPage) {
+        // for (const page of currentPage.paths) {
+        //     const paths = page.split("/");
+
+        //     for (const path of paths) {
+        //         console.log(path)
+        //     }
+
+
+        // }
+
+        // return true;
+        
         let success = false;
 
         currentPage.paths.forEach((page) => {
@@ -102,8 +111,8 @@ function checkPath(currentPage) {
 }
 
 function injectPages() {
-    for (let name in pages) {
-        let page = pageInfo[name];
+    for (const name in pages) {
+        const page = pageInfo[name];
 
         if (checkPath(page)) {
             if (page.hasIds && Number(urlDetails.uniqueId)) {
@@ -116,8 +125,8 @@ function injectPages() {
 }
 
 function injectCSSPages() {
-    for (let name in pageInfo) {
-        let page = pageInfo[name];
+    for (const name in pageInfo) {
+        const page = pageInfo[name];
 
         if (page.hasOwnProperty("css") && checkPath(page)) {
             for (let path in page.css) {
