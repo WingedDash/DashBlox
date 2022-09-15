@@ -41,11 +41,15 @@ const pageInfo = {
     },
 
     settings: {
-        paths: ["dashblox/settings"]
+        paths: ["dashblox"],
+        subPaths: ["settings"]
+        // paths: ["dashblox/settings"]
     },
 
     viewdeleted: {
-        paths: ["dashblox/viewdeleted"],
+        paths: ["dashblox"],
+        subPaths: ["viewdeleted"],
+        // paths: ["dashblox/viewdeleted"],
         css: ["css/pages/viewdeleted.css"]
     }
 }
@@ -66,23 +70,30 @@ const currentPageInfo = {
     args: {}
 }
 
+// TODO: Make pages based off of paths, it should be easier to work with and faster.
+// Multiple functions only used once should also be removed.
+
 async function injectPage(page, id) {
     pages[page](id);
 }
 
 function checkPath(currentPage) {
     if (currentPage) {
-        // for (const page of currentPage.paths) {
-        //     const paths = page.split("/");
+        /* This code is unfinished, It will be updated when I get the time to deal with it.
+        
+            for (const page of currentPage.paths) {
+                const paths = page.split("/");
 
-        //     for (const path of paths) {
-        //         console.log(path)
-        //     }
+                for (const path of paths) {
+                    console.log(path)
+                }
 
 
-        // }
+            }
 
-        // return true;
+            return true;
+
+        */
         
         let success = false;
 

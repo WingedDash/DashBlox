@@ -22,7 +22,7 @@ Update 2.1.0:
 - Readded the setting to view owners list.
 - Removed profile statuses. (Roblox patched it)
 - Tweaked the settings page.
-- Fixed bugs and improved page loading.
+- Fixed bugs.
 - Updated to Manifest Version 3.
 
 Build: ${(!developerMode && !betaMode) ? "Stable" : (developerMode && !betaMode) ? "Development" : "Beta"}
@@ -179,31 +179,37 @@ class DashBloxSettings {
         return currentCategory;
     }
 
+    // TODO: Make the "set" function be path based.
+
     set (rawLocation, value) {
-        // if (!rawLocation instanceof String) return;
-        // if (!value) return;
+        /* This code is unfinished, It will be updated when I get the time to deal with it.
+            if (!rawLocation instanceof String) return;
+            if (!value) return;
 
-        // const location = rawLocation.split(".");
-        
-        // let currentCategory = this.loadedSettings;
+            const location = rawLocation.split(".");
+            
+            let currentCategory = this.loadedSettings;
 
-        // for (const index in location) {
-        //     const data = location[index];
+            for (const index in location) {
+                const data = location[index];
 
-        //     currentCategory = currentCategory?.[data];
+                currentCategory = currentCategory?.[data];
 
-        //     if (currentCategory == null) {
-        //         if (index == (location.length - 1)) {
-        //             break;
-        //         }
+                if (currentCategory == null) {
+                    if (index == (location.length - 1)) {
+                        break;
+                    }
 
-        //         currentCategory = {};
-        //     }
-        // }
+                    currentCategory = {};
+                }
+            }
 
-        // currentCategory = value;
+            currentCategory = value;
 
-        // dashblox.storage.save("settings", this.loadedSettings);
+            dashblox.storage.save("settings", this.loadedSettings);
+        */
+
+
         if (value == null) {
             value = setting;
             this.loadedSettings[category] = value;

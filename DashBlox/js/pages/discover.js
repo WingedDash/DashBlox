@@ -3,10 +3,12 @@
 pages.discover = () => {
     if (settings.get("general.popularTabTop")) {
         $.watch(".container-header.games-filter-changer:Contains('Popular Worldwide')", (selector) => {
-            var popularTab = $(selector.parent().parent()[0]);
+            var popularTab = $(selector.parent()[0]);
             
-            $(".container-header.games-filter-changer:Contains('Popular Worldwide') > h3")[0].innerText = "Popular";
-            $(".container-header.games-filter-changer:Contains('Popular') > h3")[0].innerText = "Popular Near You";
+            $(".container-header.games-filter-changer:Contains('Popular Worldwide') > h2 > a")[0].innerText = "Popular";
+            $(".container-header.games-filter-changer:Contains('Popular') > h2 > a")[0].innerText = "Popular Near You";
+
+            console.log(popularTab)
             
             popularTab.insertBefore($($(".games-list-container.is-windows")[0]));
         })

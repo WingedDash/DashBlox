@@ -24,4 +24,17 @@ pages.games = (gameId) => {
             } 
         })
     }
+
+    if (developerMode) {
+        dashblox.get("https://api.roblox.com/universes/get-universe-containing-place", {placeid: gameId}).then((response) => {
+            const universeId = response.UniverseId;
+
+            console.log(`UniverseId: ${universeId || "Unknown"}`);
+
+            dashblox.get(`https://develop.roblox.com/v1/universes/${universeId}/places`, {sortOrder: "Asc", limit: 100}).then((response) => {
+                console.log("Places associated with this game:");
+                console.log(response?.data || "Unknown");
+            })
+        })
+    }
 }
