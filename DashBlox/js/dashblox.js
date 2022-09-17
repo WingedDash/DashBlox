@@ -16,10 +16,8 @@ Update 2.1.0:
 - Added a new setting to block Roblox alerts.
 - Added a new setting to pin games.
 - Added a new setting for the most recent catalog items.
-- Added a new setting for DashBlox updates.
 - Added a new setting for original navigation icons.
 - Added a new setting to get the classic home page back. (Experimental)
-- Readded the setting to view owners list.
 - Removed profile statuses. (Roblox patched it)
 - Tweaked the settings page.
 - Fixed bugs.
@@ -36,9 +34,7 @@ const dashblox = {
 
         return new Promise((resolve, reject) => {
             runtime.sendMessage(message, (response) => {
-                if (response) {
-                    resolve(response);
-                }
+                if (response) resolve(response);
                 reject({message: "A error occurred while fetching your request."});
             })
         })
@@ -49,9 +45,7 @@ const dashblox = {
 
         return new Promise((resolve, reject) => {
             runtime.sendMessage(message, (response) => {
-                if (response) {
-                    resolve(response);
-                }
+                if (response) resolve(response);
                 reject({message: "A error occurred while posting your request."});
             })
         })
@@ -62,9 +56,7 @@ const dashblox = {
 
         return new Promise((resolve, reject) => {
             runtime.sendMessage(message, (response) => {
-                if (response) {
-                    resolve(response);
-                }
+                if (response) resolve(response);
                 reject({message: "A error occurred while pushing your request."});
             })
         })

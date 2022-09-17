@@ -10,6 +10,8 @@ DashBlox is not available on any other browser, please do not install extensions
 
 * Microsoft Edge
     * [DashBlox on Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/dashblox/fdplbdkcchjedlpbdfpcnanbbgjghace)
+# Beta Program
+DashBlox offically has a beta program! You can find more information about the beta program on the [community discord server](https://discord.gg/D2wqedQpTx).
 
 # Support
 If you're experiencing a bug with DashBlox or you just want to suggest a feature, please post it in [issues](https://github.com/WingedDash/DashBlox/issues) or post it in the [community discord server](https://discord.gg/D2wqedQpTx).
