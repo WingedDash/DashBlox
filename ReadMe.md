@@ -1,5 +1,5 @@
 # DashBlox
-DashBlox is a extension that that creates new features that otherwise are missing, removed, or don't exist for [Roblox](https://www.roblox.com/).
+DashBlox is a extension that creates new features that otherwise are missing, removed, or don't exist for [Roblox](https://www.roblox.com/).
 
 DashBlox is currently available on **Chrome** and **Microsoft Edge**.
 
