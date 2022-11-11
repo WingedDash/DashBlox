@@ -2,7 +2,7 @@
     "manifest_version": 3,
 
     "name": "DashBlox - Improving Roblox",
-    "short_name": "DashBlox_dev",
+    "short_name": "DashBlox",
     
     "description": "Creates new features that otherwise are missing, removed, or don't exist.",
 
@@ -55,7 +55,6 @@
                 "js/pages/home.js",
                 "js/pages/profile.js",
                 "js/pages/settings.js",
-                "js/pages/viewdeleted.js",
                 "js/pages/universal.js",
 
                 "js/util.js"

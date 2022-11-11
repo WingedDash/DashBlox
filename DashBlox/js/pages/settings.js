@@ -10,8 +10,12 @@ let categories = [
                 sectionHtml: `<div class="section-content"><span class="text-description">You can read the entire <a class="text-link" target="_blank" href="https://github.com/WingedDash/DashBlox/blob/master/Update%20log.md">Update Log</a> on the github page for DashBlox.</span></div>`
             },
             {
-                header: "Social Media (13+)",
-                sectionHtml: `<div class="section-content"><a class="icon-social-media-discord" target="_blank" href="https://discord.gg/D2wqedQpTx" style="background-position: -6.5px -8px;"></a><a class="icon-social-media-discord" target="_blank" href="https://twitter.com/WingedDash" style="background-position: -6.5px -134px;"></a><a class="icon-social-media-discord" target="_blank" href="https://github.com/WingedDash" style="background-position: -6.5px -327px;"></a><a class="icon-social-media-discord" target="_blank" href="https://www.roblox.com/users/531629183/profile" style="background-position: -6.5px -455px;"></a></div>`
+                header: "DashBlox's Social Media",
+                sectionHtml: `<div class="section-content"><a class="icon-social-media-discord" target="_blank" href="https://discord.gg/D2wqedQpTx" style="background-position: -6.5px -8px;"></a><a class="icon-social-media-discord" target="_blank" href="https://www.roblox.com/groups/15157542/DashBlox" style="background-position: -6.5px -455px;"></a></div>`
+            },
+            {
+                header: "Developer's Social Media",
+                sectionHtml: `<div class="section-content"><a class="icon-social-media-discord" target="_blank" href="https://twitter.com/WingedDash" style="background-position: -6.5px -134px;"></a><a class="icon-social-media-discord" target="_blank" href="https://github.com/WingedDash" style="background-position: -6.5px -327px;"></a><a class="icon-social-media-discord" target="_blank" href="https://www.roblox.com/users/531629183/profile" style="background-position: -6.5px -455px;"></a></div>`
             },
             {
                 header: "Experimental Features",
@@ -39,11 +43,11 @@ let categories = [
                 header: "DashBlox",
                 options: [
                     {
-                        header: "DashBlox Update Notifications",
+                        header: "DashBlox Update Notifications (Coming Soon)",
                         text: "Get notified when DashBlox has a new major update, allowing you to explore new settings and features when they're available.",
 
                         toggleable: true,
-                        disabled: false,
+                        disabled: true,
                         setting: "general.dashbloxUpdates"
                     }
                 ]
@@ -96,11 +100,11 @@ let categories = [
                 header: "Games Page",
                 options: [
                     {
-                        header: "Pinning Games",
+                        header: "Pinning Games (Coming Soon)",
                         text: "Allows you to pin games to your home page.",
 
                         toggleable: true,
-                        disabled: false,
+                        disabled: true,
                         setting: "games.pinningGames"
                     }
                 ]
@@ -139,11 +143,11 @@ let categories = [
             {
                 options: [
                     {
-                        header: "Owners List",
+                        header: "Owners List (Coming Soon)",
                         text: "View the owners of an item on the catalog that is something you created, or is a limited.",
 
                         toggleable: true,
-                        disabled: false,
+                        disabled: true,
                         setting: "assets.ownersList"
                     }
                 ]
@@ -181,17 +185,6 @@ let categories = [
                     }
                 ]
             },
-            // {
-            //     options: [
-            //         {
-            //             header: "View Deleted Users",
-            //             sectionHtml: `<span class="text-description">You can view deleted users <a class="text-link" href="https://${currentUrlPaths[2]}/dashblox/viewdeleted">here</a>.</span>`,
-
-            //             toggleable: false,
-            //             experimental: true
-            //         }
-            //     ]
-            // },
             {
                 header: "Aesthetic",
                 options: [
@@ -302,7 +295,7 @@ let categories = [
     }
 ]
 
-pages.settings = () => { // Replace all "forEach" functions, rewrite most of the code.
+pages.settings = () => {
     var settingsCooldown = false;
     var selectedCategory = "";
 
@@ -317,13 +310,13 @@ pages.settings = () => { // Replace all "forEach" functions, rewrite most of the
         throw new Error(`Could not find category under the name ${name}`);
     }
 
-    function getSetting(setting) { // Rewrite this.
+    function getSetting(setting) {
         let settingCategories = setting.split(".");
 
-        return [settings.get(setting)];
+        return [settings.get(settingCategories[0], settingCategories[1]), settingCategories];
     }
 
-    function loadCategory(name) { // Rewrite this.
+    function loadCategory(name) {
         if (!settingsCooldown && name != selectedCategory) {
             settingsCooldown = true;
 
@@ -360,13 +353,6 @@ pages.settings = () => { // Replace all "forEach" functions, rewrite most of the
                     let sectionContent = $(`</div><div class="section-content"></div>`).appendTo(section);
 
                     categroyContent.options.forEach((option, index) => {
-                        if (option.developmentVisible) {
-                            if (!developerMode) {
-                                section.remove();
-                                return;
-                            }
-                        }
-
                         if (option.header && option.text) {
                             let header = $(`<span class="text-lead">${option.header}</span>`).appendTo(sectionContent);
                             sectionContent.append(`<div class="rbx-divider"></div>`);
@@ -410,16 +396,17 @@ pages.settings = () => { // Replace all "forEach" functions, rewrite most of the
                             toggle.click(() => {
                                 let getSettingOptions = getSetting(option.setting);
                                 let setting = getSettingOptions[0];
+                                let categories = getSettingOptions[1];
 
                                 if (!toggleCoolDown) {
                                     toggleCoolDown = true;
 
                                     if (!option.disabled) {
                                         if (setting) {
-                                            settings.set(option.setting, false);
+                                            settings.set(categories[0], categories[1], false);
                                             toggle.removeClass("on");
                                         } else {
-                                            settings.set(option.setting, true);
+                                            settings.set(categories[0], categories[1], true);
                                             toggle.addClass("on");
                                         }
                                     }
@@ -457,14 +444,10 @@ pages.settings = () => { // Replace all "forEach" functions, rewrite most of the
             
             <div class="menu-vertical-container">
                 <ul id="vertical-menu" class="menu-vertical submenus">
-
                 </ul>
             </div>
-
         <div class="dashblox-settings-content">
-
         </div>
-
         </div>`);
 
         categories.forEach((category) => {
@@ -481,5 +464,9 @@ pages.settings = () => { // Replace all "forEach" functions, rewrite most of the
         })
 
         loadCategory("Information");
+
+        $.watch(".request-error-page-content", (selector) => {
+            selector.remove(); // This is already patched in 2.2.0, I don't feel like doing anything with it for this build.
+        });
     })
 }

@@ -12,20 +12,19 @@ const serviceWorker = !self.window;
 
 const updateLog = `
 Update 2.1.0:
+- Fixed bugs.
+- Updated the settings page.
 - Added a new setting for a grouped home page.
 - Added a new setting to block Roblox alerts.
-- Added a new setting to pin games.
 - Added a new setting for the most recent catalog items.
 - Added a new setting for original navigation icons.
 - Added a new setting to get the classic home page back. (Experimental)
 - Removed profile statuses. (Roblox patched it)
-- Tweaked the settings page.
-- Fixed bugs.
 - Updated to Manifest Version 3.
 
 Build: ${(!developerMode && !betaMode) ? "Stable" : (developerMode && !betaMode) ? "Development" : "Beta"}
 Version: ${manifest.version}
-Updated: MM/DD/YYYY
+Updated: November 9th, 2022
 `
 
 const dashblox = {
@@ -116,7 +115,7 @@ class DashBloxSettings {
                 oldRobuxIcons: false,
                 oldTopBarText: false,
                 groupedHomePage: false,
-                profileHomePage: false, // Experimental, the removal of this feature itself it worrying.
+                profileHomePage: false, // Experimental.
                 changeBackToGames: false, // Experimental, lots of pages that can be broken by a simple roblox update.
                 oldNavigationIcons: false,
         
@@ -145,64 +144,17 @@ class DashBloxSettings {
         this.defaultSettings = undefined;
     }
 
-    get (rawLocation) {
-        if (!rawLocation instanceof String) return;
-
-        const location = rawLocation.split(".");
-        
-        let previousCategory = null;
-        let currentCategory = this.loadedSettings;
-
-        let successful = false;
-
-        for (const data of location) {
-            previousCategory = currentCategory;
-            currentCategory = currentCategory?.[data];
+    get (category, setting) {
+        try {
+            if (!setting) {return this.loadedSettings[category]};
+            return this.loadedSettings[category][setting];
+        } catch (error) {
+            return false; // This will be fixed in 2.2.0, it's obviously just a bad temporary fix for this current build.
         }
-
-        for (const key of Object.keys(previousCategory)) {
-            if (key == location[location.length - 1]) {
-                successful = true;
-            }
-        }
-
-        if (!successful) return;
-
-        return currentCategory;
     }
 
-    // TODO: Make the "set" function be path based.
-
-    set (rawLocation, value) {
-        /* This code is unfinished, It will be updated when I get the time to deal with it.
-            if (!rawLocation instanceof String) return;
-            if (!value) return;
-
-            const location = rawLocation.split(".");
-            
-            let currentCategory = this.loadedSettings;
-
-            for (const index in location) {
-                const data = location[index];
-
-                currentCategory = currentCategory?.[data];
-
-                if (currentCategory == null) {
-                    if (index == (location.length - 1)) {
-                        break;
-                    }
-
-                    currentCategory = {};
-                }
-            }
-
-            currentCategory = value;
-
-            dashblox.storage.save("settings", this.loadedSettings);
-        */
-
-
-        if (value == null) {
+    set (category, setting, value) {
+        if (value == null || value == undefined) {
             value = setting;
             this.loadedSettings[category] = value;
             dashblox.storage.save("settings", this.loadedSettings);

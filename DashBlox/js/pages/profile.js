@@ -3,7 +3,7 @@
 pages.profile = async (userId) => {
     // let authUser = await util.getAuthUser();
 
-    if (settings.get("profile.lastOnline")) {
+    if (settings.get("profile", "lastOnline")) {
         try {
             let onlineStats = await dashblox.get(`https://api.roblox.com/users/${Number(userId)}/onlinestatus`);
 
@@ -25,14 +25,14 @@ pages.profile = async (userId) => {
         }
     }
 
-    if (settings.get("profile.easyStatistics")) {
+    if (settings.get("profile", "easyStatistics")) {
         $.watch(".section .profile-statistics", () => {
             $(".section .profile-statistics > .container-header").remove();
             $("#profile-statistics-container").insertAfter($("#profile-current-wearing-avatar"));
         })
     }
 
-    if (settings.get("profile.changeBackToGames")) {
+    if (settings.get("profile", "changeBackToGames")) {
         $.watch(".profile-game.ng-scope.section", () => {
             $(".profile-game.ng-scope.section > .container-header > h3:Contains('Experiences')")[0].innerText = "Games";
         })

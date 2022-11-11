@@ -1,8 +1,8 @@
 "use strict"
 
-let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-let determinEndDate = (date) => {
+const determinEndDate = (date) => {
     if (date > 3 && date < 21) {
         return "th";
     }
@@ -62,7 +62,7 @@ class DashBloxUtil {
         hours = hours ? hours : 12;
         minutes = minutes < 10 ? '0'+minutes: minutes;
 
-        if (settings.get("general.simpleTimeFormat")) {
+        if (settings.get("general", "simpleTimeFormat")) {
             return `${months[date.getMonth()]} ${date.getDate()}${determinEndDate(date.getDate())}, ${date.getFullYear()} @ ${hours}:${minutes} ${zone}`;
         } else {
             return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()} @ ${hours}:${minutes} ${zone}`;
@@ -72,12 +72,12 @@ class DashBloxUtil {
     init () {
         const begin = () => {
             if (settings.loadedSettings instanceof Object) {
-                injectPages(); // This needs to be changed.
+                injectPages();
                 injectPage("universal");
             
                 $.watch("head", () => {
                     injectCSS("css/universal.css");
-                    injectCSSPages(); // This needs to be different in order to add themes.
+                    injectCSSPages();
                 })
             } else {
                 setTimeout(begin, 0);
@@ -89,8 +89,6 @@ class DashBloxUtil {
         }
     }
 }
-
-const util = new DashBloxUtil();
 
 Object.assign($, { // Once jquery is removed and I make a new one, write this into it. 
     watch(selector, callback) {
@@ -107,3 +105,5 @@ Object.assign($, { // Once jquery is removed and I make a new one, write this in
         }
     }
 })
+
+const util = new DashBloxUtil();

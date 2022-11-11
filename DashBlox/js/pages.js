@@ -7,7 +7,8 @@ const pageInfo = {
     },
 
     avatar: {
-        paths: ["my/avatar"]
+        paths: ["my"],
+        subPaths: ["avatar"]
     },
 
     catalog: {
@@ -43,14 +44,6 @@ const pageInfo = {
     settings: {
         paths: ["dashblox"],
         subPaths: ["settings"]
-        // paths: ["dashblox/settings"]
-    },
-
-    viewdeleted: {
-        paths: ["dashblox"],
-        subPaths: ["viewdeleted"],
-        // paths: ["dashblox/viewdeleted"],
-        css: ["css/pages/viewdeleted.css"]
     }
 }
 
@@ -70,31 +63,12 @@ const currentPageInfo = {
     args: {}
 }
 
-// TODO: Make pages based off of paths, it should be easier to work with and faster.
-// Multiple functions only used once should also be removed.
-
 async function injectPage(page, id) {
     pages[page](id);
 }
 
 function checkPath(currentPage) {
     if (currentPage) {
-        /* This code is unfinished, It will be updated when I get the time to deal with it.
-        
-            for (const page of currentPage.paths) {
-                const paths = page.split("/");
-
-                for (const path of paths) {
-                    console.log(path)
-                }
-
-
-            }
-
-            return true;
-
-        */
-        
         let success = false;
 
         currentPage.paths.forEach((page) => {
@@ -122,8 +96,8 @@ function checkPath(currentPage) {
 }
 
 function injectPages() {
-    for (const name in pages) {
-        const page = pageInfo[name];
+    for (let name in pages) {
+        let page = pageInfo[name];
 
         if (checkPath(page)) {
             if (page.hasIds && Number(urlDetails.uniqueId)) {
@@ -136,8 +110,8 @@ function injectPages() {
 }
 
 function injectCSSPages() {
-    for (const name in pageInfo) {
-        const page = pageInfo[name];
+    for (let name in pageInfo) {
+        let page = pageInfo[name];
 
         if (page.hasOwnProperty("css") && checkPath(page)) {
             for (let path in page.css) {

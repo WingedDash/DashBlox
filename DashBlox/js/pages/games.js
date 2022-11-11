@@ -1,7 +1,7 @@
 "use strict"
 
 pages.games = (gameId) => {
-    if (settings.get("theme.changeBackToGames")) {
+    if (settings.get("theme", "changeBackToGames")) {
         $.watch(".text-label.text-overflow.font-caption-header:contains('Active')", (selector) => {
             selector[0].innerText = "Playing";
         })
@@ -15,7 +15,7 @@ pages.games = (gameId) => {
         })
     }
 
-    if (settings.get("games.pinningGames")) {
+    if (settings.get("games", "pinningGames")) {
         $.watch(".game-calls-to-action", (selector) => {
             selector.prepend(`<div class="game-extra-context"> <button class="rbx-menu-item btn-generic-more-sm"> <span class="game-pin-icon"></span> </button> </div>`);
 

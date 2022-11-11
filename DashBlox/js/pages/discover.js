@@ -1,7 +1,7 @@
 "use strict"
 
 pages.discover = () => {
-    if (settings.get("general.popularTabTop")) {
+    if (settings.get("general", "popularTabTop")) {
         $.watch(".container-header.games-filter-changer:Contains('Popular Worldwide')", (selector) => {
             var popularTab = $(selector.parent()[0]);
             
@@ -14,7 +14,7 @@ pages.discover = () => {
         })
     }
 
-    if (settings.get("theme.changeBackToGames")) {
+    if (settings.get("theme", "changeBackToGames")) {
         $.watch(".games-list-header h1", (selector) => {
             selector[0].innerText = "Games"
         })
