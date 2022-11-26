@@ -12,14 +12,20 @@ pages.default = async () => {
     })
 
     if (settings.get("theme.oldTopBarText")) {
-        $.watch(".navbar-fixed-top.rbx-header", () => {
-            $(".font-header-2.nav-menu-title.text-header:contains('Discover')")[0].innerText = "Games";
-            $(".font-header-2.nav-menu-title.text-header:contains('Avatar Shop')")[0].innerText = "Catalog";
-        })
-        
-        $.watch(".btn-growth-md.btn-secondary-md", (selector) => {
-            selector[0].text = "Upgrades";
-        })
+        try {
+            $.watch(".navbar-fixed-top.rbx-header", () => {
+                $(".font-header-2.nav-menu-title.text-header:contains('Discover')")[0].innerText = "Games";
+                $(".font-header-2.nav-menu-title.text-header:contains('Avatar Shop')")[0].innerText = "Catalog";
+            })
+            
+            $.watch(".btn-growth-md.btn-secondary-md", (selector) => {
+                selector[0].text = "Upgrades";
+            })
+        } catch (error) {
+            if (allowConsoleErrors) {
+                console.log(error);
+            }
+        }
     }
 
     if (settings.get("theme.oldRobuxIcons")) {

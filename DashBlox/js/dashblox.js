@@ -6,6 +6,8 @@ const manifest = runtime.getManifest();
 const developerMode = (manifest.short_name === "DashBlox_dev");
 const betaMode = (manifest.short_name === "DashBlox_beta");
 
+const allowConsoleErrors = (developerMode || betaMode);
+
 const storage = chrome.storage.local;
 
 const serviceWorker = !self.window;

@@ -107,7 +107,7 @@ pages.assets = async (assetId) => {
                                 }
                             }
                         } catch (message) {
-                            if (developerMode) {
+                            if (allowConsoleErrors) {
                                 console.warn(message);
                             }
                         }

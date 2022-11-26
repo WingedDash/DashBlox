@@ -1,25 +1,21 @@
 "use strict"
 
 pages.profile = async (userId) => {
-    // let authUser = await util.getAuthUser();
-
     if (settings.get("profile.lastOnline")) {
         try {
-            let onlineStats = await dashblox.get(`https://api.roblox.com/users/${Number(userId)}/onlinestatus`);
+            const onlineStats = await dashblox.get(`https://api.roblox.com/users/${Number(userId)}/onlinestatus`);
 
-            if (!onlineStats) {
-                return;
-            }
+            if (!onlineStats) return;
 
-            let lastOnline = onlineStats.LastOnline;
-            let presenceType = onlineStats.PresenceType;
+            const lastOnline = onlineStats.LastOnline;
+            const presenceType = onlineStats.PresenceType;
 
             $.watch(".profile-stats-container", (selector) => {
                 selector.addClass("last-online-stat");
                 $($(".profile-stats-container > .profile-stat")[0]).after(`<li class="profile-stat"><p class="text-label">Last Online</p><p class="text-lead">${presenceType === 0 ? util.timeFormat(lastOnline) : "Currently Online"}</p></li>`);
             })
         } catch (error) {
-            if (developerMode) {
+            if (allowConsoleErrors) {
                 console.log(error);
             }
         }
