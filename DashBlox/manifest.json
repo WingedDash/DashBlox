@@ -7,7 +7,7 @@
     "description": "Creates new features that otherwise are missing, removed, or don't exist.",
 
     "author": "WingedDash",
-    "version": "2.1.0",
+    "version": "2.2.0",
 
     "minimum_chrome_version": "90",
 
@@ -42,10 +42,10 @@
             "js": [
                 "js/library/jquery3.6.0.js",
 
+                "js/inject.js",
                 "js/dashblox.js",
 
-                "js/pages.js",
-
+                "js/pages/default.js",
                 "js/pages/assets.js",
                 "js/pages/avatar.js",
                 "js/pages/catalog.js",
@@ -55,8 +55,6 @@
                 "js/pages/home.js",
                 "js/pages/profile.js",
                 "js/pages/settings.js",
-                "js/pages/viewdeleted.js",
-                "js/pages/universal.js",
 
                 "js/util.js"
             ],

@@ -1,4 +1,15 @@
 # Update Logs
+* Update Version 2.1.0
+    * Fixed bugs.
+    * Updated the settings page.
+    * Added a new setting for a grouped home page.
+    * Added a new setting to block Roblox alerts.
+    * Added a new setting for the most recent catalog items.
+    * Added a new setting for original navigation icons.
+    * Added a new setting to get the classic home page back. (Experimental)
+    * Removed profile statuses. (Roblox patched it)
+    * Updated to Manifest Version 3.
+---
 * Update Version 2.0.2
     * Fixed an issue where if the user was under 13, settings wouldn't load.
 ---

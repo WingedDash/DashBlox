@@ -1,8 +1,8 @@
 "use strict"
 
-let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-let determinEndDate = (date) => {
+const determinEndDate = (date) => {
     if (date > 3 && date < 21) {
         return "th";
     }
@@ -22,9 +22,6 @@ let determinEndDate = (date) => {
 class DashBloxUtil {
     constructor () {
         this.domains = ["www.roblox.com", "web.roblox.com"];
-        this.blockedPaths = ["user-sponsorship", "userads"];
-
-        this.init();
     }
 
     getAuthUser () {
@@ -68,29 +65,7 @@ class DashBloxUtil {
             return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()} @ ${hours}:${minutes} ${zone}`;
         }
     }
-
-    init () {
-        const begin = () => {
-            if (settings.loadedSettings instanceof Object) {
-                injectPages(); // This needs to be changed.
-                injectPage("universal");
-            
-                $.watch("head", () => {
-                    injectCSS("css/universal.css");
-                    injectCSSPages(); // This needs to be different in order to add themes.
-                })
-            } else {
-                setTimeout(begin, 0);
-            }
-        }
-
-        if (this.domains.includes(currentUrlPaths[2]) && !this.blockedPaths.includes(currentPageInfo.path)) {
-            begin();
-        }
-    }
 }
-
-const util = new DashBloxUtil();
 
 Object.assign($, { // Once jquery is removed and I make a new one, write this into it. 
     watch(selector, callback) {
@@ -107,3 +82,5 @@ Object.assign($, { // Once jquery is removed and I make a new one, write this in
         }
     }
 })
+
+const util = new DashBloxUtil();

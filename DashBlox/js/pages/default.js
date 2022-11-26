@@ -1,6 +1,8 @@
 "use strict"
 
-pages.universal = async () => {
+pages.default = async () => {
+    const head = document.head || document.documentElement;
+
     $.watch("body", (body) => {
         body.addClass('dashblox');
     })
@@ -20,23 +22,41 @@ pages.universal = async () => {
         })
     }
 
-    $.watch("head", () => {
-        if (settings.get("theme.oldRobuxIcons")) {
-            injectCSS("css/robux.css");
-        }
+    if (settings.get("theme.oldRobuxIcons")) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = runtime.getURL("css/robux.css");
 
-        if (settings.get("theme.oldNavigationIcons")) {
-            injectCSS("css/navigationIcons.css");
-        }
-    
-        if (settings.get("theme.fancyScrollBar")) {
-            injectCSS("css/scrollbar.css");
-        }
-    
-        if (settings.get("theme.smallChatTab")) {
-            injectCSS("css/chat.css");
-        }
-    })
+        head.appendChild(link);
+    }
+
+    if (settings.get("theme.oldNavigationIcons")) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = runtime.getURL("css/navigationIcons.css");
+
+        head.appendChild(link);
+    }
+
+    if (settings.get("theme.fancyScrollBar")) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = runtime.getURL("css/scrollbar.css");
+
+        head.appendChild(link);
+    }
+
+    if (settings.get("theme.smallChatTab")) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = runtime.getURL("css/chat.css");
+
+        head.appendChild(link);
+    }
     
     if (!settings.get("setupComplete")) {
         $.watch("body", (body) => {
@@ -48,7 +68,7 @@ pages.universal = async () => {
                 <h3>Thank you for installing DashBlox!</h3>
                 <pre class="text">DashBlox has a lot of features that aren't enabled by default, and if you want to customize the way DashBlox modifies Roblox, you can customize it in DashBlox settings.\n\nIf you don't want to customize settings right now, you can always do it later by pressing the gear icon in the top right and selecting 'DashBlox".</pre>
                 <div class="settings-confirmation">
-                    <a href="https://${currentUrlPaths[2]}/dashblox/settings" id="confirm-btn" class="btn-primary-md">Customize Settings</a>
+                    <a href="https://${documentLocation.hostname}/dashblox/settings" id="confirm-btn" class="btn-primary-md">Customize Settings</a>
                     <a id="decline-btn" class="btn-control-md">Use Default Settings</a>
                 </div>
             </div>`).prependTo(body);
@@ -71,7 +91,7 @@ pages.universal = async () => {
         settingsIcon.click(() => {
             $.watch("#settings-popover-menu", (popover) => {
                 if (!$(".dashblox-rbx-menu-item").length > 0) {
-                    popover.prepend(`<li><a class="rbx-menu-item dashblox-rbx-menu-item" href="https://${currentUrlPaths[2]}/dashblox/settings">DashBlox</a></li>`)
+                    popover.prepend(`<li><a class="rbx-menu-item dashblox-rbx-menu-item" href="https://${documentLocation.hostname}/dashblox/settings">DashBlox</a></li>`)
                 }
             })
         })
@@ -83,8 +103,8 @@ pages.universal = async () => {
         })
     }
 
-    if (settings.get("currentSubDomain") != currentUrlPaths[2]) { // Why did Roblox make this more complicated than it should be?
-        settings.set("currentSubDomain", currentUrlPaths[2]);
+    if (settings.get("currentSubDomain") != documentLocation.hostname) { // Why did Roblox make this more complicated than it should be?
+        settings.set("currentSubDomain", documentLocation.hostname);
     }
 
     if (developerMode) {

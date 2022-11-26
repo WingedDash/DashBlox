@@ -1,76 +1,52 @@
 "use strict"
 
-let categories = [
+const categories = [
     {
         name: "Information",
-        content: [
-            {
-                header: "Update Log",
-                preText: updateLog,
-                sectionHtml: `<div class="section-content"><span class="text-description">You can read the entire <a class="text-link" target="_blank" href="https://github.com/WingedDash/DashBlox/blob/master/Update%20log.md">Update Log</a> on the github page for DashBlox.</span></div>`
-            },
-            {
-                header: "Social Media (13+)",
-                sectionHtml: `<div class="section-content"><a class="icon-social-media-discord" target="_blank" href="https://discord.gg/D2wqedQpTx" style="background-position: -6.5px -8px;"></a><a class="icon-social-media-discord" target="_blank" href="https://twitter.com/WingedDash" style="background-position: -6.5px -134px;"></a><a class="icon-social-media-discord" target="_blank" href="https://github.com/WingedDash" style="background-position: -6.5px -327px;"></a><a class="icon-social-media-discord" target="_blank" href="https://www.roblox.com/users/531629183/profile" style="background-position: -6.5px -455px;"></a></div>`
-            },
-            {
-                header: "Experimental Features",
-                icon: "icon-warning",
-                text: `Experimental features are features that are still being worked on, they could have multiple bugs or glitches associated with them.`
-            },
-            {
-                header: "Multiple Extensions",
-                text: `Having multiple extensions enabled can cause problems with DashBlox, make sure that you have properly configured all of your settings in all of your extensions so that it doesn't cause any problems with DashBlox.`
-            },
-            {
-                header: "Report A Bug",
-                sectionHtml: `</div><div class="section-content"><span class="text-description">Did you find a bug and want to report it? You can report it <a class="text-link" target="_blank" href="https://github.com/WingedDash/DashBlox/issues">here</a>.</span>`
-            },
-            {
-                header: "Privacy Policy",
-                sectionHtml: `</div><div class="section-content"><span class="text-description">You can read the <a class="text-link" target="_blank" href="https://github.com/WingedDash/DashBlox/blob/master/Privacy%20Policy.md">Privacy Policy</a> to see how your data is being used and more.</span>`
-            }
-        ]
+        contents: [] // Will be added manually.
     },
     {
         name: "General",
-        content: [
+        contents: [
             {
                 header: "DashBlox",
-                options: [
+                content: [
                     {
-                        header: "DashBlox Update Notifications",
-                        text: "Get notified when DashBlox has a new major update, allowing you to explore new settings and features when they're available.",
+                        name: "DashBlox Update Notifications",
+                        description: "Get notified when DashBlox has a new major update, allowing you to explore new settings and features when they're available.",
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "general.dashbloxUpdates"
+                        setting: "general.dashbloxUpdates",
+
+                        button: true,
+                        isDisabled: false
                     }
                 ]
             },
             {
                 header: "Catalog",
-                options: [
+                content: [
                     {
-                        header: "Time Format",
-                        text: "Changes whether to revert back to the old time format.",
+                        name: "Time Format (Beta)",
+                        description: "When this setting is enabled, it will revert back to the old time format. (MM/DD/YYYY)",
+                        
+                        setting: "general.simpleTimeFormat",
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "general.simpleTimeFormat"
+                        button: true,
+                        isDisabled: false
                     }
                 ]
             },
             {
                 header: "Roblox",
-                options: [
+                content: [
                     {
-                        header: "Block Roblox Alerts",
-                        text: "Removes the alert from the top of pages when Roblox sends a alert.",
+                        name: "Block Roblox Alerts",
+                        description: "Removes the alert from the top of pages when Roblox sends a alert.",
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "general.blockAlert"
+                        setting: "general.blockAlert",
+
+                        button: true,
+                        isDisabled: false
                     }
                 ]
             }
@@ -78,86 +54,84 @@ let categories = [
     },
     {
         name: "Games",
-        content: [
+        contents: [
             {
                 header: "Discovery Page",
-                options: [
+                content: [
                     {
-                        header: "Revert Popular Tab Changes",
-                        text: "Changes the position of the popular tab to the top of the games page.",
+                        name: "Revert Popular Tab Changes",
+                        description: "Changes the position of the popular tab to the top of the games page.",
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "general.popularTabTop"
+                        setting: "general.popularTabTop",
+
+                        button: true,
+                        isDisabled: false
                     }
                 ]
             },
             {
                 header: "Games Page",
-                options: [
+                content: [
                     {
-                        header: "Pinning Games",
-                        text: "Allows you to pin games to your home page.",
+                        name: "Pinning Games (Coming Soon)",
+                        description: "Allows you to pin games to your home page.",
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "games.pinningGames"
+                        setting: "games.pinningGames",
+
+                        button: true,
+                        isDisabled: true
+                    },
+                    {
+                        name: "Revert Experiences Back To Games",
+                        description: `Reverts the "experiences" update back to "games".`,
+
+                        setting: "theme.changeBackToGames",
+
+                        button: true,
+                        isDisabled: false,
+                        IsExperimental: true
                     }
                 ]
-            },
-            {
-                options: [
-                    {
-                        header: "Revert Experiences Back To Games",
-                        text: `Reverts the "experiences" update back to "games".`,
-
-                        toggleable: true,
-                        disabled: false,
-                        experimental: true,
-                        setting: "theme.changeBackToGames"
-                    }
-                ]
-            },
+            }
         ]
     },
     {
         name: "Catalog",
-        content: [
+        contents: [
             {
                 header: "Assets",
-                options: [
+                content: [
                     {
-                        header: "Item Statistics",
-                        text: "Shows you more information about an item on the catalog.",
+                        name: "Item Statistics",
+                        description: "Shows you more information about an item on the catalog.",
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "assets.assetStats"
-                    }
-                ]
-            },
-            {
-                options: [
+                        setting: "assets.assetStats",
+
+                        button: true,
+                        isDisabled: false
+                    },
                     {
-                        header: "Owners List",
-                        text: "View the owners of an item on the catalog that is something you created, or is a limited.",
+                        name: "Owners List (Coming Soon)",
+                        description: "View the owners of an item on the catalog that is something you created, or is a limited.",
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "assets.ownersList"
+                        setting: "assets.ownersList",
+
+                        button: true,
+                        isDisabled: true
                     }
                 ]
             },
             {
                 header: "Catalog",
-                options: [
+                content: [
                     {
-                        header: "Most Recent Items",
-                        text: "This adds a new category that lets you quickly see the most recent items on the catalog.",
+                        name: "Most Recent Items",
+                        description: "This adds a new category that lets you quickly see the most recent items on the catalog.",
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "catalog.recentCategory"
+                        setting: "catalog.recentCategory",
+
+                        button: true,
+                        isDisabled: false
                     }
                 ]
             }
@@ -165,43 +139,32 @@ let categories = [
     },
     {
         name: "Profiles",
-        content: [
+        contents: [
             {
                 header: "Information",
-            },
-            {
-                options: [
+                content: [
                     {
-                        header: "Last Online",
-                        text: "This lets you view the last time a user was online on their profile.",
+                        name: "Last Online",
+                        description: "This lets you view the last time a user was online on their profile.",
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "profile.lastOnline"
+                        setting: "profile.lastOnline",
+
+                        button: true,
+                        isDisabled: false
                     }
                 ]
             },
-            // {
-            //     options: [
-            //         {
-            //             header: "View Deleted Users",
-            //             sectionHtml: `<span class="text-description">You can view deleted users <a class="text-link" href="https://${currentUrlPaths[2]}/dashblox/viewdeleted">here</a>.</span>`,
-
-            //             toggleable: false,
-            //             experimental: true
-            //         }
-            //     ]
-            // },
             {
                 header: "Aesthetic",
-                options: [
+                content: [
                     {
-                        header: "Change Profile Statistics Location",
-                        text: "Changes the position of user statistics on a user's profile to be more viewable.",
+                        name: "Change Profile Statistics Location",
+                        description: "Changes the position of user statistics on a user's profile to be more viewable.",
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "profile.easyStatistics"
+                        setting: "profile.easyStatistics",
+
+                        button: true,
+                        isDisabled: false
                     }
                 ]
             }
@@ -209,92 +172,79 @@ let categories = [
     },
     {
         name: "Themes",
-        content: [
+        contents: [
             {
                 header: "Home",
-                options: [
+                content: [
                     {
-                        header: "Grouped Home Page",
-                        text: "Groups together continue playing, friends playing, and favorites and the rest get grouped into recommended.",
+                        name: "Grouped Home Page",
+                        description: "Groups together continue playing, friends playing, and favorites and the rest get grouped into recommended.",
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "theme.groupedHomePage"
-                    }
-                ]
-            },
-            {
-                options: [
+                        setting: "theme.groupedHomePage",
+
+                        button: true,
+                        isDisabled: false
+                    },
                     {
-                        header: "Classic Home Page",
-                        text: "Replaces the home page header with your profile picture and name.",
+                        name: "Classic Home Page",
+                        description: "Replaces the home page header with your profile picture and name.",
 
-                        toggleable: true,
-                        disabled: false,
-                        experimental: true,
-                        setting: "theme.profileHomePage"
+                        setting: "theme.profileHomePage",
+
+                        button: true,
+                        isDisabled: false,
+                        IsExperimental: true
                     }
                 ]
             },
             {
                 header: "Aesthetic",
-                options: [
+                content: [
                     {
-                        header: "Original Topbar Text",
-                        text: `Replaces the top bar text with "games" and "catalog".`,
+                        name: "Original Topbar Text",
+                        description: `Replaces the top bar text with "games" and "catalog".`,
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "theme.oldTopBarText"
-                    }
-                ]
-            },
-            {
-                options: [
+                        setting: "theme.oldTopBarText",
+
+                        button: true,
+                        isDisabled: false
+                    },
                     {
-                        header: "Original Robux Icons",
-                        text: "Replaces the new Robux icon with the older one.",
+                        name: "Original Robux Icons",
+                        description: "Replaces the new Robux icon with the older one.",
+                        
+                        setting: "theme.oldRobuxIcons",
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "theme.oldRobuxIcons"
-                    }
-                ]
-            },
-            {
-                options: [
+                        button: true,
+                        isDisabled: false
+                    },
                     {
-                        header: "Original Navigation Icons",
-                        text: "Replaces the new navigation icons with the older ones.",
+                        name: "Original Navigation Icons",
+                        description: "Replaces the new navigation icons with the older ones.",
+                        
+                        setting: "theme.oldNavigationIcons",
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "theme.oldNavigationIcons"
-                    }
-                ]
-            },
-            {
-                options: [
+                        button: true,
+                        isDisabled: false
+                    },
                     {
-                        header: "Better Scrollbar",
-                        text: `Changes the scrollbar to be more modern and work with the Roblox theme.`,
+                        name: "Improved Scrollbar",
+                        description: `Changes the scrollbar to be more modern and work with the Roblox theme.`,
 
-                        toggleable: true,
-                        disabled: false,
-                        setting: "theme.fancyScrollBar"
-                    }
-                ]
-            },
-            {
-                options: [
+                        setting: "theme.fancyScrollBar",
+
+                        button: true,
+                        isDisabled: false
+                    },
                     {
-                        header: "Small Chat Tab",
-                        text: `Changes the chat tab to a smaller size.`,
+                        name: "Small Chat Tab",
+                        description: `Changes the chat tab to a smaller size.`,
+                        
+                        setting: "theme.smallChatTab",
 
-                        toggleable: true,
-                        disabled: false,
-                        experimental: true,
-                        setting: "theme.smallChatTab"
+                        button: true,
+                        isDisabled: false,
+                        IsExperimental: true
                     }
                 ]
             }
@@ -302,184 +252,25 @@ let categories = [
     }
 ]
 
-pages.settings = () => { // Replace all "forEach" functions, rewrite most of the code.
-    var settingsCooldown = false;
-    var selectedCategory = "";
+function waitForSelector (selector, callback) { // This is temporary code because I don't feel like completely removing jQuery right now.
+    const element = document.querySelector(selector);
 
-    function getCategory(name) {
-        for (let index in categories) {
-            let category = categories[index];
-
-            if (String(category.name).toLowerCase() == String(name).toLowerCase()) {
-                return category;
-            }
-        }
-        throw new Error(`Could not find category under the name ${name}`);
-    }
-
-    function getSetting(setting) { // Rewrite this.
-        let settingCategories = setting.split(".");
-
-        return [settings.get(setting)];
-    }
-
-    function loadCategory(name) { // Rewrite this.
-        if (!settingsCooldown && name != selectedCategory) {
-            settingsCooldown = true;
-
-            let category = getCategory(name);
-
-            let previousCategoryElement = $(`.category-${String(selectedCategory).toLowerCase()}`);
-            let categoryElement = $(`.category-${String(category.name).toLowerCase()}`);
-
-            previousCategoryElement.removeClass("active");
-            categoryElement.addClass("active");
-
-            $(".dashblox-settings-content").empty();
-
-            category.content.forEach((categroyContent) => {
-                let section = $(`<div class="section"></div>`).appendTo(".dashblox-settings-content");
-
-                if (categroyContent.header) {
-                    let header = $(`<div class="container-header"><h3>${categroyContent.header}</h3></div>`).appendTo(section);
-
-                    if (categroyContent.icon) {
-                        header.children(`h3`).append(` <span class="${categroyContent.icon}"></span>`);
-                    }
-                }
-
-                if (categroyContent.preText) {
-                    section.append(`</div><div class="section-content"><pre class="text-description">${categroyContent.preText}</pre>`);
-                }
-
-                if (categroyContent.text) {
-                    section.append(`</div><div class="section-content"><span class="text-description">${categroyContent.text}</span>`);
-                }
-
-                if (categroyContent.options) {
-                    let sectionContent = $(`</div><div class="section-content"></div>`).appendTo(section);
-
-                    categroyContent.options.forEach((option, index) => {
-                        if (option.developmentVisible) {
-                            if (!developerMode) {
-                                section.remove();
-                                return;
-                            }
-                        }
-
-                        if (option.header && option.text) {
-                            let header = $(`<span class="text-lead">${option.header}</span>`).appendTo(sectionContent);
-                            sectionContent.append(`<div class="rbx-divider"></div>`);
-                            sectionContent.append(`<span class="text-description">${option.text}</span>`);
-
-                            if (option.experimental) {
-                                header.append(` <span class="icon-warning"></span><span class="text-error">(Experimental)</span>`);
-                            }
-                        } else {
-                            if (option.header) {
-                                let header = $(`<span class="text-lead">${option.header}</span>`).appendTo(sectionContent);
-
-                                if (option.experimental) {
-                                    if (option.experimental) {
-                                        header.append(` <span class="icon-warning"></span><span class="text-error">(Experimental)</span>`);
-                                    }
-                                }
-                            }
-
-                            if (option.text) {
-                                sectionContent.append(`<span class="text-description">${option.text}</span>`);
-                            }
-                        }
-
-                        if (option.sectionHtml && option.header && !option.text) {
-                            sectionContent.append(`<div class="rbx-divider"></div>`);
-                        }
-
-                        if (option.sectionHtml) {
-                            sectionContent.append(option.sectionHtml);
-                        }
-
-                        if (option.toggleable) {
-                            let getSettingOptions = getSetting(option.setting);
-                            let setting = getSettingOptions[0];
-
-                            let toggle = $(`<button id="btn-toggle" class="btn-toggle ${option.disabled ? "disabled" : setting ? "on" : ""}"><span class="toggle-flip"></span><span id="toggle-on" class="toggle-on"></span><span id="toggle-off" class="toggle-off"></span></button>`).prependTo(sectionContent);
-
-                            let toggleCoolDown = false;
-
-                            toggle.click(() => {
-                                let getSettingOptions = getSetting(option.setting);
-                                let setting = getSettingOptions[0];
-
-                                if (!toggleCoolDown) {
-                                    toggleCoolDown = true;
-
-                                    if (!option.disabled) {
-                                        if (setting) {
-                                            settings.set(option.setting, false);
-                                            toggle.removeClass("on");
-                                        } else {
-                                            settings.set(option.setting, true);
-                                            toggle.addClass("on");
-                                        }
-                                    }
-
-                                    toggleCoolDown = false;
-                                }
-                            })
-                        }
-                    })
-                }
-
-                if (categroyContent.sectionHtml) {
-                    section.append(categroyContent.sectionHtml);
-                }
-            })
-
-            selectedCategory = name;
-            settingsCooldown = false;
-        }
-    }
-
-    $.watch("head", () => {
-        injectCSS("css/pages/settings.css");
-    })
-
-    $.watch(".content", (content) => {
-        content.empty();
-
-        $("title")[0].text = "Settings - DashBlox";
-        jQuery("link[rel='icon']").attr("href", chrome.runtime.getURL("resources/icons/logo/256/glow.png"));
-
-        content.append(`
-        <div id="dashblox-settings">
-            <h1>DashBlox Settings</h1>
-            
-            <div class="menu-vertical-container">
-                <ul id="vertical-menu" class="menu-vertical submenus">
-
-                </ul>
-            </div>
-
-        <div class="dashblox-settings-content">
-
-        </div>
-
-        </div>`);
-
-        categories.forEach((category) => {
-            $("#vertical-menu.menu-vertical.submenus").append(`
-            <li class="menu-option category-${String(category.name).toLowerCase()}">
-                <a class="menu-option-content">
-                    <span class="menu-text">${category.name}</span>
-                </a>
-            </li>`);
-            
-            $(`.category-${String(category.name).toLowerCase()}`).click(()=> {
-                loadCategory(category.name);
-            });
+    if (!element) {
+        setTimeout(() => {
+            waitForSelector(selector, callback);
         })
+    }
 
-        loadCategory("Information");
-    })
+    callback(element);
+}
+
+pages.settings = () => {
+    waitForSelector(".content", (documentContent) => {
+        if (!documentContent) return; // Product of the annoying selector function.
+
+        document.title = "Settings - DashBlox";
+        documentContent.innerHTML = "";
+
+        document.querySelector("link[rel='icon']").setAttribute("href", chrome.runtime.getURL("resources/icons/logo/256/glow.png"));
+    });
 }

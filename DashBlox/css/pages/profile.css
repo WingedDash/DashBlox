@@ -14,6 +14,6 @@
     }
 }
 
-.last-online-stat .profile-stat {
+.profile-stats-container.last-online-stat .profile-stat {
     width: 33%;
 }

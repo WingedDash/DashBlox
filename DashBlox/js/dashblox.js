@@ -10,22 +10,23 @@ const storage = chrome.storage.local;
 
 const serviceWorker = !self.window;
 
+const pages = {};
+
 const updateLog = `
 Update 2.1.0:
 - Added a new setting for a grouped home page.
 - Added a new setting to block Roblox alerts.
-- Added a new setting to pin games.
 - Added a new setting for the most recent catalog items.
 - Added a new setting for original navigation icons.
 - Added a new setting to get the classic home page back. (Experimental)
 - Removed profile statuses. (Roblox patched it)
-- Tweaked the settings page.
+- Revamped settings page.
 - Fixed bugs.
 - Updated to Manifest Version 3.
 
 Build: ${(!developerMode && !betaMode) ? "Stable" : (developerMode && !betaMode) ? "Development" : "Beta"}
 Version: ${manifest.version}
-Updated: MM/DD/YYYY
+Updated: Month Day, Year
 `
 
 const dashblox = {
@@ -143,6 +144,8 @@ class DashBloxSettings {
         }
 
         this.defaultSettings = undefined;
+
+        try { injectPages() } catch (error) { };
     }
 
     get (rawLocation) {
@@ -171,45 +174,15 @@ class DashBloxSettings {
         return currentCategory;
     }
 
-    // TODO: Make the "set" function be path based.
-
     set (rawLocation, value) {
-        /* This code is unfinished, It will be updated when I get the time to deal with it.
-            if (!rawLocation instanceof String) return;
-            if (!value) return;
-
-            const location = rawLocation.split(".");
-            
-            let currentCategory = this.loadedSettings;
-
-            for (const index in location) {
-                const data = location[index];
-
-                currentCategory = currentCategory?.[data];
-
-                if (currentCategory == null) {
-                    if (index == (location.length - 1)) {
-                        break;
-                    }
-
-                    currentCategory = {};
-                }
-            }
-
-            currentCategory = value;
-
-            dashblox.storage.save("settings", this.loadedSettings);
-        */
-
-
-        if (value == null) {
-            value = setting;
-            this.loadedSettings[category] = value;
-            dashblox.storage.save("settings", this.loadedSettings);
-        } else {
-            this.loadedSettings[category][setting] = value;
-            dashblox.storage.save("settings", this.loadedSettings);
-        }
+        // if (value == null) {
+        //     value = setting;
+        //     this.loadedSettings[category] = value;
+        //     dashblox.storage.save("settings", this.loadedSettings);
+        // } else {
+        //     this.loadedSettings[category][setting] = value;
+        //     dashblox.storage.save("settings", this.loadedSettings);
+        // }
     }
 }
 

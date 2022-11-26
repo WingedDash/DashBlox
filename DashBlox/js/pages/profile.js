@@ -38,7 +38,7 @@ pages.profile = async (userId) => {
         })
     }
 
-    switch (userId) {
+    switch (Number(userId)) {
         case 1: {
             $.watch(".container-header", () => {
                 $(".container-header > .collection-btns").append(`<a href="https://www.roblox.com/catalog?Category=1&amp;CreatorID=1&amp;SortType=3&amp;IncludeNotForSale" class="btn-min-width btn-secondary-xs btn-more inventory-link see-all-link-icon ng-binding">Recent Items</a>`);

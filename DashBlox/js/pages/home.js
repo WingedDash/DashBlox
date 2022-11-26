@@ -2,10 +2,10 @@
 
 pages.home = async () => {
     if (settings.get("theme.groupedHomePage")) {
-        $.watch(".game-home-page-carousel-title:Contains('Favorites')", (favorites) => {
+        $.watch(".container-header:Contains('Favorites')", (favorites) => {
             let favoritesTab = favorites.next();
 
-            $.watch(".game-home-page-carousel-title:Contains('Friend Activity')", (friendsPlaying) => {
+            $.watch(".container-header:Contains('Friend Activity')", (friendsPlaying) => {
                 favoritesTab.insertAfter(friendsPlaying.next());
                 favorites.insertAfter(friendsPlaying.next());
     
@@ -25,7 +25,7 @@ pages.home = async () => {
 
             $.watch("#HomeContainer .section .col-xs-12.container-header h1", (selector) => {
                 selector.before(`<div class="dashblox-home-avatar">
-                    <a class="avatar avatar-headshot-lg card-plain profile-avatar-image" href="https://${currentUrlPaths[2]}/users/${authUser.userId}/profile">
+                    <a class="avatar avatar-headshot-lg card-plain profile-avatar-image" href="https://${documentLocation.hostname}/users/${authUser.userId}/profile">
                         <span class="avatar-card-link avatar-image-link">
                             <thumbnail-2d class="avatar-card-image profile-avatar-thumb ng-scope ng-isolate-scope"><span class="thumbnail-2d-container"> <img class="ng-scope ng-isolate-scope" src="${avatarHeadshot.data[0].imageUrl}" draggable="false">  </span> </thumbnail-2d>
                         </span>
@@ -40,10 +40,10 @@ pages.home = async () => {
     }
 
     if (settings.get("theme.changeBackToGames")) {
-        $.watch(".font-header-1", () => {
+        $.watch("#place-list > .game-home-page-container > .container-header > h2", () => {
             try {
-                $("#place-list > .game-home-page-container > .game-home-page-carousel-title > .font-header-1:Contains('Continue')")[0].innerText = "Continue Playing";
-                $("#place-list > .game-home-page-container > .game-home-page-carousel-title > .font-header-1:Contains('Friend Activity')")[0].innerText = "Friends Playing";
+                $("#place-list > .game-home-page-container > .container-header > h2:Contains('Continue')")[0].innerText = "Continue Playing";
+                $("#place-list > .game-home-page-container > .container-header > h2:Contains('Friend Activity')")[0].innerText = "Friends Playing";
             } catch (error) {
             }
         })

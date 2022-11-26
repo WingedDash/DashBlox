@@ -26,7 +26,7 @@ function getBadgeRarity(rarity) {
 }
 
 pages.assets = async (assetId) => {
-    const assetPage = currentPageInfo.path;
+    const assetPage = pathName.split("/")[1];
 
     if (settings.get("assets.assetStats")) {
         switch (assetPage) {
@@ -66,7 +66,7 @@ pages.assets = async (assetId) => {
                     let item = assetDetails.items[index];
 
                     if (item.type === "Asset") {
-                        bundle = await dashblox.get(`https://api.roblox.com/marketplace/productinfo`, {assetId: item.id});
+                        bundle = await dashblox.get(`https://economy.roblox.com/v2/assets/${assetId}/details`);
                         break;
                     }
                 }
@@ -86,45 +86,50 @@ pages.assets = async (assetId) => {
             }
 
             default: {
-                const asset = (assetPage == "game-pass" ? await dashblox.get(`https://api.roblox.com/marketplace/game-pass-product-info`, {gamepassId: assetId}) : await dashblox.get(`https://economy.roblox.com/v2/assets/${assetId}/details`));
-                
-                if (!asset) return;
+                $.watch("#item-container", async () => {
+                    const isGamePass = (assetPage === "game-pass");
+                    const productId = (isGamePass ? document.querySelector("#item-container").dataset.productId : null);
 
-                const authUser = await util.getAuthUser();
-                let creatorId = asset.Creator.Id;
-    
-                if (asset.Creator.CreatorType === "Group") {
-                    try {
-                        let groupMembership = await dashblox.get(`https://groups.roblox.com/v1/groups/${asset.Creator.CreatorTargetId}/membership`);
-    
-                        if (groupMembership) {
-                            if (groupMembership.permissions.groupEconomyPermissions.manageGroupGames) {
-                                creatorId = authUser.userId || 0;
+                    const asset = (isGamePass && productId) ? await dashblox.get(`https://economy.roblox.com/v2/developer-products/${productId}/details`) : await dashblox.get(`https://economy.roblox.com/v2/assets/${assetId}/details`);
+                    
+                    if (!asset) return;
+
+                    const authUser = await util.getAuthUser();
+                    let creatorId = asset.Creator.Id;
+        
+                    if (asset.Creator.CreatorType === "Group") {
+                        try {
+                            let groupMembership = await dashblox.get(`https://groups.roblox.com/v1/groups/${asset.Creator.CreatorTargetId}/membership`);
+        
+                            if (groupMembership) {
+                                if (groupMembership.permissions.groupEconomyPermissions.manageGroupGames) {
+                                    creatorId = authUser.userId || 0;
+                                }
+                            }
+                        } catch (message) {
+                            if (developerMode) {
+                                console.warn(message);
                             }
                         }
-                    } catch (message) {
-                        if (developerMode) {
-                            console.warn(message);
+                    }
+        
+                    $.watch(".clearfix.toggle-target.item-field-container", (description) => {
+                        if (creatorId > 1) {
+                            $(".clearfix.item-field-container:contains('Updated')").remove();
                         }
-                    }
-                }
-    
-                $.watch(".clearfix.toggle-target.item-field-container", (description) => {
-                    if (creatorId > 1) {
-                        $(".clearfix.item-field-container:contains('Updated')").remove();
-                    }
-    
-                    description.before(`<div class="clearfix item-field-container" data-itemstats="Created"><div class="text-label field-label">Created</div><span class="field-content ">${util.timeFormat(asset.Created)}</span></div>`);
-                    description.before(`<div class="clearfix item-field-container" data-itemstats="Updated"><div class="text-label field-label">Updated</div><span class="field-content ">${util.timeFormat(asset.Updated)}</span></div>`);
-    
-                    if (creatorId === authUser.userId) {
-                        description.before(`<div class="clearfix item-field-container" data-itemstats="Sales"><div class="text-label field-label">Sales</div><span class="field-content ">${asset.Sales.toLocaleString()}</span></div>`);
+        
+                        description.before(`<div class="clearfix item-field-container" data-itemstats="Created"><div class="text-label field-label">Created</div><span class="field-content ">${util.timeFormat(asset.Created)}</span></div>`);
+                        description.before(`<div class="clearfix item-field-container" data-itemstats="Updated"><div class="text-label field-label">Updated</div><span class="field-content ">${util.timeFormat(asset.Updated)}</span></div>`);
+        
+                        if (creatorId === authUser.userId) {
+                            description.before(`<div class="clearfix item-field-container" data-itemstats="Sales"><div class="text-label field-label">Sales</div><span class="field-content ">${asset.Sales.toLocaleString()}</span></div>`);
+                        }
+                    })
+            
+                    if (developerMode) {
+                        console.log(asset);
                     }
                 })
-        
-                if (developerMode) {
-                    console.log(asset);
-                }
 
                 break;
             }
