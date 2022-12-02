@@ -252,7 +252,7 @@ const categories = [
     }
 ]
 
-function waitForSelector (selector, callback) { // This is temporary code because I don't feel like completely removing jQuery right now.
+function waitForSelector (selector, callback) {
     const element = document.querySelector(selector);
 
     if (!element) {
