@@ -40,13 +40,32 @@ pages.profile = async (userId) => {
         if (!groupMembership) return;
 
         for (const member of groupMembership.data) {
-            if (member.group.id === 15157542 && member.role.name === "Beta Tester") {
-                $.watch("#roblox-badges-container > .section-content > .hlist.badge-list > .list-item.asset-item", (selector) => {
-                    $(selector[0]).before(`<li class="list-item asset-item"> <a href="https://www.roblox.com/groups/15157542/DashBlox" title="A beta tester for DashBlox!"> <span class="border asset-thumb-container icon-badge-dashblox-beta-tester" title="A beta tester for DashBlox!"></span> <span class="font-header-2 text-overflow item-name">Beta Tester</span> </a> </li>`);
-                });
+            if (member.group.id !== 15157542) continue;
 
-                break;
+            switch (member.role.name) {
+                case "Member": {
+                    if (developerMode) console.log("This person is cool, they're a DashBlox Member.");
+
+                    break;
+                }
+
+                case "Beta Tester": {
+                    $.watch("#roblox-badges-container > .section-content > .hlist.badge-list > .list-item.asset-item", (selector) => {
+                        $(selector[0]).before(`<li class="list-item asset-item"> <a href="https://www.roblox.com/groups/15157542/DashBlox" title="This badge is awarded to the beta testers of DashBlox!"> <span class="border asset-thumb-container icon-badge-dashblox-beta-tester" title="DashBlox Beta Tester"></span> <span class="font-header-2 text-overflow item-name">DashBlox Tester</span> </a> </li>`);
+                    });
+
+                    break;
+                }
+
+                case "Owner": {
+                    $.watch("#roblox-badges-container > .section-content > .hlist.badge-list > .list-item.asset-item", (selector) => {
+                        $(selector[0]).before(`<li class="list-item asset-item"> <a href="https://www.roblox.com/dashblox/settings" title="This badge is awarded to the developers of DashBlox!"> <span class="border asset-thumb-container icon-badge-dashblox-creator" title="DashBlox Developer"></span> <span class="font-header-2 text-overflow item-name">DashBlox</span> </a> </li>`);
+                    });
+
+                    break;
+                }
             }
+
         }
     } catch (error) {
         if (allowConsoleErrors) {
@@ -64,13 +83,22 @@ pages.profile = async (userId) => {
         }
 
         case 531629183: {
+            const headerStatus = [
+                "Hello World!",
+                "Welcome to my profile!",
+                "Profile statuses? Nope, it's just a fun easter egg.",
+                "If you scroll out far enough, you'll see the end of the universe.",
+                "Check out my cool badges. 😎",
+                "Roblox is a platform, not a metaverse, prove me wrong."
+            ];
+
             $.watch(".text-lead:contains('2/26/2018')", (selector) => {
                 selector[0].innerText = "8/8/2014";
             });
-    
-            $.watch("#roblox-badges-container > .section-content > .hlist.badge-list > .list-item.asset-item", (selector) => {
-                $(selector[0]).before(`<li class="list-item asset-item"> <a href="https://www.roblox.com/dashblox/settings" title="The creator of DashBlox!"> <span class="border asset-thumb-container icon-badge-dashblox-creator" title="The creator of DashBlox!"></span> <span class="font-header-2 text-overflow item-name">DashBlox</span> </a> </li>`);
-            });
+
+            $.watch(".header-caption > .header-names", (selector) => {
+                selector.after(`<div class="header-user-status"> <span class="text">"${headerStatus[Math.floor(Math.random() * headerStatus.length)]}"</span> </div>`);
+            })
 
             break;
         }
