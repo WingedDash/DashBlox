@@ -2,6 +2,10 @@
     max-width: 970px !important;
 }
 
+.request-error-page-content {
+    display: none;
+}
+
 #dashblox-settings .menu-vertical-container {
     float: left;
 }

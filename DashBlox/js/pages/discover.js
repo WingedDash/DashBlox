@@ -1,6 +1,7 @@
 "use strict"
 
 pages.discover = () => {
+    return
     if (settings.get("general.popularTabTop")) {
         $.watch(".container-header.games-filter-changer:Contains('Popular Worldwide')", (selector) => {
             var popularTab = $(selector.parent()[0]);

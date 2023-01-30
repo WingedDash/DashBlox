@@ -1,4 +1,7 @@
 # Update Logs
+* Update Version 2.1.1
+    * Fixed bugs.
+---
 * Update Version 2.1.0
     * Fixed bugs.
     * Updated the settings page.

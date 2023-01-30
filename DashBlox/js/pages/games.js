@@ -1,6 +1,7 @@
 "use strict"
 
 pages.games = (gameId) => {
+    return
     if (settings.get("theme.changeBackToGames")) {
         $.watch(".text-label.text-overflow.font-caption-header:contains('Active')", (selector) => {
             selector[0].innerText = "Playing";

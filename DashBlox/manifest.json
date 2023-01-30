@@ -40,8 +40,8 @@
     "content_scripts": [
         {
             "js": [
-                "js/library/jquery3.6.0.js",
-
+                "js/library/selector.js",
+                
                 "js/inject.js",
                 "js/dashblox.js",
 

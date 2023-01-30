@@ -67,20 +67,20 @@ class DashBloxUtil {
     }
 }
 
-Object.assign($, { // Once jquery is removed and I make a new one, write this into it. 
-    watch(selector, callback) {
-        if (typeof callback !== "function") {
-            throw Error("Watch requires a function.");
-        }
+// Object.assign($, { // Once jquery is removed and I make a new one, write this into it. 
+//     watch(selector, callback) {
+//         if (typeof callback !== "function") {
+//             throw Error("Watch requires a function.");
+//         }
     
-        if ($(selector).length >= 1) {
-            callback($(selector));
-        } else {
-            setTimeout(() => {
-                $.watch(selector, callback);
-            })
-        }
-    }
-})
+//         if ($(selector).length >= 1) {
+//             callback($(selector));
+//         } else {
+//             setTimeout(() => {
+//                 $.watch(selector, callback);
+//             })
+//         }
+//     }
+// })
 
 const util = new DashBloxUtil();

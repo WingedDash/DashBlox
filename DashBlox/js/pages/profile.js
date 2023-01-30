@@ -10,10 +10,10 @@ pages.profile = async (userId) => {
             const lastOnline = onlineStats.LastOnline;
             const presenceType = onlineStats.PresenceType;
 
-            $.watch(".profile-stats-container", (selector) => {
-                selector.addClass("last-online-stat");
-                $($(".profile-stats-container > .profile-stat")[0]).after(`<li class="profile-stat"><p class="text-label">Last Online</p><p class="text-lead">${presenceType === 0 ? util.timeFormat(lastOnline) : "Currently Online"}</p></li>`);
-            })
+            const profileStatsContainer = await $.watch(".profile-stats-container");
+            profileStatsContainer.classList.add("last-online-stat");
+
+            // $($(".profile-stats-container > .profile-stat")[0]).after(`<li class="profile-stat"><p class="text-label">Last Online</p><p class="text-lead">${presenceType === 0 ? util.timeFormat(lastOnline) : "Currently Online"}</p></li>`);
         } catch (error) {
             if (allowConsoleErrors) {
                 console.log(error);
@@ -22,10 +22,8 @@ pages.profile = async (userId) => {
     }
 
     if (settings.get("profile.easyStatistics")) {
-        $.watch(".section .profile-statistics", () => {
-            $(".section .profile-statistics > .container-header").remove();
-            $("#profile-statistics-container").insertAfter($("#profile-current-wearing-avatar"));
-        })
+        (await $.watch(".section .profile-statistics > .container-header")).remove();
+        // (await $.watch("#profile-current-wearing-avatar")).appendChild(document.querySelector("#profile-statistics-container"))
     }
 
     if (settings.get("profile.changeBackToGames")) {
@@ -33,7 +31,7 @@ pages.profile = async (userId) => {
             $(".profile-game.ng-scope.section > .container-header > h3:Contains('Experiences')")[0].innerText = "Games";
         })
     }
-
+    return
     try {
         const groupMembership = await dashblox.get(`https://groups.roblox.com/v1/users/${Number(userId)}/groups/roles`);
 
@@ -76,7 +74,7 @@ pages.profile = async (userId) => {
     switch (Number(userId)) {
         case 1: {
             $.watch(".container-header", () => {
-                $(".container-header > .collection-btns").append(`<a href="https://www.roblox.com/catalog?Category=1&amp;CreatorID=1&amp;SortType=3&amp;IncludeNotForSale" class="btn-min-width btn-secondary-xs btn-more inventory-link see-all-link-icon ng-binding">Recent Items</a>`);
+                $(".container-header > .collection-btns").append(`<a href="https://${documentLocation.hostname}/catalog?Category=1&CreatorName=Roblox&salesTypeFilter=1&SortType=3&IncludeNotForSale" class="btn-min-width btn-secondary-xs btn-more inventory-link see-all-link-icon ng-binding">Recent Items</a>`);
             });
 
             break;

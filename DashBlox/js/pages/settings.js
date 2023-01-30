@@ -252,25 +252,13 @@ const categories = [
     }
 ]
 
-function waitForSelector (selector, callback) { // This is temporary code because I don't feel like completely removing jQuery right now.
-    const element = document.querySelector(selector);
-
-    if (!element) {
-        setTimeout(() => {
-            waitForSelector(selector, callback);
-        })
-    }
-
-    callback(element);
-}
-
 pages.settings = () => {
-    waitForSelector(".content", (documentContent) => {
-        if (!documentContent) return; // Product of the annoying selector function.
+    const content = $.watch(".content");
 
-        document.title = "Settings - DashBlox";
-        documentContent.innerHTML = "";
+    if (!content) return;
 
-        document.querySelector("link[rel='icon']").setAttribute("href", chrome.runtime.getURL("resources/icons/logo/256/glow.png"));
-    });
+    document.title = "Settings - DashBlox";
+    content.innerHTML = "";
+
+    document.querySelector("link[rel='icon']").setAttribute("href", chrome.runtime.getURL("resources/icons/logo/256/glow.png"));
 }

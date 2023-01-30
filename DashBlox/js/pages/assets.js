@@ -26,6 +26,7 @@ function getBadgeRarity(rarity) {
 }
 
 pages.assets = async (assetId) => {
+    return
     const assetPage = pathName.split("/")[1];
 
     if (settings.get("assets.assetStats")) {

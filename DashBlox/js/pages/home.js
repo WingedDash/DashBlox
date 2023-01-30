@@ -1,6 +1,7 @@
 "use strict"
 
 pages.home = async () => {
+    return
     if (settings.get("theme.groupedHomePage")) {
         $.watch(".container-header:Contains('Favorites')", (favorites) => {
             let favoritesTab = favorites.next();
