@@ -1,4 +1,7 @@
 # Update Logs
+* Update Version 2.1.2
+    * Fixed the last online feature not displaying the correct time.
+---
 * Update Version 2.1.1
     * Fixed bugs.
 ---
