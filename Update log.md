@@ -1,4 +1,7 @@
 # Update Logs
+* Update Version 2.1.3
+    * Fixed an issue causing Item Statistics not to display after a Roblox update.
+---
 * Update Version 2.1.2
     * Fixed the last online feature not displaying the correct time.
 ---
