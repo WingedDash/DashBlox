@@ -1,0 +1,35 @@
+.icon-badge-dashblox-creator {
+    background-image: url(/resources/badges.svg);
+    background-repeat: no-repeat;
+    background-size: 280px auto;
+
+    display: inline-block;
+    vertical-align: middle;
+    background-position: 7px 3px;
+}
+
+@media (max-width: 767px) {
+    .section-content .icon-badge-dashblox-creator {
+        background-position: 4px 2px;
+    }
+}
+
+.icon-badge-dashblox-beta-tester {
+    background-image: url(/resources/badges.svg);
+    background-repeat: no-repeat;
+    background-size: 280px auto;
+
+    display: inline-block;
+    vertical-align: middle;
+    background-position: -146px 3px;
+}
+
+@media (max-width: 767px) {
+    .section-content .icon-badge-dashblox-beta-tester {
+        background-position: -89px 2px;
+    }
+}
+
+.profile-stats-container.last-online-stat .profile-stat {
+    width: 33%;
+}

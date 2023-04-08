@@ -1,0 +1,174 @@
+.icon-robux, 
+.icon-robux-16x16,
+.icon-robux-28x28, 
+.icon-robux-burst-banner, 
+.icon-robux-gold, 
+.icon-robux-gray, 
+.icon-robux-gray-16x16,
+.icon-robux-white {
+    background-image: url(/resources/common/classic.svg);
+}
+
+.light-theme .icon-robux, 
+.light-theme .icon-robux-16x16,
+.light-theme .icon-robux-28x28, 
+.light-theme .icon-robux-burst-banner, 
+.light-theme .icon-robux-gold, 
+.light-theme .icon-robux-gray, 
+.light-theme .icon-robux-gray-16x16,
+.light-theme .icon-robux-white {
+    background-image: url(/resources/common/light.svg);
+}
+
+.dark-theme .icon-robux, 
+.dark-theme .icon-robux-16x16,
+.dark-theme .icon-robux-28x28, 
+.dark-theme .icon-robux-burst-banner, 
+.dark-theme .icon-robux-gold, 
+.dark-theme .icon-robux-gray, 
+.dark-theme .icon-robux-gray-16x16,
+.dark-theme .icon-robux-white {
+    background-image: url(/resources/common/dark.svg);
+}
+
+.icon-robux,
+.icon-robux-16x16,
+.icon-robux-28x28,
+.icon-robux-gray-16x16 {
+    background-position: 0 -112px;
+    width: 30px;
+    height: 26px;
+}
+
+.product .icon-robux-gold,
+.icon-robux-gold, .icon-robux-gold-16x16,
+#checkout-success-container .product-image .icon-robux-gold {
+    background-position: 0 -500px;
+}
+
+.icon-robux-white,
+.robux-upsell .subscribed .icon-robux-white,
+.btn-growth-md.btn-full-width.unsubscribed.ng-scope .icon-robux-white,
+#game-details-play-button-container .btn-full-width.btn-common-play-game-lg.btn-primary-md.btn-min-width .icon-robux-white {
+    background-position: 0 -252px;
+    background-size: 72px auto;
+    width: 36px;
+    height: 36px;
+}
+
+.icon-robux-gray,
+.robux-downsell .icon-robux-gray {
+    background-position: 0 -114px;
+    background-size: 57px auto;
+    width: 30px;
+    height: 28px
+}
+
+.reseller-price-container .icon-robux-28x28 {
+    background-position: 0 -112px;
+}
+
+.icon-robux-price-container .icon-robux-16x16 {
+    float: left;
+    margin-right: 3px;
+}
+
+.store-card-price .icon-robux-16x16 {
+    margin-top: -1px;
+}
+
+.store-card-price .icon-robux-16x16,
+.description-text.ng-binding .icon-robux-16x16,
+.modal-content .modal-footer .icon-robux-gray-16x16,
+#textDisplay .robux-price-default-color .icon-robux-16x16,
+.modal-content .modal-body .modal-message .icon-robux-16x16,
+.text-overflow.item-card-label.ng-scope .icon-robux-gray-16x16,
+.item-card-caption .text-overflow.item-card-price .icon.icon-robux-16x16,
+.modal-content .modal-body .modal-top-body .modal-message .icon-robux-16x16,
+.modal-content .modal-footer.text-footer.modal-footer-center .icon-robux-gray-16x16,
+#assetsItems .item-card-container .text-overflow.item-card-price .icon-robux-16x16.ng-scope,
+.item-card-container.recommended-item-link .text-overflow.item-card-price .icon-robux-16x16,
+.text-overflow.item-card-price.font-header-2.text-subheader.ng-scope .icon.icon-robux-16x16.ng-scope,
+.premium-prompt.small.text.field-content.empty-label.wait-for-i18n-format-render a .icon-robux-16x16.wait-for-i18n-format-render {
+    background-position: 0 -64px;
+    background-size: 32px auto;
+    width: 16px;
+    height: 16px;
+}
+
+.border-bottom tr .icon-robux-container .icon-robux-16x16,
+.balance-label.icon-robux-container span .icon-robux-16x16,
+.ng-scope .text-label.icon-robux-container.ng-scope .icon-robux-16x16,
+.create-server-banner-text.text .private-server-price .icon-robux-16x16 {
+    background-position: 0 -101px;
+    background-size: 50px auto;
+    width: 25px;
+    height: 23px;
+}
+
+.icon-text-wrapper .icon-robux-16x16 {
+    margin-top: -3px;
+}
+
+.icon-nav-robux,
+.icon-robux-28x28#nav-robux {
+    background-image: url(/resources/navigation/light.svg);
+}
+
+.light-theme .icon-nav-robux,
+.light-theme .icon-robux-28x28#nav-robux {
+    background-image: url(/resources/navigation/light.svg);
+}
+
+.dark-theme .icon-nav-robux,
+.dark-theme .icon-robux-28x28#nav-robux {
+    background-image: url(/resources/navigation/dark.svg);
+}
+
+.icon-nav-robux {
+    background-position: 0 -28.7px;
+}
+
+.dashblox .icon-robux-28x28#nav-robux,
+.dashblox #nav-robux-icon .icon-robux-28x28 {
+    background-position: 0 -28px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    vertical-align: middle;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+}
+
+.icon-robux-28x28#nav-robux,
+#nav-robux-icon .icon-robux-28x28 {
+    background-position: 0 -28px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    vertical-align: middle;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+}
+
+.group-detail-stat.col-xs-6.col-md-2 h3.icon-text-wrapper .icon-robux-28x28 {
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    vertical-align: middle;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+}
+
+.icon-nav-robux:hover,
+a:hover .icon-nav-robux,
+button:hover .icon-nav-robux,
+#nav-robux-icon .icon-robux-28x28:hover {
+    background-position: -28px -28px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    vertical-align: middle;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+}

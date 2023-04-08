@@ -1,0 +1,57 @@
+{
+    "manifest_version": 3,
+
+    "name": "DashBlox - Improving Roblox",
+    "short_name": "DashBlox",
+    
+    "description": "Creates new features that otherwise are missing, removed, or don't exist.",
+
+    "author": "WingedDash",
+    "version": "2.2.0",
+
+    "minimum_chrome_version": "90",
+
+    "action": {
+        "default_title": "DashBlox"
+    },
+
+    "icons": {
+        "256": "resources/icons/logo/256/glow.png",
+        "128": "resources/icons/logo/128/glow.png"
+    },
+
+    "background": {
+        "service_worker": "js/main.js"
+    },
+
+    "web_accessible_resources": [{
+        "resources": ["css/*", "resources/*", "extension.json"],
+        "matches": ["*://*.roblox.com/*"]
+    }],
+
+    "host_permissions": [
+        "*://*.roblox.com/*"
+    ],
+
+    "permissions": [
+        "storage"
+    ],
+
+    "content_scripts": [
+        {
+            "js": [
+                "js/modification.js",
+                "js/util.js",
+                "js/main.js",
+
+                "js/pages/default.js",
+
+                "js/loader.js"
+            ],
+
+            "run_at": "document_start",
+            "all_frames": true,
+            "matches": ["*://*.roblox.com/*"]
+        }
+    ]
+}

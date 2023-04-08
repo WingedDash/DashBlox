@@ -1,0 +1,103 @@
+.light-theme .icon-nav-notification-stream {
+    background-image: url(/resources/navigation/light.svg);
+    background-position: 0 -448px;
+    background-size: 56px auto;
+    width: 28px;
+    height: 28px;
+}
+
+.dark-theme .icon-nav-notification-stream {
+    background-image: url(/resources/navigation/dark.svg);
+    background-position: 0 -448px;
+    background-size: 56px auto;
+    width: 28px;
+    height: 28px;
+}
+
+.light-theme .icon-nav-notification-stream:hover {
+    background-image: url(/resources/navigation/light.svg);
+    background-position: -28px -448px;
+    background-size: 56px auto;
+    width: 28px;
+    height: 28px;
+}
+
+.dark-theme .icon-nav-notification-stream:hover {
+    background-image: url(/resources/navigation/dark.svg);
+    background-position: -28px -448px;
+    background-size: 56px auto;
+    width: 28px;
+    height: 28px;
+}
+
+.light-theme .btn-uiblox-common-common-notification-bell-md span[class^=icon-],
+.light-theme button.btn-uiblox-common-common-notification-bell-md span[class^=icon-],
+.light-theme .icon-common-notification-bell {
+    background-image: url(/resources/navigation/light.svg);
+    background-position: 0 -448px;
+    background-size: 56px auto;
+    width: 28px;
+    height: 28px;
+}
+
+.dark-theme .btn-uiblox-common-common-notification-bell-md span[class^=icon-],
+.dark-theme button.btn-uiblox-common-common-notification-bell-md span[class^=icon-],
+.dark-theme .icon-common-notification-bell {
+    background-image: url(/resources/navigation/dark.svg);
+    background-position: 0 -448px;
+    background-size: 56px auto;
+    width: 28px;
+    height: 28px;
+}
+
+.light-theme .btn-uiblox-common-common-notification-bell-md span[class^=icon-]:hover,
+.light-theme button.btn-uiblox-common-common-notification-bell-md span[class^=icon-]:hover,
+.light-theme .icon-common-notification-bell:hover {
+    background-image: url(/resources/navigation/light.svg);
+    background-position: -28px -448px;
+    background-size: 56px auto;
+    width: 28px;
+    height: 28px;
+}
+
+.dark-theme .btn-uiblox-common-common-notification-bell-md span[class^=icon-]:hover,
+.dark-theme button.btn-uiblox-common-common-notification-bell-md span[class^=icon-]:hover,
+.dark-theme .icon-common-notification-bell:hover {
+    background-image: url(/resources/navigation/dark.svg);
+    background-position: -28px -448px;
+    background-size: 56px auto;
+    width: 28px;
+    height: 28px;
+}
+
+.light-theme .icon-nav-settings {
+    background-image: url(/resources/navigation/light.svg);
+    background-position: 0 -84px;
+    background-size: 56px auto;
+    width: 28px;
+    height: 28px;
+}
+
+.dark-theme .icon-nav-settings {
+    background-image: url(/resources/navigation/dark.svg);
+    background-position: 0 -84px;
+    background-size: 56px auto;
+    width: 28px;
+    height: 28px;
+}
+
+.light-theme .icon-nav-settings:hover {
+    background-image: url(/resources/navigation/light.svg);
+    background-position: -28px -84px;
+    background-size: 56px auto;
+    width: 28px;
+    height: 28px;
+}
+
+.dark-theme .icon-nav-settings:hover {
+    background-image: url(/resources/navigation/dark.svg);
+    background-position: -28px -84px;
+    background-size: 56px auto;
+    width: 28px;
+    height: 28px;
+}
