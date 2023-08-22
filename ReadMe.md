@@ -28,5 +28,5 @@ If you're having problems with DashBlox or you just want to suggest a feature, p
 * [Email](mailto:wingeddashbusiness@gmail.com): Business Email
 * [GitHub](https://github.com/WingedDash): WingedDash
 * [Twitter](https://twitter.com/WingedDash): @WingedDash
-* [Discord](https://discord.com/): WingedDash#1337
+* [Discord](https://discord.com/): WingedDash
 * [Discord Server](https://discord.com/servers/dashblox-community-723207239661387887): DashBlox Community

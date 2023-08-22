@@ -1,4 +1,8 @@
 # Update Logs
+* Update Version 2.1.4
+    * Fixed some bugs caused by a recent Roblox update.
+    * Removed unfinished features from settings. (Estimated release date of late 2023)
+---
 * Update Version 2.1.3
     * Fixed an issue causing Item Statistics not to display after a Roblox update.
 ---
