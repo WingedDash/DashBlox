@@ -8,11 +8,11 @@ DashBlox is not available on any other browser, please do not install extensions
 * Microsoft Edge
     * [DashBlox on Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/dashblox/fdplbdkcchjedlpbdfpcnanbbgjghace)
 
-As of right now, the development of DashBlox has been paused for personal reasons.\
-I do not plan to stay away from the development of DashBlox forever, but it'll require a rework of the entire extension and I am not ready to take on such a project.\
-Thank you for your support and patience though, and I'll still try to provide any bug fixes to the most recent working build of DashBlox.
+❗As of right now, the development of DashBlox has been paused for personal reasons.\
+❗I do not plan to stay away from the development of DashBlox forever, but it'll require a rework of the entire extension and I am not ready to take on such a project.\
+❗Thank you for your support and patience though, and I'll still try to provide any bug fixes to the most recent working build of DashBlox.
 
-# Copyright
+# Copyright & License Agreement
 Copyright © WingedDash\
 All rights reserved.
 
