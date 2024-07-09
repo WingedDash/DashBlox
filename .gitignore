@@ -1,6 +1,5 @@
-/releases
 /.vscode
 /notes.txt
 
-/DashBlox/js/not_finished
-/DashBlox/js/pages
+/js/not_finished
+/js/pages

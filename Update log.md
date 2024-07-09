@@ -1,7 +1,7 @@
 # Update Logs
 * Update Version 2.1.4
     * Fixed some bugs caused by a recent Roblox update.
-    * Removed unfinished features from settings. (Estimated release date of late 2023)
+    * Removed unfinished features from settings.
 ---
 * Update Version 2.1.3
     * Fixed an issue causing Item Statistics not to display after a Roblox update.
@@ -20,7 +20,7 @@
     * Added a new setting for the most recent catalog items.
     * Added a new setting for original navigation icons.
     * Added a new setting to get the classic home page back. (Experimental)
-    * Removed profile statuses. (Roblox patched it)
+    * Removed profile statuses. (Patched)
     * Updated to Manifest Version 3.
 ---
 * Update Version 2.0.2
