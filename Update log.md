@@ -1,4 +1,8 @@
 # Update Logs
+* Update Version 2.1.5
+    * Fixed bugs.
+    * Removed option to revert popular tab changes. (Patched)
+---
 * Update Version 2.1.4
     * Fixed some bugs caused by a recent Roblox update.
     * Removed unfinished features from settings.
