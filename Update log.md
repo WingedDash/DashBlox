@@ -1,4 +1,17 @@
 # Update Logs
+* Update Version 2.2
+    * Revamped DashBlox settings page.
+        * Added drop-down menus.
+        * Added locale warning labels.
+        * Updated the design for community & social links.
+        * Updated Privacy Policy section to support markdown.
+    * Added Gotham Font.
+    * Added Original Creation Text.
+    * Disabled Block Roblox Alerts.
+    * Disabled Grouped Home Page.
+    * Deprecated Last Online.
+    * Patched multiple bugs.
+---
 * Update Version 2.1.5
     * Fixed bugs.
     * Removed option to revert popular tab changes. (Patched)
