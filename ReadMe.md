@@ -1,5 +1,5 @@
 # Archival of this Repository
-The official [DashBlox](https://github.com/DashBlox) repository is being moved to a new [GitHub organization](https://github.com/DashBlox).
+The official [DashBlox](https://github.com/DashBlox) repository is being moved to a new [GitHub organization](https://github.com/DashBlox).\
 Don't worry—DashBlox is **NOT** changing ownership or anything like that. This is simply a change in how the DashBlox extension is managed on GitHub.
 
 # DashBlox
